@@ -40,3 +40,5 @@
   - hide order from view
 
 ## Conclusion
+
+Nomzaa is a clone of Amazon
