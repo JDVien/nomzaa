@@ -18,7 +18,7 @@
 
 #### Technology used
 
-<img src="react-app/public/static/images/vapor_logo.png"</img>
+<img src="react-app/public/static/images/vapor_logo.png"></img>
 
 #### How to use this application
 
