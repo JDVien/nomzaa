@@ -18,7 +18,7 @@
 
 #### Technology used
 
-<img src="react-app/public/static/images/vapor_logo.png"></img>
+<img src="react-app/public/static/images/techs_used.jpg"></img>
 
 #### How to use this application
 
@@ -40,3 +40,5 @@
   - hide order from view
 
 ## Conclusion
+
+Nomzaa is a clone of Amazon
