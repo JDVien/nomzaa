@@ -13,6 +13,8 @@ def seed_users():
         fullname='Chris Mizell', email='chris@chris.com', password='chris', city='San Francisco', zipcode='94016' )
     jared = User(
         fullname='Jared Kunhart', email='jared@jared.com', password='jared', city='Chicago', zipcode='60176')
+    nate = User(
+        fullname='Nate Zavala', email='nate@nate.com', password='jared', city='Los Angeles', zipcode='90210')
 
 
     db.session.add_all([demo,damian,jason,chris,jared])
