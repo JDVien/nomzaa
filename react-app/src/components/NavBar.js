@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import ProfileMenu from './ProfileMenu'
 import './nav.css';
 
 const NavBar = ({user}) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
-
+  const firstname = user?.fullname.split(" ");
   const openMenu = () => {
     if (showUserMenu) return;
     setShowUserMenu(true);
@@ -17,7 +18,33 @@ const NavBar = ({user}) => {
     <>
     <header id="navbar">
       <div className='nav_container'>
-        <div id='nav_row_top'>Nomzaa
+        <div id='nav_row_top'>
+          <div className="nav_top_left">
+            <div id='nom_nav_logo'>
+              <h2>Nomzaa</h2>
+            </div>
+            <div id='nav_user_location'>
+              <span id='user_deliver_text'>Deliver to {firstname[0]}</span>
+              <br/>
+              <span id='user_city_zip_text'>{user?.city}{" "}{user?.zipcode}</span>
+            </div>
+          </div>
+          <div className="nav_search_center">
+            <form id="nav_search_form">
+            <div id='nav_search_filter_drop_select'>All</div>
+            <div className='nav_search_field_bar'>
+              <input
+                className='nav_input'
+                type='text'
+                defaultValue=""
+                placeholder=""
+              />
+            </div>
+          </form>
+          </div>
+          <div className="nav_top_right">
+            <ProfileMenu user={user} />
+          </div>
         </div>
         <div id='nav_row_bottom'>row of stuff
         </div>
