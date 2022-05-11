@@ -10,7 +10,7 @@ class Review(db.Model):
     review_title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.String(2500), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
-    product_id = db.Column(db.Integer, db.ForeignKey("products.id", ondelete="CASCADE"))
+    product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

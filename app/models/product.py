@@ -3,7 +3,7 @@ from .db import db
 from datetime import datetime
 
 
-class Game(db.Model):
+class Product(db.Model):
     __tablename__ = 'products'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -21,7 +21,7 @@ class Game(db.Model):
     reviews = db.relationship("Review", backref="products", cascade='all,delete')
     # image = db.relationship("Image", back_populates="products")
     # image = db.relationship("Image", backref="products", cascade='all,delete')
-    # orders = db.relationship("Orders", backref="products", cascade='all,delete')
+    orders = db.relationship("Order", back_populates="products")
 
     def to_dict(self):
         return {
