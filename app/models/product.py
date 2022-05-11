@@ -8,9 +8,10 @@ class Product(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), nullable=False, unique=True)
+    brand = db.Column(db.String(50), nullable=False)
     price = db.Column(db.Float(precision=4, asdecimal=False), nullable=False)
     description = db.Column(db.String(2500), nullable=False)
-    details = db.Column(db.String(2500))
+    details = db.Column(db.String(255))
     stock = db.Column(db.Integer, nullable=False)
     img = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
@@ -27,6 +28,7 @@ class Product(db.Model):
         return {
             'id': self.id,
             'title': self.title,
+            'brand': self.brand,
             'price': self.price,
             'description': self.description,
             'details': self.details,
