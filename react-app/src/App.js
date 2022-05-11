@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -12,6 +12,7 @@ import ProductDetails from './components/Products/ProductDetail';
 import { authenticate } from './store/session';
 
 function App() {
+  const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
@@ -29,7 +30,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <NavBar />
+      <NavBar user={user}/>
       <Switch>
         <Route exact path="/products">
           <ProductsList />
