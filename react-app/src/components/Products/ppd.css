@@ -1,0 +1,23 @@
+#product_page_content_container {
+  display: flex;
+  justify-content: center;
+}
+#ppd_top_section {
+  display: inline-flex;
+  padding: 50px 50px 10px 10px;
+  min-width: 968px;
+  max-width: 1468px;
+  min-height: 968px;
+}
+
+#ppd_left_box, #ppd_center_column, #ppd_right_box {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+#ppd_right_box {
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  min-width: 200px;
+}
