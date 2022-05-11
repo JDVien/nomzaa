@@ -17,7 +17,7 @@ def seed_users():
         fullname='Nate Zavala', email='nate@nate.com', password='jared', city='Los Angeles', zipcode='90210')
 
 
-    db.session.add_all([demo,damian,jason,chris,jared])
+    db.session.add_all([demo,damian,jason,chris,jared,nate])
     db.session.commit()
 
 

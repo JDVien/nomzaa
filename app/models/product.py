@@ -18,11 +18,12 @@ class Product(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
+
     user = db.relationship("User", back_populates="products")
-    reviews = db.relationship("Review", backref="products", cascade='all,delete')
+    # reviews = db.relationship("Review", backref="products", cascade='all,delete')
     # image = db.relationship("Image", back_populates="products")
     # image = db.relationship("Image", backref="products", cascade='all,delete')
-    orders = db.relationship("Order", back_populates="products")
+    # orders = db.relationship("Order", back_populates="products")
 
     def to_dict(self):
         return {

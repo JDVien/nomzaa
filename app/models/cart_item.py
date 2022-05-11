@@ -13,7 +13,7 @@ class Cart_Item(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     # product = db.relationship('Product', backref="Cart_Item", passive_deletes=True)
-    product = db.relationship('Product', back_populates="cart_item")
+    # product = db.relationship('Product', back_populates="cart_item")
 
     def to_dict(self):
         return {
