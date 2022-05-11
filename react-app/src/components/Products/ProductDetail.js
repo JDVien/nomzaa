@@ -35,9 +35,18 @@ const ProductDetails = ({ loaded }) => {
           </div>
 
           <div id="ppd_center_column">
-            <h2>{product?.title}</h2>
-            <h3>{product?.price}</h3>
-            <p>{product?.description}</p>
+            <div className='ppd_title_sub_box'>
+              <h2>{product?.title}</h2>
+            </div>
+            <div className='ppd_price_sub_box'>
+              <h3>${product?.price}</h3>
+            </div>
+            <div className='ppd_colors_sub_box'>
+              <p>Color:</p>
+            </div>
+            <div className='ppd_desc_sub_box'>
+              <p>{product?.description}</p>
+            </div>
           </div>
           <div id="ppd_right_box">
             <h3>{product?.price}</h3>
