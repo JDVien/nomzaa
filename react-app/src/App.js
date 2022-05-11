@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import ProductsList from './components/Products/ProductsList';
+import ProductDetails from './components/Products/ProductDetail';
 import { authenticate } from './store/session';
 
 function App() {
@@ -26,11 +27,15 @@ function App() {
   }
 
   return (
+    <>
     <BrowserRouter>
       <NavBar />
       <Switch>
         <Route exact path="/products">
           <ProductsList />
+        </Route>
+        <Route path="/products/:productId">
+          <ProductDetails loaded={loaded} />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -49,6 +54,7 @@ function App() {
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
+    </>
   );
 }
 
