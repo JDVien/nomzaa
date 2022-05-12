@@ -7,7 +7,7 @@ import './nav.css';
 
 const NavBar = ({user}) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
-  // const firstname = user?.fullname.split(" ");
+  const firstname = user?.fullname.split(" ");
   const openMenu = () => {
     if (showUserMenu) return;
     setShowUserMenu(true);
@@ -24,7 +24,7 @@ const NavBar = ({user}) => {
               <h2>Nomzaa</h2>
             </div>
             <div id='nav_user_location'>
-              <span id='user_deliver_text'>Deliver to user</span>
+              <span id='user_deliver_text'>Deliver to {firstname[0]}</span>
               <br/>
               <span id='user_city_zip_text'>{user?.city}{" "}{user?.zipcode}</span>
             </div>
