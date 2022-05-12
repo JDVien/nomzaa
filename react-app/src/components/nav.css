@@ -1,0 +1,105 @@
+#navbar {
+  display: flex;
+  position: static;
+  float: none;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.nav_container {
+
+  margin: 0 auto;
+  width: 100%;
+  background-color: #232f3e;
+}
+
+#nav_row_top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 60px;
+  margin: 0;
+  padding-left: 11px;
+  padding-right: 11px;
+  width: 100%;
+  color: white;
+  background-color: #131921;
+  font-size: 14px;
+}
+
+#nom_nav_logo {
+
+  padding-right: 25px;
+}
+
+#nav_user_location{
+  padding: 25px;
+}
+
+.nav_top_left {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+
+#nav_row_bottom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 39px;
+  max-height: 39px;
+  margin: 0;
+  padding-top: 0;
+  padding-left: 11px;
+  color: white;
+  background-color: #232f3e;
+  width: 100%;
+}
+
+.nav_search_center {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  width: auto;
+  white-space: nowrap;
+}
+
+#nav_search_form {
+  display: inline-flex;
+  min-width: 768px;
+  padding: 10px;
+}
+
+#nav_search_filter_drop_select {
+  display: flex;
+  position: relative;
+  float: none;
+  height: 40px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: black;
+  background-color: #f3f3f3;
+  background-image: none;
+  border: 1px solid #cdcdcd;
+}
+
+.nav_search_field_bar > input  {
+  display: inline-block;
+  max-width: 1068px;
+  min-width: 668px;
+  width: 100%;
+  padding: 10px;
+  flex-grow: 1;
+
+}
+
+.nav_top_right {
+  display: inline-flex;
+}
+
+.nav_top_right_profile, .nav_top_right_orders, .nav_top_right_cart {
+  padding: 25px;
+}

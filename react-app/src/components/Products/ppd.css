@@ -21,3 +21,25 @@
   border-radius: 8px;
   min-width: 200px;
 }
+
+.ppd_title_sub_box {
+  padding-bottom: 40px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.ppd_price_sub_box {
+  border-bottom: 1px solid lightgrey;
+}
+
+.ppd_desc_sub_box {
+  padding: 10px;
+  border-top: 1px solid lightgrey;
+}
+
+/* .ppd_desc_sub_box::before {
+  border-top: 1px solid lightgrey;
+} */
+
+#bttn-cartadd {
+  width: 200px;
+}

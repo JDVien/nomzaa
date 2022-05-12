@@ -1,0 +1,9 @@
+
+.main_page_body {
+  display: inline-flex;
+  background-color: #EAEDED;
+}
+
+.cart_right_column {
+  padding-left: 40px;
+}

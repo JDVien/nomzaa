@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -9,9 +9,12 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import ProductsList from './components/Products/ProductsList';
 import ProductDetails from './components/Products/ProductDetail';
+import Cart from './components/Cart/Cart'
+import Main from './components/MainPage/index';
 import { authenticate } from './store/session';
 
 function App() {
+  const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
@@ -29,7 +32,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <NavBar />
+      <NavBar user={user}/>
       <Switch>
         <Route exact path="/products">
           <ProductsList />
@@ -43,15 +46,21 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute exact path="/" >
+          <Main user={user} />
+        </ProtectedRoute>
+        <ProtectedRoute path='/cart'>
+          <Cart />
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+        {/* <ProtectedRoute path='/' exact={true} >
+          <h1>Main</h1>
+        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
     </>
