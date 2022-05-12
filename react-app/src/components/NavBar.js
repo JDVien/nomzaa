@@ -43,7 +43,17 @@ const NavBar = ({user}) => {
           </form>
           </div>
           <div className="nav_top_right">
-            <ProfileMenu user={user} />
+            <div className='nav_top_right_profile'>
+              <ProfileMenu user={user} />
+            </div>
+            <div className='nav_top_right_orders'>
+              <span id='orders_'>Orders</span>
+            </div>
+            <div className='nav_top_right_cart'>
+              <a id='cart_a' href="/">
+                <span id='cart_text'>Cart</span>
+              </a>
+            </div>
           </div>
         </div>
         <div id='nav_row_bottom'>row of stuff

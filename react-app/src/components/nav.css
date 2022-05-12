@@ -25,13 +25,16 @@
   font-size: 14px;
 }
 
-.nav_top_left {
-  display: inline-flex;
+#nom_nav_logo, #nav_user_location {
+  padding: 25px;
 }
 
-#nav_user_location {
-  padding: 15px;
+.nav_top_left {
+  display: inline-flex;
+  align-items: center;
 }
+
+
 
 #nav_row_bottom {
   min-height: 39px;
@@ -81,4 +84,12 @@
   padding: 10px;
   flex-grow: 1;
 
+}
+
+.nav_top_right {
+  display: inline-flex;
+}
+
+.nav_top_right_profile, .nav_top_right_orders, .nav_top_right_cart {
+  padding: 25px;
 }
