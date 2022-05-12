@@ -2,21 +2,33 @@ import { get_all_products, get_one_product } from "../../store/product";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-// import { create_cart } from "../../store/cart";
-// import AddToCart from "../Carts/AddToCart";
+import { create_cart } from "../../store/cart";
+import AddToCart from "../Cart/AddToCart";
 
 import "./ppd.css";
 
 const ProductDetails = ({ loaded }) => {
   const dispatch = useDispatch();
-
+  const history = useHistory();
+  const sessionUser = useSelector((state) => state.session.user);
   const { productId } = useParams();
   const product = useSelector((state) => state.products[productId]);
   console.log(product);
   useEffect(() => {
-    console.log("is this page loaded?");
     dispatch(get_one_product(productId));
   }, [dispatch, productId]);
+
+  const handleAddToCart = () => {
+      const data = {
+        user_id: sessionUser.id,
+        product_id: product.id,
+        purchased: false,
+        quantity: 1,
+      };
+      dispatch(create_cart(data));
+      return history.push("/cart");
+
+  };
 
   return (
     <>
@@ -50,8 +62,11 @@ const ProductDetails = ({ loaded }) => {
           </div>
           <div id="ppd_right_box">
             <h3>{product?.price}</h3>
-            <p>Qty: {product?.stock}</p>
-            <button>Add to Cart</button>
+            <p>Qty: 1</p>
+            <AddToCart
+              product={product}
+              handleAddToCart={handleAddToCart}
+            />
             <button>Buy Now</button>
           </div>
         </div>

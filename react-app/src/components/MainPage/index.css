@@ -1,0 +1,35 @@
+
+#main {
+  background: #EAEDED;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  max-width: none;
+  min-width: 1000px;
+  overflow: hidden;
+  min-height: 968px;
+}
+
+#main_content_body {
+
+  flex-direction: column;
+  max-width: 1600px;
+
+}
+
+#header_banner {
+  max-width: 1500px;
+}
+
+.main_banner_image {
+  width: 1500px;
+}
+
+.a_box_left {
+  position: relative;
+  bottom: 75px;
+  /* border: 1px solid lightgrey;
+  border-radius: 8px; */
+  background-image: linear-gradient(to bottom,#aeccb0, #EAEDED 40% );
+}

@@ -7,7 +7,7 @@ import './nav.css';
 
 const NavBar = ({user}) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const firstname = user?.fullname.split(" ");
+  // const firstname = user?.fullname.split(" ");
   const openMenu = () => {
     if (showUserMenu) return;
     setShowUserMenu(true);
@@ -24,7 +24,7 @@ const NavBar = ({user}) => {
               <h2>Nomzaa</h2>
             </div>
             <div id='nav_user_location'>
-              <span id='user_deliver_text'>Deliver to {firstname[0]}</span>
+              <span id='user_deliver_text'>Deliver to user</span>
               <br/>
               <span id='user_city_zip_text'>{user?.city}{" "}{user?.zipcode}</span>
             </div>
@@ -50,13 +50,14 @@ const NavBar = ({user}) => {
               <span id='orders_'>Orders</span>
             </div>
             <div className='nav_top_right_cart'>
-              <a id='cart_a' href="/">
+              <a id='cart_a' href="/cart">
                 <span id='cart_text'>Cart</span>
               </a>
             </div>
           </div>
         </div>
-        <div id='nav_row_bottom'>row of stuff
+        <div id='nav_row_bottom'>
+          this sub navbar will contain links to maximize your consumerist tendencies with ease and convenience wow modern life really is something special just try not to think too hard about it or you'll go insanse
         </div>
       </div>
     </header>

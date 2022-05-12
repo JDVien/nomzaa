@@ -9,7 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import ProductsList from './components/Products/ProductsList';
 import ProductDetails from './components/Products/ProductDetail';
-import Cart from './components/Carts/Cart'
+import Cart from './components/Cart/Cart'
+import Main from './components/MainPage/index';
 import { authenticate } from './store/session';
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute exact path="/" >
+          <Main user={user} />
+        </ProtectedRoute>
         <ProtectedRoute path='/cart'>
           <Cart />
         </ProtectedRoute>
@@ -54,9 +58,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        {/* <ProtectedRoute path='/' exact={true} >
           <h1>Main</h1>
-        </ProtectedRoute>
+        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
     </>

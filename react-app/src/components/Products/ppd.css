@@ -39,3 +39,7 @@
 /* .ppd_desc_sub_box::before {
   border-top: 1px solid lightgrey;
 } */
+
+#bttn-cartadd {
+  width: 200px;
+}

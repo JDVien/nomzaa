@@ -49,7 +49,7 @@ const Cart = () => {
                   <div className='cart_item_container' key={item.product_id}>
                     <div className="cart_item_image">
                       <a href={`/products/${item?.product_id}`}>
-                        <img alt='product' src={item?.product?.image} />
+                        <img alt='product' src={item?.product?.img} />
                       </a>
                     </div>
                     <div className='cart_item_content_group'>
