@@ -1,4 +1,4 @@
-import { delete_cart, update_cart } from '../../store/cart'
+import { get_all_carts, delete_cart, update_cart } from '../../store/cart'
 import { useDispatch, useSelector } from 'react-redux'
 import { get_all_products } from '../../store/product';
 import React, { useState, useEffect } from 'react';
@@ -10,14 +10,16 @@ const Cart = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const [isDeleted, setIsDeleted] = useState(false);
-  const [wasDeleted, setWasDeleted] = useState(false);
-
-  const products = useSelector(state => Object.values(state.products))
+  const [hasCheckedOut, setHasCheckedOut] = useState(false);
+  // const products = useSelector(state => Object.values(state.products))
   const cart_items = useSelector(state => Object.values(state.carts))
   const user_cart = cart_items.filter(item => item.user_id === sessionUser.id && !item.purchased)
-
-  let total = 0.00;
-  user_cart.forEach(item => total += item?.product?.price)
+  let cart_subtotal = 0.00;
+  user_cart.forEach(item => cart_subtotal += item?.product?.price)
+  const [user_quantity, setUser_Quantity] = useState(user_cart?.item?.quantity)
+  let cart_total_quantity = 0;
+  console.log(user_quantity, "user_quantity")
+  user_cart.forEach(item => cart_total_quantity += user_quantity)
 
   useEffect(() => {
     dispatch(get_all_products())
@@ -30,9 +32,14 @@ const Cart = () => {
 
   const handlePurchaseCart = () => {
     if (user_cart.length) {
+      setHasCheckedOut(true);
       dispatch(update_cart(user_cart))
     }
   }
+
+const handleQuantity = (e) => {
+  setUser_Quantity(e.target.value)
+}
 
   return (
     <>
@@ -63,7 +70,29 @@ const Cart = () => {
                           <div id='cart_item_brand'><span>Shipped from: {item.product.brand}</span></div>
                           <span>Gift options not available. Learn More</span><br/>
                           <div id='cart_item_user_options'>
-                            <span className='cart_item_option cart_item_quantity_select'>Qty: 1</span>
+                            {/* <span className='cart_item_option cart_item_quantity_select'>Qty: {item.quantity}</span> */}
+                            <form className='ppd_add_quantity'>
+                              <label htmlFor='quantity'>Qty:
+                              <select
+                                className='product_quantity_select'
+                                name="quantity"
+                                value={user_quantity}
+                                onChange={(e) => handleQuantity(e)}
+                              >
+                                <option defaultValue={item?.quantity}>{item?.quantity}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                              </select>
+                              </label>
+                            </form>
                             <span className='cart_options_separator'>|</span>
                             <span id='cart_item_delete_bttn' className='cart_item_option' onClick={() => removeCartItem(item.id)}>Delete</span>
                             <span className='cart_options_separator'>|</span>
@@ -83,16 +112,16 @@ const Cart = () => {
           <div id='right_cart_col_container' className='cart_right_column'>
             <div id='checkout_box'>
               <div className='subtotal_row'>
-                <span id='subtotal_text_quantity'>Subtotal ({cart_items.length}):</span>
-                <span id='subtotal_price'>$</span>
-                <button id='checkout_proceed_bttn'>Proceed to checkout</button>
+                <span id='subtotal_text_quantity'>Subtotal ({cart_total_quantity}):</span><br/>
+                <span id='subtotal_price'>$ {cart_subtotal}</span><br/>
+                <button id='checkout_proceed_bttn' onClick={handlePurchaseCart}>Proceed to checkout</button>
               </div>
             </div>
             <div id='recent_viewed_items_box'>
               <span id='recent_views_text'>Your recently viewed items</span>
-
             </div>
           </div>
+          {hasCheckedOut && <div id="removed-cart-item">Order Confirmed! Thank you for your purchase!</div>}
         </div>
       </div>
     </>

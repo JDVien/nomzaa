@@ -1,8 +1,8 @@
 import { get_all_carts } from '../store/cart';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+// import { NavLink } from 'react-router-dom';
+// import LogoutButton from './auth/LogoutButton';
 import ProfileMenu from './ProfileMenu'
 import './nav.css';
 
@@ -10,17 +10,17 @@ const NavBar = ({user}) => {
   const dispatch = useDispatch();
   const cart_items = useSelector(state => Object.values(state.carts)); // Object.values for list of carts
   const user_cart = cart_items.filter(item => item.user_id === user.id && !item.purchased)
-  const [showUserMenu, setShowUserMenu] = useState(false);
+  // const [showUserMenu, setShowUserMenu] = useState(false);
   // const firstname = user?.fullname.split(" ");
 
   useEffect(() => {
     dispatch(get_all_carts())
   }, [dispatch])
 
-  const openMenu = () => {
-    if (showUserMenu) return;
-    setShowUserMenu(true);
-  };
+  // const openMenu = () => {
+  //   if (showUserMenu) return;
+  //   setShowUserMenu(true);
+  // };
 
 
   return (
@@ -56,7 +56,9 @@ const NavBar = ({user}) => {
               <ProfileMenu user={user} />
             </div>
             <div className='nav_top_right_orders'>
-              <span id='orders_'>Orders</span>
+              <a id='orders_a' href="/orders">
+                <span id='orders_'>Orders</span>
+              </a>
             </div>
             <div className='nav_top_right_cart'>
               <a id='cart_a' href="/cart">

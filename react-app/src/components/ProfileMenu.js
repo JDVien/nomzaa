@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { logout } from '../store/session';
+// import { useDispatch } from 'react-redux';
+// import { logout } from '../store/session';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 
 import './nav.css';
 
 const ProfileMenu = ({user}) => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const [showUserMenu, setShowUserMenu] = useState(false);
   // let nameSplit = user?.fullname.split(" ");
   // console.log(nameSplit[0])
-  const onLogout = async (e) => {
-    dispatch(logout());
-  };
+  // const onLogout = async (e) => {
+  //   dispatch(logout());
+  // };
 
   const openMenu = () => {
     if (showUserMenu) return;
