@@ -7,3 +7,12 @@
 .cart_right_column {
   padding-left: 40px;
 }
+
+#cart_item_user_options {
+  display: inline-flex;
+}
+
+.cart_item_option {
+  padding-right: 10px;
+  padding-left: 10px;
+}

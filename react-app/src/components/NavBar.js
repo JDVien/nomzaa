@@ -1,13 +1,22 @@
-
-import React, { useState } from 'react';
+import { get_all_carts } from '../store/cart';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import ProfileMenu from './ProfileMenu'
 import './nav.css';
 
 const NavBar = ({user}) => {
+  const dispatch = useDispatch();
+  const cart_items = useSelector(state => Object.values(state.carts)); // Object.values for list of carts
+  const user_cart = cart_items.filter(item => item.user_id === user.id && !item.purchased)
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const firstname = user?.fullname.split(" ");
+  // const firstname = user?.fullname.split(" ");
+
+  useEffect(() => {
+    dispatch(get_all_carts())
+  }, [dispatch])
+
   const openMenu = () => {
     if (showUserMenu) return;
     setShowUserMenu(true);
@@ -24,7 +33,7 @@ const NavBar = ({user}) => {
               <h2>Nomzaa</h2>
             </div>
             <div id='nav_user_location'>
-              <span id='user_deliver_text'>Deliver to {firstname[0]}</span>
+              <span id='user_deliver_text'>Deliver to</span>
               <br/>
               <span id='user_city_zip_text'>{user?.city}{" "}{user?.zipcode}</span>
             </div>
@@ -51,13 +60,14 @@ const NavBar = ({user}) => {
             </div>
             <div className='nav_top_right_cart'>
               <a id='cart_a' href="/cart">
-                <span id='cart_text'>Cart</span>
+                {(user_cart.length ? `Cart (${user_cart.length})` : "Cart")}
+                {/* <span id='cart_text'>Cart</span> */}
               </a>
             </div>
           </div>
         </div>
         <div id='nav_row_bottom'>
-          this sub navbar will contain links to maximize your consumerist tendencies with ease and convenience wow modern life really is something special just try not to think too hard about it or you'll go insanse
+          this sub navbar will contain links to various product clusters and related product groupings
         </div>
       </div>
     </header>

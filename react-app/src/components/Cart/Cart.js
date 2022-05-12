@@ -9,24 +9,22 @@ import './index.css'
 const Cart = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const [isDeleted, setIsDeleted] = useState(false);
   const [wasDeleted, setWasDeleted] = useState(false);
 
   const products = useSelector(state => Object.values(state.products))
-
   const cart_items = useSelector(state => Object.values(state.carts))
-
   const user_cart = cart_items.filter(item => item.user_id === sessionUser.id && !item.purchased)
 
   let total = 0.00;
-
-  user_cart.forEach(item => total += item?.game?.price)
+  user_cart.forEach(item => total += item?.product?.price)
 
   useEffect(() => {
     dispatch(get_all_products())
   }, [dispatch])
 
   const removeCartItem = (id) => {
-    setWasDeleted(true);
+    setIsDeleted(true);
     dispatch(delete_cart(id))
   }
 
@@ -45,6 +43,7 @@ const Cart = () => {
             <div id='main_shopping_cart_container'>
               <div id='shopping_cart_text_div'>Shopping Cart</div>
               <div id='active_shopping_cart_body'>
+              {isDeleted && <div id="removed-cart-item">Your item has been removed!</div>}
                 {user_cart?.map(item =>
                   <div className='cart_item_container' key={item.product_id}>
                     <div className="cart_item_image">
@@ -53,21 +52,28 @@ const Cart = () => {
                       </a>
                     </div>
                     <div className='cart_item_content_group'>
-                      <ul className='cart_item_details_list'>
-                        <li className='li_spacing'>
+                      <div className='cart_item_details_list'>
                           <span className='item_title_text'>
                             <a className='item_title_a' href={`/products/${item?.product_id}`}>
                               {item.product.title}
                             </a>
                           </span>
-                        </li>
-                      </ul>
+                          <div id='cart_item_price'>{" "}{item.product.price}</div>
+                          <div id='cart_item_stock'><span>Only {item.product.stock} left - order soon.</span></div>
+                          <div id='cart_item_brand'><span>Shipped from: {item.product.brand}</span></div>
+                          <span>Gift options not available. Learn More</span><br/>
+                          <div id='cart_item_user_options'>
+                            <span className='cart_item_option cart_item_quantity_select'>Qty: 1</span>
+                            <span className='cart_options_separator'>|</span>
+                            <span id='cart_item_delete_bttn' className='cart_item_option' onClick={() => removeCartItem(item.id)}>Delete</span>
+                            <span className='cart_options_separator'>|</span>
+                            <span className='cart_item_option cart_save'>Save for Later</span>
 
+                          </div>
+                      </div>
                     </div>
 
                   </div>
-
-
                 )}
               </div>
             </div>

@@ -9,7 +9,7 @@ import './nav.css';
 const ProfileMenu = ({user}) => {
   const dispatch = useDispatch()
   const [showUserMenu, setShowUserMenu] = useState(false);
-  let nameSplit = user?.fullname.split(" ");
+  // let nameSplit = user?.fullname.split(" ");
   // console.log(nameSplit[0])
   const onLogout = async (e) => {
     dispatch(logout());
@@ -35,7 +35,7 @@ const ProfileMenu = ({user}) => {
 
   return (
     <>
-      <div id="profile" onClick={openMenu}>Hello, {nameSplit[0]}</div>
+      <div id="profile" onClick={openMenu}>Hello,</div>
       {showUserMenu && (
         <>
           <div className='profile_dropdown_menu'>
