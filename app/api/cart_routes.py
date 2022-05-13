@@ -37,7 +37,6 @@ def update_cart():
   cart_order = Cart_Item.query.get(data[0]['id'])
   for item in data:
     cart_item = Cart_Item.query.get(item['id'])
-    # print(cart_item, 'cart_item in put route======================================================')
     cart_item.order_id = cart_order.id
     cart_item.purchased = True
     carts_list.append(cart_item.to_dict())

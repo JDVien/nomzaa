@@ -2,9 +2,9 @@ import { get_one_product } from "../../store/product";
 import { get_all_reviews, get_one_review } from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-// import ReviewProduct from "../Reviews/ReviewsForm";
+// import CreateReview from '../Reviews/CreateReviewForm';
 import Reviews from "../Reviews/ReviewsList";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { create_cart } from "../../store/cart";
 import AddToCart from "../Cart/AddToCart";
 
@@ -109,6 +109,19 @@ const ProductDetails = ({ loaded }) => {
           </div>
         </div>
         <div id="ppd_bottom_section">
+          <div id='create_review_box'>
+            <h2>Review this product</h2>
+            <h4>Share your thoughts with other customers</h4>
+            <div id="create_review_bttn_div">
+              <Link className="review-link-bttn" to={{
+                  pathname:'/reviews/new', state: { fromProductDetails: product?.id}
+                }}>
+                <span>
+                  Write a customer review
+                </span>
+              </Link>
+            </div>
+          </div>
           <div id="ppd_reviews_box">
           {filteredReviews.length ? (
                 <>

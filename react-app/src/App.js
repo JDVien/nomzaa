@@ -12,6 +12,7 @@ import ProductDetails from './components/Products/ProductDetail';
 import Cart from './components/Cart/Cart'
 import Main from './components/MainPage/index';
 import OrderList from './components/Orders/OrderList';
+import CreateReview from './components/Reviews/CreateReviewForm'
 import { authenticate } from './store/session';
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path="/reviews/new">
+            <CreateReview />
+        </ProtectedRoute>
         <ProtectedRoute exact path="/" >
           <Main user={user} />
         </ProtectedRoute>

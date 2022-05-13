@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams, useLocation } from "react-router-dom";
 import { create_review } from '../../store/reviews';
-
+import { get_one_product } from "../../store/product";
 import './reviewindex.css';
 
-const CreateReview = ({ productId }) => {
+const CreateReview = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation()
+  const { fromProductDetails } = location.state
+  const productId = fromProductDetails
+  console.log(fromProductDetails)
+  // const productsList = useSelector((state) => Object.values(state.products))
+  // const product = productsList.filter((product) => product.id === +productId);
   const sessionUser = useSelector(state => state.session.user);
-  const currentProduct = useSelector((state) => state.products[productId]);
+  const product = useSelector((state) => state.products[productId]);
   const [review_title, setReview_Title] = useState("");
   const [content, setContent] = useState("");
   const [rating, setRating] = useState("");
-  const [hasSubmitted, setHasSubmitted] = (false)
+  const [hasSubmitted, setHasSubmitted] = useState(false)
   const [errors, setErrors] = useState([]);
+  console.log(rating, "rating")
+
+  useEffect(() => {
+    dispatch(get_one_product(productId));
+  }, [dispatch, productId])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,9 +51,8 @@ const CreateReview = ({ productId }) => {
     setContent("")
     setRating("")
     setHasSubmitted(false);
-    if (createReview) {
-      history.push('/')
-    }
+    history.push(`/products/${productId}`)
+
   }
 
 
@@ -53,8 +63,8 @@ const CreateReview = ({ productId }) => {
           <div className="create_form_top_box">
             <h2>Create Review</h2>
             <div className='product_title_box'>
-              <img src={currentProduct?.img} width='90' height='90' alt="" />
-              <span>{currentProduct?.title}</span>
+              <img src={product?.img} width='90' height='90' alt="" />
+              <span>{product?.title}</span>
             </div>
           </div>
             {/* <div className="error-modal">
