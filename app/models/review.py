@@ -16,7 +16,7 @@ class Review(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     # products = db.relationship("Product", back_populates="reviews")
-    # users = db.relationship("User", back_populates="review")
+    users = db.relationship("User", back_populates="reviews_user")
 
     def to_dict(self):
         return {
