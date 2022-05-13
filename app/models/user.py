@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     products = db.relationship("Product", back_populates="user")
+    reviews_user = db.relationship("Review", back_populates="users")
 
     @property
     def password(self):
