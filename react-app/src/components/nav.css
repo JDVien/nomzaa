@@ -27,6 +27,11 @@
   font-size: 14px;
 }
 
+.navlink_nav_item {
+  text-decoration: none;
+  color: white;
+}
+
 #nom_nav_logo {
 
   padding-right: 25px;

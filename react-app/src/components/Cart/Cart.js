@@ -41,21 +41,28 @@ const handleQuantity = (e) => {
   setUser_Quantity(e.target.value)
 }
 
+console.log('cart_items', cart_items)
+console.log('user_cart', user_cart)
+
   return (
     <>
       <div className='cart_page_container'>
+            <div id='ad_banner_body'>
+            <h2>this is an advertisement</h2>
+            </div>
         <div className='main_page_body'>
           <div id='left_cart_col_container' className='cart_left_container'>
-            <div id='ad_banner_body'>this is an advertisement</div>
             <div id='main_shopping_cart_container'>
-              <div id='shopping_cart_text_div'>Shopping Cart</div>
+              <div id='shopping_cart_text_div'>
+                <h1>Shopping Cart</h1>
+              </div>
               <div id='active_shopping_cart_body'>
               {isDeleted && <div id="removed-cart-item">Your item has been removed!</div>}
                 {user_cart?.map(item =>
                   <div className='cart_item_container' key={item.product_id}>
                     <div className="cart_item_image">
                       <a href={`/products/${item?.product_id}`}>
-                        <img alt='product' src={item?.product?.img} />
+                        <img alt='product' src={item?.product?.img} width='180' height='180' />
                       </a>
                     </div>
                     <div className='cart_item_content_group'>

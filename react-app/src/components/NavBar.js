@@ -1,7 +1,7 @@
 import { get_all_carts } from '../store/cart';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import LogoutButton from './auth/LogoutButton';
 import ProfileMenu from './ProfileMenu'
 import './nav.css';
@@ -30,7 +30,9 @@ const NavBar = ({user}) => {
         <div id='nav_row_top'>
           <div className="nav_top_left">
             <div id='nom_nav_logo'>
+            <NavLink className='navlink_nav_item' to='/'>
               <h2>Nomzaa</h2>
+            </NavLink>
             </div>
             <div id='nav_user_location'>
               <span id='user_deliver_text'>Deliver to</span>
@@ -56,15 +58,15 @@ const NavBar = ({user}) => {
               <ProfileMenu user={user} />
             </div>
             <div className='nav_top_right_orders'>
-              <a id='orders_a' href="/orders">
+              <NavLink className='navlink_nav_item ' to="/orders">
                 <span id='orders_'>Orders</span>
-              </a>
+              </NavLink>
             </div>
             <div className='nav_top_right_cart'>
-              <a id='cart_a' href="/cart">
+            <NavLink className='navlink_nav_item ' to="/cart">
                 {(user_cart.length ? `Cart (${user_cart.length})` : "Cart")}
                 {/* <span id='cart_text'>Cart</span> */}
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>
