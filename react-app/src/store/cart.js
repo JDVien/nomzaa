@@ -19,14 +19,14 @@ const create = (cart) => ({
   cart
 })
 
-const update = (cart) => ({
+const update = (carts) => ({
   type: UPDATE_CART,
-  cart
+  carts
 })
 
-const remove = (cart) => ({
+const remove = (id) => ({
   type: DELETE_CART,
-  cart
+  cart_id: id
 })
 
 // thunks

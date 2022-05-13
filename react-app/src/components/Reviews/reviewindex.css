@@ -1,0 +1,16 @@
+#customer_reviews_div {
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+  font-weight: normal;
+  font-size: 14px;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
+}
+
+.review-content-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}

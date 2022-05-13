@@ -1,0 +1,39 @@
+#order_container {
+  display: flex;
+  flex-direction: column;
+}
+
+#order_content {
+  display: flex;
+  justify-content: center;
+
+}
+
+.order_items_body {
+  padding: 50px;
+  padding-left: 50px;
+}
+
+.order_item_details_banner {
+  height: 67px;
+  background-color: #F0F2F2 !important;
+  text-align: right;
+}
+
+#order_item {
+  width: 968px;
+  border: 1px #D5D9D9 solid;
+  border-radius: 10px;
+}
+
+#order_product_title {
+  padding: 25px;
+}
+.product_link {
+  display: inline-flex;
+  text-align: right;
+}
+
+.product_ {
+  width: 100px;
+}

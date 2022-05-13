@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -11,6 +11,7 @@ import ProductsList from './components/Products/ProductsList';
 import ProductDetails from './components/Products/ProductDetail';
 import Cart from './components/Cart/Cart'
 import Main from './components/MainPage/index';
+import OrderList from './components/Orders/OrderList';
 import { authenticate } from './store/session';
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/cart'>
           <Cart />
+        </ProtectedRoute>
+        <ProtectedRoute exact path="/orders">
+            <OrderList user={user} />
         </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
