@@ -1,6 +1,9 @@
 import { get_one_product } from "../../store/product";
+import { get_all_reviews, get_one_review } from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
+// import ReviewProduct from "../Reviews/ReviewsForm";
+import Reviews from "../Reviews/ReviewsList";
 import { useParams, useHistory } from "react-router-dom";
 import { create_cart } from "../../store/cart";
 import AddToCart from "../Cart/AddToCart";
@@ -13,11 +16,24 @@ const ProductDetails = ({ loaded }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const { productId } = useParams();
   const product = useSelector((state) => state.products[productId]);
+  const { reviewId } = useParams();
+  const review = useSelector((state) => state.reviews[reviewId]);
+  const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
   console.log(product);
   useEffect(() => {
+    dispatch(get_all_reviews());
     dispatch(get_one_product(productId));
   }, [dispatch, productId]);
+
+  const filteredReviews = reviews.filter(
+    (review) => review.product_id === +productId
+  );
+
+  const userReview = reviews.filter(
+    (review) =>
+      review?.user_id === sessionUser?.id && review.product_id === +productId
+  );
 
   const handleAddToCart = () => {
     console.log(user_quantity, "user_quantity")
@@ -90,6 +106,20 @@ const ProductDetails = ({ loaded }) => {
               handleAddToCart={handleAddToCart}
             />
             <button>Buy Now</button>
+          </div>
+        </div>
+        <div id="ppd_bottom_section">
+          <div id="ppd_reviews_box">
+          {filteredReviews.length ? (
+                <>
+                  <div id="customer_reviews_div">CUSTOMER REVIEWS</div>
+                  <div className="reviews_container">
+                    <Reviews user={sessionUser} filteredReviews={filteredReviews} />
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
           </div>
         </div>
       </div>

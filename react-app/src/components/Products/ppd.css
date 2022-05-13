@@ -1,9 +1,10 @@
 #product_page_content_container {
-  display: flex;
-  justify-content: center;
+
 }
 #ppd_top_section {
-  display: inline-flex;
+  display: flex;
+  margin: 0 auto;
+
   padding: 50px 50px 10px 10px;
   min-width: 968px;
   max-width: 1468px;
@@ -42,4 +43,27 @@
 
 #bttn-cartadd {
   width: 200px;
+}
+
+#all_reviews_div {
+  display: flex;
+}
+
+#all_reviews_div > p {
+  margin-right: 11px;
+}
+
+#ppd_bottom_section {
+  border-top: 1px solid lightgrey;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  left: 200px;
+  margin-bottom: 200px;
+}
+
+#ppd_reviews_box {
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 25px;
 }
