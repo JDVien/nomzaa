@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from app.models import Review, db
 from flask_login import current_user
 from app.forms.review_form import ReviewProduct
-# from app.forms.review_edit_form import EditReview
+from app.forms.edit_review_form import EditReview
 review_routes = Blueprint('reviews', __name__)
 
 @review_routes.route('/')
