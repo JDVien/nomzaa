@@ -14,6 +14,7 @@ import Main from './components/MainPage/index';
 import OrderList from './components/Orders/OrderList';
 import CreateReview from './components/Reviews/CreateReviewForm';
 import EditReview from './components/Reviews/EditReviewForm';
+import DeleteReview from './components/Reviews/DeleteReview';
 import { authenticate } from './store/session';
 
 function App() {
@@ -54,6 +55,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/reviews/:reviewId/edit">
             <EditReview />
+        </ProtectedRoute>
+        <ProtectedRoute path="/reviews/:reviewId/delete">
+            <DeleteReview />
         </ProtectedRoute>
         <ProtectedRoute exact path="/" >
           <Main user={user} />
