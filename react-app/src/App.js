@@ -12,6 +12,11 @@ import ProductDetails from './components/Products/ProductDetail';
 import Cart from './components/Cart/Cart'
 import Main from './components/MainPage/index';
 import OrderList from './components/Orders/OrderList';
+import CancelOrder from './components/Orders/CancelOrder';
+import CancelConfirmation from './components/Orders/CancelConfirmation';
+import CreateReview from './components/Reviews/CreateReviewForm';
+import EditReview from './components/Reviews/EditReviewForm';
+import DeleteReview from './components/Reviews/DeleteReview';
 import { authenticate } from './store/session';
 
 function App() {
@@ -47,6 +52,15 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path="/reviews/new">
+            <CreateReview />
+        </ProtectedRoute>
+        <ProtectedRoute path="/reviews/:reviewId/edit">
+            <EditReview />
+        </ProtectedRoute>
+        <ProtectedRoute path="/reviews/:reviewId/delete">
+            <DeleteReview />
+        </ProtectedRoute>
         <ProtectedRoute exact path="/" >
           <Main user={user} />
         </ProtectedRoute>
@@ -55,6 +69,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute exact path="/orders">
             <OrderList user={user} />
+        </ProtectedRoute>
+        <ProtectedRoute exact path="/orders/:orderId/delete">
+            <CancelOrder user={user} />
+        </ProtectedRoute>
+        <ProtectedRoute exact path="/confirm">
+            <CancelConfirmation />
         </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>

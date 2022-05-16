@@ -1,6 +1,9 @@
 import { get_all_reviews } from '../../store/reviews'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import EditReview from './EditReviewForm';
+
 // import './reviewindex.css';
 
 const Reviews = ({user, filteredReviews}) => {
@@ -39,6 +42,22 @@ const Reviews = ({user, filteredReviews}) => {
             </div>
                 <div id="review_content">
                     {review.content}
+                </div>
+                <div className='review_owner_controls'>
+                {user?.id === review?.user_id && (
+                    <Link className='edit_review_link' to={{
+                            pathname:`/reviews/${review?.id}/edit`, state: { fromReviews: review?.id }}
+                        }><span>Edit</span>
+                    </Link>
+                )}
+                {user?.id === review?.user_id && (
+                    <Link className='delete_review_link' to={{
+                        pathname:`/reviews/${review?.id}/delete`, state: { fromReviews: review?.id }}
+                    }>
+                        <span>Delete</span>
+                    </Link>
+                )}
+
                 </div>
                 </div>
         </div>

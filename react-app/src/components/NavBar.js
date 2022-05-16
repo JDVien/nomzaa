@@ -71,7 +71,15 @@ const NavBar = ({user}) => {
           </div>
         </div>
         <div id='nav_row_bottom'>
-          this sub navbar will contain links to various product clusters and related product groupings
+          <span className='subnav_category'>Nomzaa Basics</span>
+          <span className='subnav_category'>Nomzaa Devices</span>
+          <span className='subnav_category'>Pharmacy</span>
+          <span className='subnav_category'>Pet Supplies</span>
+          <span className='subnav_category'>Groceries</span>
+          <span className='subnav_category'>Home & Kitchen</span>
+          <span className='subnav_category'>Appliances</span>
+          <span className='subnav_category'>Today's Deals</span>
+          <span className='subnav_category'>Best Sellers</span>
         </div>
       </div>
     </header>

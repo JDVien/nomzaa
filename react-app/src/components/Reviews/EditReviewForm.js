@@ -1,33 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom";
-import { create_review } from '../../store/reviews';
+import { useHistory, useParams, useLocation } from "react-router-dom";
+import { update_review } from '../../store/reviews';
 import { get_one_product } from "../../store/product";
-import './reviewindex.css';
 
-const CreateReview = () => {
+const EditReview = () => {
+  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
-  const location = useLocation()
-  const { fromProductDetails } = location.state
-  const productId = fromProductDetails
-  // console.log(fromProductDetails)
-  const sessionUser = useSelector(state => state.session.user);
-  const product = useSelector((state) => state.products[productId]);
-  const [review_title, setReview_Title] = useState("");
-  const [content, setContent] = useState("");
-  const [rating, setRating] = useState("");
+  const location = useLocation();
+  const{ fromReviews } = location.state
+  const reviewId = fromReviews;
+  const review = useSelector((state) => state.reviews[reviewId])
+  const  productId  = review?.product_id
+  const product = useSelector((state) => state.products[productId])
+  const [review_title, setReview_Title] = useState(review?.review_title);
+  const [content, setContent] = useState(review?.content);
+  const [rating, setRating] = useState(review?.rating);
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [errors, setErrors] = useState([]);
 
-
-  useEffect(() => {
-    dispatch(get_one_product(productId));
-  }, [dispatch, productId])
-
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setHasSubmitted(true)
+    e.preventDefault()
+    setHasSubmitted(true);
 
     let formErrors = [];
     if (!review_title) formErrors.push("Please provide a title for you review")
@@ -37,22 +32,21 @@ const CreateReview = () => {
       return setErrors(formErrors)
     }
 
-    const review = {
+    const updatedReview = {
+      id: review.id,
       review_title,
       content,
       rating,
       user_id: sessionUser.id,
-      product_id: productId
+      product_id: productId,
     };
-    let createReview = await dispatch(create_review(review))
-    setReview_Title("")
-    setContent("")
-    setRating("")
+    await dispatch(update_review(updatedReview));
+    setReview_Title("");
+    setContent("");
+    setRating("");
     setHasSubmitted(false);
     history.push(`/products/${productId}`)
-
   }
-
 
   return (
     <>
@@ -194,5 +188,4 @@ const CreateReview = () => {
   )
 }
 
-
-export default CreateReview;
+export default EditReview;
