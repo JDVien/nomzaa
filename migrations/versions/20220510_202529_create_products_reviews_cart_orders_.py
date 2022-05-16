@@ -26,6 +26,7 @@ def upgrade():
     sa.Column('description', sa.String(length=2500), nullable=False),
     sa.Column('details', sa.String(length=255), nullable=True),
     sa.Column('stock', sa.Integer(), nullable=False),
+    sa.Column('category', sa.String(length=50), nullable=False),
     sa.Column('img', sa.String(length=255), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=False),

@@ -13,6 +13,7 @@ class Product(db.Model):
     description = db.Column(db.String(2500), nullable=False)
     details = db.Column(db.String(255))
     stock = db.Column(db.Integer, nullable=False)
+    category  = db.Column(db.String, nullable=False)
     img = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -35,6 +36,7 @@ class Product(db.Model):
             'description': self.description,
             'details': self.details,
             'stock' : self.stock,
+            'category': self.category,
             'img': self.img,
             'user_id': self.user_id,
             'created_at': self.created_at,

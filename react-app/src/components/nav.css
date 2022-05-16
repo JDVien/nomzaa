@@ -108,3 +108,8 @@
 .nav_top_right_profile, .nav_top_right_orders, .nav_top_right_cart {
   padding: 25px;
 }
+
+.subnav_category {
+  margin-left: 15px;
+  margin-right: 15px;
+}

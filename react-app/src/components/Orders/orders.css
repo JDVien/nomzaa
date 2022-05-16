@@ -37,3 +37,69 @@
 .product_ {
   width: 100px;
 }
+
+.confirmation_box {
+  display: flex;
+  justify-content: center;
+}
+
+.confirmation_main_actions {
+
+  width: 968px;
+  height: 368px;
+  border-top: 25px solid #f0c14b;
+  border-bottom: 1px solid #f0c14b;
+  border-left: 1px solid #f0c14b;
+  border-right: 1px solid #f0c14b;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.confirmation_options {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.c_option {
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: 10px;
+  border: none;
+  background-image: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border-radius: 10px;
+}
+
+.confirmation_options > a {
+  text-decoration: none;
+}
+
+.delete_controls {
+  text-decoration: none;
+  margin-top: 25px;
+}
+
+.delete_no {
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: 10px;
+  border: none;
+  background-image: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border-radius: 10px;
+
+}
+
+.delete_no > a {
+  text-decoration: none;
+}
+
+.delete_yes {
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: 10px;
+  border: none;
+  background-image: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border-radius: 10px;
+}
