@@ -1,3 +1,5 @@
+import '../Products/ppd.css'
+
 const AddToCart = ({ product, handleAddToCart}) => {
   return (
     <div id="add-cart-content">

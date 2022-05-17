@@ -1,7 +1,7 @@
 import { get_all_carts } from '../store/cart';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 // import LogoutButton from './auth/LogoutButton';
 import ProfileMenu from './ProfileMenu'
 import './nav.css';
@@ -72,10 +72,16 @@ const NavBar = ({user}) => {
         </div>
         <div id='nav_row_bottom'>
           <span className='subnav_category'>Nomzaa Basics</span>
-          <span className='subnav_category'>Nomzaa Devices</span>
+          <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
+          <span className='subnav_category'>Smart Devices</span>
+          </Link>
           <span className='subnav_category'>Pharmacy</span>
+          <Link className='filter_link' to={{ pathname:'/products/pet_supplies', state: { fromMainPets: "pet_supplies"}}}>
           <span className='subnav_category'>Pet Supplies</span>
+          </Link>
+          <Link className='filter_link' to={{ pathname:'/products/groceries', state: { fromMainGroceries: "groceries"}}}>
           <span className='subnav_category'>Groceries</span>
+          </Link>
           <span className='subnav_category'>Home & Kitchen</span>
           <span className='subnav_category'>Appliances</span>
           <span className='subnav_category'>Today's Deals</span>

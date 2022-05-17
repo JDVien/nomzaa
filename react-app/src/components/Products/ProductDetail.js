@@ -20,6 +20,7 @@ const ProductDetails = ({ loaded }) => {
   const review = useSelector((state) => state.reviews[reviewId]);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
+  const [orderid, setOrderid] = useState(0);
   console.log(product);
   useEffect(() => {
     dispatch(get_all_reviews());
@@ -36,16 +37,16 @@ const ProductDetails = ({ loaded }) => {
   );
 
   const handleAddToCart = () => {
-    console.log(user_quantity, "user_quantity")
+    // console.log(user_quantity, "user_quantity")
       const data = {
         user_id: sessionUser.id,
         product_id: product.id,
         purchased: false,
+        order_id: orderid,
         quantity: user_quantity,
       };
       dispatch(create_cart(data));
       return history.push("/cart");
-
   };
 
   return (
@@ -81,7 +82,7 @@ const ProductDetails = ({ loaded }) => {
           <div id="ppd_right_box">
             <h3>{product?.price}</h3>
             <form className='ppd_add_quantity'>
-              <label htmlFor='quantity'>Qty:
+              <label className='label_select' htmlFor='quantity'>Qty:
               <select
                 className='product_quantity_select'
                 name="quantity"
@@ -105,7 +106,7 @@ const ProductDetails = ({ loaded }) => {
               product={product}
               handleAddToCart={handleAddToCart}
             />
-            <button>Buy Now</button>
+            <button id='buy_bttn'>Buy Now</button>
           </div>
         </div>
         <div id="ppd_bottom_section">

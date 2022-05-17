@@ -17,6 +17,7 @@ import CancelConfirmation from './components/Orders/CancelConfirmation';
 import CreateReview from './components/Reviews/CreateReviewForm';
 import EditReview from './components/Reviews/EditReviewForm';
 import DeleteReview from './components/Reviews/DeleteReview';
+import FilteredProducts from './components/Products/FilteredProductsList';
 import { authenticate } from './store/session';
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
       <Switch>
         <Route exact path="/products">
           <ProductsList />
+        </Route>
+        <Route exact path="/products/:filter">
+          <FilteredProducts />
         </Route>
         <Route path="/products/:productId">
           <ProductDetails loaded={loaded} />
