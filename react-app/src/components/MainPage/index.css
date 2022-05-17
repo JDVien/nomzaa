@@ -27,6 +27,13 @@
 }
 
 .a_box_left {
+  max-width: 356px;
+  /* margin-right: 40px; */
+}
+
+.a_boxes_container {
+  display: flex;
+  justify-content: space-evenly;
   position: relative;
   bottom: 75px;
   /* border: 1px solid lightgrey;

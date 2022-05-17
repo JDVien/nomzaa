@@ -1,5 +1,5 @@
 import { get_all_carts } from '../store/cart';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Link } from 'react-router-dom';
 // import LogoutButton from './auth/LogoutButton';
@@ -11,7 +11,7 @@ const NavBar = ({user}) => {
   const cart_items = useSelector(state => Object.values(state.carts)); // Object.values for list of carts
   const user_cart = cart_items.filter(item => item.user_id === user.id && !item.purchased)
   // const [showUserMenu, setShowUserMenu] = useState(false);
-  // const firstname = user?.fullname.split(" ");
+  const firstname = user?.fullname.split(" ");
 
   useEffect(() => {
     dispatch(get_all_carts())
@@ -34,11 +34,13 @@ const NavBar = ({user}) => {
               <h2>Nomzaa</h2>
             </NavLink>
             </div>
+              {user && (
             <div id='nav_user_location'>
-              <span id='user_deliver_text'>Deliver to</span>
+              <span id='user_deliver_text'>Deliver to {firstname}</span>
               <br/>
               <span id='user_city_zip_text'>{user?.city}{" "}{user?.zipcode}</span>
             </div>
+              )}
           </div>
           <div className="nav_search_center">
             <form id="nav_search_form">
@@ -76,14 +78,21 @@ const NavBar = ({user}) => {
           <span className='subnav_category'>Smart Devices</span>
           </Link>
           <span className='subnav_category'>Pharmacy</span>
-          <Link className='filter_link' to={{ pathname:'/products/pet_supplies', state: { fromMainPets: "pet_supplies"}}}>
+          <Link className='filter_link' to={{ pathname:'/products/pet supplies', state: { fromMainPets: "pet supplies"}}}>
           <span className='subnav_category'>Pet Supplies</span>
           </Link>
           <Link className='filter_link' to={{ pathname:'/products/groceries', state: { fromMainGroceries: "groceries"}}}>
           <span className='subnav_category'>Groceries</span>
           </Link>
+          <Link className='filter_link' to={{ pathname:'/products/household', state: { fromMainHousehold: "household"}}}>
           <span className='subnav_category'>Home & Kitchen</span>
-          <span className='subnav_category'>Appliances</span>
+          </Link>
+          <Link className='filter_link' to={{ pathname:'/products/beauty&personal', state: { fromMainBeauty: "beauty&personal"}}}>
+          <span className='subnav_category'>Beauty & Personal Care</span>
+          </Link>
+          <Link className='filter_link' to={{ pathname:'/products/fashion', state: { fromMainFashion: "fashion"}}}>
+          <span className='subnav_category'>Fashion</span>
+          </Link>
           <span className='subnav_category'>Today's Deals</span>
           <span className='subnav_category'>Best Sellers</span>
         </div>

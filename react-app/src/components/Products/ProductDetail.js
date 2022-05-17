@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 // import CreateReview from '../Reviews/CreateReviewForm';
 import Reviews from "../Reviews/ReviewsList";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory, Link, useLocation } from "react-router-dom";
 import { create_cart } from "../../store/cart";
 import AddToCart from "../Cart/AddToCart";
 
@@ -13,28 +13,30 @@ import "./ppd.css";
 const ProductDetails = ({ loaded }) => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
+  const { fromFiltered } = location?.state;
+  console.log(fromFiltered, "fromFiltered------------------")
   const sessionUser = useSelector((state) => state.session.user);
   const { productId } = useParams();
-  const product = useSelector((state) => state.products[productId]);
+  const product = useSelector((state) => state.products[fromFiltered?.id]);
   const { reviewId } = useParams();
   const review = useSelector((state) => state.reviews[reviewId]);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
-  console.log(product);
   useEffect(() => {
     dispatch(get_all_reviews());
-    dispatch(get_one_product(productId));
-  }, [dispatch, productId]);
+    dispatch(get_one_product(fromFiltered?.id));
+  }, [dispatch]);
 
   const filteredReviews = reviews.filter(
     (review) => review.product_id === +productId
   );
 
-  const userReview = reviews.filter(
-    (review) =>
-      review?.user_id === sessionUser?.id && review.product_id === +productId
-  );
+  // const userReview = reviews.filter(
+  //   (review) =>
+  //     review?.user_id === sessionUser?.id && review.product_id === +productId
+  // );
 
   const handleAddToCart = () => {
     // console.log(user_quantity, "user_quantity")
