@@ -46,8 +46,6 @@
   align-items: center;
 }
 
-
-
 #nav_row_bottom {
   display: flex;
   align-items: center;
@@ -63,21 +61,32 @@
 }
 
 .nav_search_center {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   box-sizing: border-box;
   width: auto;
-  white-space: nowrap;
+  white-space: nowrap; */
+  flex-grow: 1;
+  padding-right: 8px;
+  margin: 0;
+  padding: 0;
+  padding-right: 0px;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
 }
 
 #nav_search_form {
-  display: inline-flex;
-  min-width: 768px;
-  padding: 10px;
+  width: 100%;
+  min-width: 387px;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 40px;
+  margin: 0 10px;
 }
 
 #nav_search_filter_drop_select {
-  display: flex;
+  /* display: flex;
   position: relative;
   float: none;
   height: 40px;
@@ -88,17 +97,65 @@
   color: black;
   background-color: #f3f3f3;
   background-image: none;
-  border: 1px solid #cdcdcd;
+  border: 1px solid #cdcdcd; */
+  text-align: center;
+  font-size: 12px;
+  height: 40px;
+  width: 52px;
+  padding-bottom: 4px;
+  padding-right: 2px;
+  color: #555555;
+  background-color: #f3f3f3;
+  border: 0;
+  /* border-right: 1px solid #cdcdcd; */
+  border-radius: 4px 0 0 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
-.nav_search_field_bar > input  {
+.nav_search_field_bar {
   display: inline-block;
   max-width: 1068px;
   min-width: 668px;
   width: 100%;
-  padding: 10px;
+  /* padding: 10px; */
   flex-grow: 1;
+}
 
+.nav_input {
+  color: #111;
+  font-size: 15px;
+  height: 26px;
+  width: 100%;
+  padding: 7px 10px;
+  border: 0;
+}
+
+.search_result_body {
+  z-index: 100;
+  background: white;
+  color: black;
+  position: relative;
+  overflow-y: visible;
+}
+
+.searchresult_list {
+  z-index: 100;
+  position: relative;
+  background: white;
+  color: black;
+  opacity: 1;
+  overflow-y: visible;
+}
+
+.search_bttn {
+  background-color: #febd69;
+  height: 100%;
+  width: 45px;
+  padding-bottom: 0;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px;
 }
 
 .nav_top_right {
@@ -119,7 +176,7 @@
 .filter_link {
   text-decoration: none;
   color: white;
-  border: 1px solid #232f3e;
+  /* border: 1px solid #232f3e; */
   padding: 5px;
 }
 

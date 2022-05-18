@@ -82,7 +82,7 @@ const Main = ({ user }) => {
             <h3>Pick Up Where You Left Off</h3>
               </span>
             <div className="b_box_left_content quad_box">
-              <a href='/products'>
+              <a href={`/products/${products[getRandomInt(30)]?.category}`}>
               <img
                 className="b_box_img quad_img"
                 src={products[getRandomInt(30)]?.img}
