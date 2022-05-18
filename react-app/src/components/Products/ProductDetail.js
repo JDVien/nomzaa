@@ -53,6 +53,7 @@ const ProductDetails = ({ loaded }) => {
 
   return (
     <>
+    
       <div id="product_page_content_container">
         <div id="ppd_top_section">
         <div id="ppd_left_box">
@@ -82,7 +83,7 @@ const ProductDetails = ({ loaded }) => {
             </div>
           </div>
           <div id="ppd_right_box">
-            <h3>{product?.price}</h3>
+            <h3>${product?.price}</h3>
             <form className='ppd_add_quantity'>
               <label className='label_select' htmlFor='quantity'>Qty:
               <select

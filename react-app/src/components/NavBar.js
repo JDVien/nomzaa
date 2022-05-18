@@ -38,7 +38,6 @@ const NavBar = ({user}) => {
   //   setShowUserMenu(true);
   // };
 
-
   return (
     <>
     <header id="navbar">
@@ -77,9 +76,9 @@ const NavBar = ({user}) => {
             />
             {searchWord != '' && (
                 <div className='search_result_body'>
-                    <ul className='searchresult_list'>
+                    <ul className='search_result_list'>
                         {filteredList.map((product) => (
-                            <li
+                            <li className='search_result_li'
                                 key={product.id}
                                 value={product.long_name}
                                 onClick={() => history.push(`/products/${product[2]}`)}
@@ -95,13 +94,14 @@ const NavBar = ({user}) => {
                 placeholder=""
               /> */}
             </div>
-
               <button className="search_bttn">
                 <i className='fas fa-search'></i>
               </button>
+
           </form>
           </div>
           <div className="nav_top_right">
+            <img id='region_flag_icon' src="/static/images/nom_nav_flag.png" width="24" height="20" alt="flag"/>
             <div className='nav_top_right_profile'>
               <ProfileMenu user={user} />
             </div>
@@ -120,6 +120,11 @@ const NavBar = ({user}) => {
           </div>
         </div>
         <div id='nav_row_bottom'>
+          <Link className='filter_link' to='/products'>
+          <span className='subnav_category'>
+              <img id='nav_all_burger' src='/static/images/nav-sprite-burger.png' alt='burger' />
+          All</span>
+          </Link>
           <span className='subnav_category'>Nomzaa Basics</span>
           <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
           <span className='subnav_category'>Smart Devices</span>
