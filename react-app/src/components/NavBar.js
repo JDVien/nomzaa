@@ -1,8 +1,9 @@
 import { get_all_carts } from '../store/cart';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory, useLocation  } from 'react-router-dom';
 // import LogoutButton from './auth/LogoutButton';
+// import SearchBar from "./Search/Searchbar";
 import ProfileMenu from './ProfileMenu'
 import './nav.css';
 
@@ -12,10 +13,25 @@ const NavBar = ({user}) => {
   const user_cart = cart_items.filter(item => item.user_id === user.id && !item.purchased)
   // const [showUserMenu, setShowUserMenu] = useState(false);
   const firstname = user?.fullname.split(" ");
+  const history = useHistory()
+
+  const products = useSelector(state => state.products)
+  const productlist = Object.values(products).map(product => [product.title, product.id])
+
+  const [filteredList, setFilteredList] = useState([])
+  const [searchWord, setSearchWord] = useState("")
 
   useEffect(() => {
     dispatch(get_all_carts())
-  }, [dispatch])
+      setFilteredList(productlist.filter(product => product[0].toLowerCase().includes(searchWord.toLowerCase())))
+  }, [searchWord, dispatch])
+
+  function handleSubmit(e) {
+      e.preventDefault();
+      if (filteredList.length > 0) {
+          history.push(`/products/${filteredList[0][2]}`)
+      }
+  }
 
   // const openMenu = () => {
   //   if (showUserMenu) return;
@@ -40,23 +56,49 @@ const NavBar = ({user}) => {
             </div>
               {user && (
             <div id='nav_user_location'>
+
               <span id='user_deliver_text'>Deliver to {user?.fullname}</span>
               <br/>
+              <i className='fas fa-map-marker-alt'></i>
               <span id='user_city_zip_text'>{user?.city}{" "}{user?.zipcode}</span>
             </div>
               )}
           </div>
           <div className="nav_search_center">
-            <form id="nav_search_form">
+            <form id="nav_search_form" onSubmit={e => handleSubmit(e)}>
             <div id='nav_search_filter_drop_select'>All</div>
             <div className='nav_search_field_bar'>
-              <input
+            <input
+                type="text"
+                value={searchWord}
+                onChange={e => setSearchWord(e.target.value)}
+                className='nav_input'
+                placeholder='Search for products'
+            />
+            {searchWord != '' && (
+                <div className='search_result_body'>
+                    <ul className='searchresult_list'>
+                        {filteredList.map((product) => (
+                            <li
+                                key={product.id}
+                                value={product.long_name}
+                                onClick={() => history.push(`/products/${product[2]}`)}
+                            >{product[0]}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+              {/* <input
                 className='nav_input'
                 type='text'
                 defaultValue=""
                 placeholder=""
-              />
+              /> */}
             </div>
+
+              <button className="search_bttn">
+                <i className='fas fa-search'></i>
+              </button>
           </form>
           </div>
           <div className="nav_top_right">
@@ -69,6 +111,7 @@ const NavBar = ({user}) => {
               </NavLink>
             </div>
             <div className='nav_top_right_cart'>
+            <i className='fas fa-shopping-cart'></i>
             <NavLink className='navlink_nav_item ' to="/cart">
                 {(user_cart.length ? `Cart (${user_cart.length})` : "Cart")}
                 {/* <span id='cart_text'>Cart</span> */}
