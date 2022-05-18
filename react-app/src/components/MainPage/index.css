@@ -7,15 +7,16 @@
   margin-bottom: 0px;
   max-width: none;
   min-width: 1000px;
-  overflow: hidden;
-  min-height: 968px;
+  /* overflow: hidden; */
+  /* min-height: 1268px;  */
+  height: 100%;
 }
 
 #main_content_body {
 
   flex-direction: column;
   max-width: 1600px;
-
+  min-height: 1968px;
 }
 
 #header_banner {
@@ -24,12 +25,215 @@
 
 .main_banner_image {
   width: 1500px;
+  box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.586);
 }
 
-.a_box_left {
+h3 {
+  padding-left: 15px;
+}
+
+.a_box_left, .b_box_left {
+  max-width: 656px;
+  background: white;
+  box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.586);
+}
+
+.a_box_left:hover, .b_box_left:hover {
+  box-shadow: 0 2px 5px 0 #f7dfa5;
+}
+
+.a_box_img, .b_box_img {
+  padding: 15px;
+}
+
+.a_boxes_container {
+  display: flex;
+  justify-content: space-around;
   position: relative;
-  bottom: 75px;
-  /* border: 1px solid lightgrey;
-  border-radius: 8px; */
-  background-image: linear-gradient(to bottom,#aeccb0, #EAEDED 40% );
+  top: 220px;
+  z-index: 50;
+  background: none;
+}
+
+.b_boxes_container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 140px;
+  z-index: 50;
+  background: none;
+}
+
+.b_box_left_content{
+  height: 356px;
+}
+
+.quad_box {
+  display: grid;
+  grid-template-columns: 60px 60px;
+  justify-content: space-evenly;
+  width: 356px;
+  max-height: 419px;
+}
+
+.quad_img {
+  margin: 20px 0px 0px -40px;
+  max-height: 108px;
+}
+
+.shop_now_text {
+  padding-left: 20px;
+
+}
+
+#banner_fade_div {
+    background-image: linear-gradient(to bottom,#aeccb0, #eaeded 70% );
+    position: relative;
+    height: 100px;
+    z-index: 45;
+    top: 600px;
+}
+
+#banner_fade_2:checked{
+  background-image: linear-gradient(to bottom,#9be0f6, #eaeded 70% );
+}
+/*
+#mid_banner {
+  background: linear-gradient(to top,#ffffff30, #f7f7f753 40% );
+  position: relative;
+  bottom: 20px;
+  z-index: 40;
+} */
+
+.mid_banner_image {
+  display: flex;
+  position: relative;
+  top: 210px;
+  /* z-index: 49; */
+}
+
+/* * {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  min-height: 600px;
+}
+body {
+  background-color: #222224;
+  background-image: linear-gradient(#17191f, #252a35);
+  height: 100%;
+  font-family: 'roboto', 'helvetica neue', arial, sans-serif;
+} */
+.carousel {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.carousel:hover .slide:after,
+.carousel:hover .counter,
+.carousel:hover .slide:before {
+  opacity: 1;
+}
+.slide {
+  float: right;
+  position: absolute;
+  z-index: 1;
+  width: 600px;
+  height: 400px;
+  background-color: #eee;
+  text-align: center;
+  transition: opacity 0.4s;
+  opacity: 1;
+
+}
+.slide:before {
+  content: attr(annot);
+  /* display: block; */
+  position: absolute;
+  /* left: 20px; */
+  /* bottom: 20px; */
+  /* color: rgba(255,255,255,0.9); */
+  /* font-size: 14px; */
+  font-weight: 300;
+  z-index: 12;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-shadow: 0 0 1px #000;
+
+}
+.slide:after {
+  content: attr(slide);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: opacity 0.3s;
+  width: 100%;
+  height: 80px;
+  opacity: 0;
+  background-image: linear-gradient(transparent, rgba(0,0,0,0.5));
+  text-align: left;
+  text-indent: 549px;
+  line-height: 101px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 0 1px #000;
+
+}
+.counter {
+  position: absolute;
+  bottom: 20px;
+  right: 1px;
+  height: 20px;
+  width: 60px;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  line-height: 21px;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.faux-ui-facia {
+  /* float: right; */
+  position: absolute;
+  margin-top: 0;
+  z-index: 9;
+  height: 600px;
+  width: 1500px;
+  opacity: 0;
+  cursor: pointer;
+}
+.faux-ui-facia:checked {
+  z-index: 8;
+}
+.faux-ui-facia:checked + .slide {
+  opacity: 0;
+}
+.faux-ui-facia:checked:nth-child(1):checked {
+  z-index: 9;
+}
+.faux-ui-facia:nth-child(1):checked {
+  float: left;
+  z-index: 9;
+}
+.faux-ui-facia:nth-child(1):checked + .slide {
+  opacity: 1;
+}
+.faux-ui-facia:nth-child(1):checked ~ .faux-ui-facia {
+  float: left;
+  z-index: 8;
+}
+.faux-ui-facia:nth-child(1):checked ~ .faux-ui-facia + .slide {
+  opacity: 0;
+}
+.faux-ui-facia:nth-child(1):checked ~ .faux-ui-facia:checked {
+  z-index: 9;
+}
+.faux-ui-facia:nth-child(1):checked ~ .faux-ui-facia:checked + .slide {
+  opacity: 1;
 }

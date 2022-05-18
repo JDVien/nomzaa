@@ -31,7 +31,7 @@ const Products = () => {
                 <h2>{product?.title}</h2>
               </a>
               <p>{product?.brand}</p>
-              <p>{product?.price}</p>
+              <p>${product?.price}</p>
               {/* <p>{product?.description}</p> */}
               {/* <p>{product?.details}</p> */}
               {/* <p>{product?.stock}</p> */}

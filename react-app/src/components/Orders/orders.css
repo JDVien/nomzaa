@@ -6,19 +6,21 @@
 #order_content {
   display: flex;
   justify-content: center;
-
 }
 
-.order_items_body {
-  padding: 50px;
-  padding-left: 50px;
-}
 
 .order_item_details_banner {
-  height: 67px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  height: 68px;
   background-color: #F0F2F2 !important;
-  text-align: right;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
 }
+
 
 #order_item {
   width: 968px;
@@ -27,15 +29,72 @@
 }
 
 #order_product_title {
-  padding: 25px;
+  padding-left: 25px;
+  height: 36px;
+  font-size: 14px;
 }
 .product_link {
-  display: inline-flex;
-  text-align: right;
+  display: flex;
+  text-decoration: none;
+  color: #007185;
+}
+
+.product_link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #C7511F;
 }
 
 .product_ {
   width: 100px;
+}
+
+.buy_again_div {
+  position: relative;
+  max-height: 22px;
+  margin-left: 125px;
+  bottom: 70px;
+}
+
+
+.buy_again_bttn {
+  background: #FFF;
+  border-radius: 3px;
+  border: 1px solid #D5D9D9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+  height: 29px;
+  width: 121px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  height: 29px;
+}
+
+.buy_again_bttn:hover {
+  background-color: #F7FAFA;
+  border-color: #D5D9D9;
+}
+
+.buy_again_span {
+  text-decoration: none;
+  background-color: transparent;
+  border: 0;
+  /* display: block; */
+  font-size: 13px;
+  line-height: 29px;
+  margin: 0;
+  position: relative;
+  bottom: 8px;
+  outline: 0;
+  padding: 0 10px 0 10px;
+  white-space: nowrap;
+}
+
+.bttn_img {
+  padding-left: 4px;
 }
 
 .confirmation_box {
@@ -102,4 +161,57 @@
   border: none;
   background-image: linear-gradient(to bottom, #f7dfa5, #f0c14b);
   border-radius: 10px;
+}
+
+#order_status_text >h2 {
+  margin-left: 15px;
+  color: #007600 !important;
+}
+
+.order_items_body {
+  display: flex;
+  padding: 5px;
+  padding-left: 50px;
+}
+
+.order_items_active {
+  width: 100%;
+}
+
+.delete_link_box {
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#order_cancel_bttn {
+  background: #FFD814;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 26px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
+  padding-top: 6px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgba(113, 112, 112, 0.5);
+  cursor: pointer;
+  text-align: center;
+}
+
+
+
+.delete_order_link {
+  text-decoration: none;
+  color: black;
+  height: 26px;
+}
+
+#order_cancel_bttn:hover {
+  background: #F7CA00;
+  border-color: #F2C200;
+  /* box-shadow: 0 2px 5px 0 rgba(213,217,217,.5); */
 }
