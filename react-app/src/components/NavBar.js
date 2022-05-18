@@ -31,12 +31,16 @@ const NavBar = ({user}) => {
           <div className="nav_top_left">
             <div id='nom_nav_logo'>
             <NavLink className='navlink_nav_item' to='/'>
-              <h2>Nomzaa</h2>
+              <img id='nomzaa_logo_main_sm' src="/static/images/nomza_logo_main_lg.png"
+                   alt="nomzaa logo"
+                   width="120"
+                   height="auto"
+              />
             </NavLink>
             </div>
               {user && (
             <div id='nav_user_location'>
-              <span id='user_deliver_text'>Deliver to {firstname}</span>
+              <span id='user_deliver_text'>Deliver to {user?.fullname}</span>
               <br/>
               <span id='user_city_zip_text'>{user?.city}{" "}{user?.zipcode}</span>
             </div>
@@ -92,6 +96,9 @@ const NavBar = ({user}) => {
           </Link>
           <Link className='filter_link' to={{ pathname:'/products/fashion', state: { fromMainFashion: "fashion"}}}>
           <span className='subnav_category'>Fashion</span>
+          </Link>
+          <Link className='filter_link' to={{ pathname:'/products/toys', state: { fromMainToys: "toys"}}}>
+          <span className='subnav_category'>Toys & Games</span>
           </Link>
           <span className='subnav_category'>Today's Deals</span>
           <span className='subnav_category'>Best Sellers</span>

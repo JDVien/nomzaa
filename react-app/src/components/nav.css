@@ -49,17 +49,17 @@
 
 
 #nav_row_bottom {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   min-height: 39px;
   max-height: 39px;
   margin: 0;
   padding-top: 0;
-  padding-left: 11px;
+  /* padding-left: 11px; */
   color: white;
   background-color: #232f3e;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .nav_search_center {

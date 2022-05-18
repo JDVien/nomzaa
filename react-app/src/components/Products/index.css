@@ -1,6 +1,16 @@
 .product_item_row_container {
+  border-top: 1px solid lightgrey;
   display: inline-flex;
   padding: 50px;
+  /* background-color: #f7f7f7; */
+}
+
+.list_item_box {
+  margin-left: 200px;
+  display: inline-flex;
+  padding: 35px;
+  max-width: 568px;
+  /* border-bottom: 1px solid lightgrey; */
 }
 
 .product_item_detail_row_sub_container {

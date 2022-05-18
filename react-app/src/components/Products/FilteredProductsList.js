@@ -11,8 +11,13 @@ const FilteredProducts = () => {
   const location = useLocation();
   // const [filter, setFilter] = useState("")
   let filter;
-  console.log(location.state, "location state");
-  const { fromMainGroceries, fromMainBeauty, fromMainElectronics, fromMainFashion, fromMainPets, fromMainHousehold } = location?.state;
+  // console.log(location.state, "location state");
+  const { fromMainGroceries} = location?.state;
+  const {fromMainBeauty} = location?.state;
+  const {fromMainElectronics} = location?.state;
+  const {fromMainFashion} =location?.state;
+  const {fromMainPets} = location?.state;
+  const {fromMainHousehold } = location?.state;
   console.log((Object.values(location?.state)[0]), "fromMainFilter")
   // console.log(fromMainElectronics === Object.values(location?.state)[0], "fromMainElectonics")
   const products = useSelector((state) => Object.values(state?.products));
@@ -46,8 +51,9 @@ const FilteredProducts = () => {
 
   return (
     <>
+    <div className='filter_list_container'>
       {filter?.map((product) => (
-        <div key={product?.id}>
+        <div className='list_item_box' key={product?.id}>
           <div className="product_item_row_container">
             <div className="s_product_img_container">
             <img
@@ -68,7 +74,7 @@ const FilteredProducts = () => {
             </div>
           </div>
       ))}
-
+      </div>
     </>
   )
 }
