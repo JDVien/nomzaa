@@ -238,3 +238,16 @@
   text-decoration: none;
   padding: 10px;
 }
+
+.subnav_jd_github_a {
+  text-decoration: none;
+  color: white;
+}
+
+.subnav_jd_github_a:hover {
+  color: #febd69;
+}
+
+.fab fa-github{
+  color: white;
+}

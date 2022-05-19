@@ -33,7 +33,7 @@ const CreateReview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHasSubmitted(true)
-    console.log(errors, "errors-----------------")
+    // console.log(errors, "errors-----------------")
     let formErrors = [];
     if (!review_title) formErrors.push("Please provide a title for you review")
     if (!content) formErrors.push("Please provide details")
@@ -52,12 +52,12 @@ const CreateReview = () => {
     };
 
     let createReview = await dispatch(create_review(review))
-    if (review) return setErrors(review);
+    if (review.length > 0) return setErrors(review)
+    else history.push(`/reviews/confirm`)
     setReview_Title("")
     setContent("")
     setRating("")
     setHasSubmitted(false);
-    history.push(`/reviews/confirm`)
 
   }
 

@@ -47,11 +47,11 @@ const EditReview = () => {
       product_id: productId,
     };
     await dispatch(update_review(updatedReview));
+    history.push(`/reviews/confirm`)
     setReview_Title("");
     setContent("");
     setRating("");
     setHasSubmitted(false);
-    history.push(`/reviews/confirm`)
   }
 
   return (
