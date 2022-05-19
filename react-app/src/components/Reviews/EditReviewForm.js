@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, useLocation } from "react-router-dom";
 import { update_review } from '../../store/reviews';
 import { get_one_product } from "../../store/product";
+import { Rating } from 'react-simple-star-rating'
 
 const EditReview = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -19,6 +20,12 @@ const EditReview = () => {
   const [rating, setRating] = useState(review?.rating);
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [errors, setErrors] = useState([]);
+
+    // Catch Rating value
+    const handleRating = (rate) => {
+      setRating(rate)
+      // other logic
+    }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -76,21 +83,20 @@ const EditReview = () => {
 
         <div className="rating-div">Overall rating</div>
           <div className='rating_container'>
-            {/* <button className={style_rate_one} */}
+
             <button className='{style_rate_one}'
               type='button'
               value={rating}
               onClick={(e) => {
                 setRating(1)
-                // setStyle_Rec_Yes("recommend_clicked")
-                // setStyle_Rec_No("recommend_no")
+
               }}
             >
               <span>
                 1
               </span>
             </button>
-            {/* <button className={style_rate_two} */}
+
             <button className='{style_rate_two}'
               type='button'
               value={rating}

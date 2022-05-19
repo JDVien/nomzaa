@@ -17,8 +17,10 @@ const ProductDetails = ({ loaded }) => {
   const { fromFiltered } = location?.state;
   console.log(fromFiltered, "fromFiltered------------------")
   const sessionUser = useSelector((state) => state.session.user);
-  const { productId } = useParams();
-  const product = useSelector((state) => state.products[fromFiltered?.id]);
+  // const { productId } = useParams();
+  const  productId  = fromFiltered?.id;
+  console.log(productId, 'productId-------------')
+  const product = useSelector((state) => state.products[productId]);
   const { reviewId } = useParams();
   const review = useSelector((state) => state.reviews[reviewId]);
   const reviews = useSelector((state) => Object.values(state.reviews));
@@ -118,7 +120,7 @@ const ProductDetails = ({ loaded }) => {
             <h4>Share your thoughts with other customers</h4>
             <div id="create_review_bttn_div">
               <Link className="review-link-bttn" to={{
-                  pathname:'/reviews/new', state: { fromProductDetails: product?.id}
+                  pathname:'/reviews/new', state: { fromProductDetails: product}
                 }}>
                 <span>
                   Write a customer review

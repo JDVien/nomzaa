@@ -1,7 +1,7 @@
 // import { useEffect, useState } from "react";
 import './orders.css';
 
-const CancelConfirmation = () => {
+const ReviewConfirmation = () => {
 
   return (
     <>
@@ -22,4 +22,4 @@ const CancelConfirmation = () => {
   )
 }
 
-export default CancelConfirmation;
+export default ReviewConfirmation;

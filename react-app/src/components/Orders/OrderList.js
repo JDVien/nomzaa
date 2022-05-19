@@ -2,7 +2,7 @@ import { get_all_products } from "../../store/product";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 // import order_loop from './order_utils';
 // import CancelOrder from './CancelOrder';
 import { create_cart } from "../../store/cart";
@@ -27,10 +27,15 @@ const OrderList = ({ user }) => {
 
   const DAY_OPTION = { day: 'numeric'}
 
+  const handleTotalCost = (price) => {
+    let total_price = 0.00;
+    total_price += price
+    return total_price
+  }
 
-  let total_price = 0.00;
-  user_products.forEach(item => total_price += item?.product?.price)
-  console.log("$", total_price)
+  // let total_price = 0.00;
+  // user_products.forEach(item => total_price += item?.product?.price)
+  // console.log("$", total_price)
 
   let next_order = [];
   let an_order = [];
@@ -56,8 +61,10 @@ const OrderList = ({ user }) => {
     dispatch(get_all_products());
   }, [dispatch]);
 
-  let i = next_order.length - 1;
-  const add = () => i--;
+  let k = next_order.length - 1;
+  const add = () =>  k--;
+
+
 
   const handleAddToCart = async (item) => {
     // console.log(user_quantity, "user_quantity")
@@ -79,7 +86,7 @@ const OrderList = ({ user }) => {
         {next_order?.map((item) => (
           <>
           {console.log(item, 'item')}
-          {next_order[0]?.item?.purchased && (
+          {/* {next_order[0]?.item?.purchased && ( */}
           <div className="order_by_num" key={item?.order_id}>
             <div id="order_content">
               <div id="order_item">
@@ -90,21 +97,21 @@ const OrderList = ({ user }) => {
                     </span>
                     </div>
                     <div className='order_summary_text'>
-                    <span>TOTAL <br/> ${total_price}</span>
+                    <span>TOTAL <br/> ${handleTotalCost(item[0]?.product?.price)}</span>
                     </div>
                     <div className='order_summary_text'>
                     <span>SHIP TO <br/>{user?.fullname}</span>
                     </div>
                     <div className="order_date">
                       <span className="order_number order_summary_text">
-                        Order # 112-5435096-97610{i}
+                        Order # 112-5435096-97610{k}
                       </span>
                     </div>
                   </div>
                   <span id='order_status_text'><h2>Arriving by tomorrow</h2></span>
                 <div className="order_items_body">
                   <div className='order_items_active'>
-                  {next_order[i]?.map((item) => (
+                  {next_order[k]?.map((item) => (
                     <div className="order_products" key={item?.product?.id}>
                       <div className="order_box">
                         <a
@@ -135,6 +142,7 @@ const OrderList = ({ user }) => {
                           Buy it again
                         </span>
                         </button>
+                        <span id='order_item_qty'>Qty: {item?.quantity}</span>
                       </div>
                       </div>
                     </div>
@@ -142,7 +150,7 @@ const OrderList = ({ user }) => {
                   </div>
                 <div className='delete_link_box'>
                 <Link className='delete_order_link' to={{
-                    pathname:`/orders/${next_order[i][0]?.order_id}/delete`, state: { fromOrders: next_order[i][0]?.order_id }}
+                    pathname:`/orders/${next_order[k][0]?.order_id}/delete`, state: { fromOrders: next_order[k][0]?.order_id }}
                   }>
                     <span id='order_cancel_bttn'>Cancel Order</span>
                   </Link>
@@ -152,7 +160,7 @@ const OrderList = ({ user }) => {
             </div>
             {add()}
           </div>
-            )}
+            {/* )} */}
           </>
         ))}
       </div>

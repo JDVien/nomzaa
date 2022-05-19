@@ -27,9 +27,9 @@ const Products = () => {
               ></img>
             </div>
             <div className="product_item_detail_row_sub_container">
-              <a href={`/products/${product?.id}`}>
+              <Link to={{ pathname: `/products/${product?.category}/${product?.id}`, state: { fromFiltered: product}}}>
                 <h2>{product?.title}</h2>
-              </a>
+              </Link>
               <p>{product?.brand}</p>
               <p>${product?.price}</p>
               {/* <p>{product?.description}</p> */}

@@ -2,7 +2,7 @@ import { get_all_reviews } from '../../store/reviews'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
 import { Link } from 'react-router-dom';
-import EditReview from './EditReviewForm';
+// import EditReview from './EditReviewForm';
 
 // import './reviewindex.css';
 

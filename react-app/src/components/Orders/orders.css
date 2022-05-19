@@ -53,7 +53,7 @@
   position: relative;
   max-height: 22px;
   margin-left: 125px;
-  bottom: 70px;
+  bottom: 60px;
 }
 
 
@@ -214,4 +214,10 @@
   background: #F7CA00;
   border-color: #F2C200;
   /* box-shadow: 0 2px 5px 0 rgba(213,217,217,.5); */
+}
+
+#order_item_qty {
+  position: relative;
+  left: 15px;
+  bottom: 5px;
 }
