@@ -65,6 +65,15 @@ const SignUpForm = () => {
   return (
     <div className='top_level_login'>
     <div className='login_container'>
+    <div id="nom_auth_logo">
+        <img
+          id="nomzaa_logo_auth_sm"
+          src="/static/images/nomza_logo_dark_lg.png"
+          alt="nomzaa logo"
+          width="120"
+          height="auto"
+        />
+      </div>
       <div className='login-form-container'>
       <h1>Create Account</h1>
     <form className='login_form' onSubmit={onSignUp}>

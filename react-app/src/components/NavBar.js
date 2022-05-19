@@ -125,11 +125,15 @@ const NavBar = ({user}) => {
               <img id='nav_all_burger' src='/static/images/nav-sprite-burger.png' alt='burger' />
           All</span>
           </Link>
+          <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
           <span className='subnav_category'>Nomzaa Basics</span>
+          </Link>
           <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
           <span className='subnav_category'>Smart Devices</span>
           </Link>
+          <Link className='filter_link' to='/products'>
           <span className='subnav_category'>Pharmacy</span>
+          </Link>
           <Link className='filter_link' to={{ pathname:'/products/pet supplies', state: { fromMainPets: "pet supplies"}}}>
           <span className='subnav_category'>Pet Supplies</span>
           </Link>
@@ -148,8 +152,20 @@ const NavBar = ({user}) => {
           <Link className='filter_link' to={{ pathname:'/products/toys', state: { fromMainToys: "toys"}}}>
           <span className='subnav_category'>Toys & Games</span>
           </Link>
+          <Link className='filter_link' to='/products'>
           <span className='subnav_category'>Today's Deals</span>
-          <span className='subnav_category'>Best Sellers</span>
+          </Link>
+          {/* <span className='subnav_category'>Best Sellers</span> */}
+          <span className='subnav_category'>
+          <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'>
+            <i className='fab fa-github'/>
+          </a>
+          </span>
+          <span className='subnav_category'>
+          <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'>
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          </span>
         </div>
       </div>
     </header>

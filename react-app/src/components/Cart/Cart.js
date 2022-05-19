@@ -104,9 +104,9 @@ console.log('user_cart', user_cart)
                     <div className='cart_item_content_group'>
                       <div className='cart_item_details_list'>
                           <span className='item_title_text'>
-                            <a className='item_title_a' href={`/products/${item?.product_id}`}>
+                            <Link className='item_title_a' to={{ pathname: `/products/${item?.product?.category}/${item?.product_id}`, state: { fromFiltered: item?.product }}}>
                               {item.product.title}
-                            </a>
+                            </Link>
                           </span>
                           <div id='cart_item_price'>{" "}${item.product.price}</div>
                           <div id='cart_item_stock'><span>Only {item?.product?.stock} left - order soon.</span></div>
