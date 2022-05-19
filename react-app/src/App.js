@@ -82,10 +82,10 @@ function App() {
         <NavBar user={user}/>
             <DeleteReview />
         </ProtectedRoute>
-        <ProtectedRoute exact path="/" >
+        <Route exact path="/" >
         <NavBar user={user}/>
           <Main user={user} />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/cart'>
         <NavBar user={user}/>
           <Cart />
