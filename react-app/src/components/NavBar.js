@@ -102,9 +102,16 @@ const NavBar = ({user}) => {
           </div>
           <div className="nav_top_right">
             <img id='region_flag_icon' src="/static/images/nom_nav_flag.png" width="24" height="20" alt="flag"/>
+            {user ? (
             <div className='nav_top_right_profile'>
               <ProfileMenu user={user} />
             </div>
+            ) : ( <div className='nav_top_right_profile'>
+                    <NavLink className='navlink_nav_item ' to="/login">
+                      <span id='orders_'>Hello, Sign in</span>
+                    </NavLink>
+                  </div>
+              )}
             <div className='nav_top_right_orders'>
               <NavLink className='navlink_nav_item ' to="/orders">
                 <span id='orders_'>Orders</span>
@@ -174,36 +181,3 @@ const NavBar = ({user}) => {
 }
 
 export default NavBar;
-
-{/* <nav>
-<ul>
-  <li>
-    <NavLink to='/' exact={true} activeClassName='active'>
-      Home
-    </NavLink>
-  </li>
-  <li>
-    <NavLink to='/login' exact={true} activeClassName='active'>
-      Login
-    </NavLink>
-  </li>
-  <li>
-    <NavLink to='/sign-up' exact={true} activeClassName='active'>
-      Sign Up
-    </NavLink>
-  </li>
-  <li>
-    <NavLink to='/users' exact={true} activeClassName='active'>
-      Users
-    </NavLink>
-  </li>
-  <li>
-    <NavLink to='/products' exact={true} activeClassName='active'>
-      Products
-    </NavLink>
-  </li>
-  <li>
-    <LogoutButton />
-  </li>
-</ul>
-</nav> */}
