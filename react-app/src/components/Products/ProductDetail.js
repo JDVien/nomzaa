@@ -53,7 +53,7 @@ const ProductDetails = ({ loaded }) => {
 
   return (
     <>
-    
+
       <div id="product_page_content_container">
         <div id="ppd_top_section">
         <div id="ppd_left_box">

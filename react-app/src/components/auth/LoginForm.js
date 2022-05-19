@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
+import './login.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+     setErrors(data);
     }
   };
 
@@ -26,13 +28,28 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const demo = async (e) => {
+    e.preventDefault();
+    dispatch(login('demo@aa.io', 'password'))
+    history.push('/')
+  }
+
+  const signupButton = (e) => {
+    e.preventDefault();
+    history.push('/signup')
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
+  <div className='top_level_login'>
+  <div className='login_container'>
+    <div className='login-form-container'>
+      <h1>Sign-In</h1>
+    <form className='login_form' onSubmit={onLogin}>
+    <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
@@ -46,7 +63,11 @@ const LoginForm = () => {
           value={email}
           onChange={updateEmail}
         />
+        {/* {errors?.email?.map(error => {
+          return (<p className="form_error" key={error}>{error}</p>)
+        })} */}
       </div>
+
       <div>
         <label htmlFor='password'>Password</label>
         <input
@@ -56,9 +77,21 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        {/* {errors?.password?.map(error => {
+          return (<p className="form_error" key={error}>{error}</p>)
+        })} */}
+        <button type='submit'>Sign In</button>
+        <button onClick={demo}>Demo User</button>
       </div>
     </form>
+    <span className='priv_text'>By continuing, you agree to Nomzaa's Conditions of Use and Privacy Notice.</span>
+    </div>
+    <div className='signup_bttn_container'>
+      <span className='new_user_text'>New to Nomzaa?</span>
+      <button onClick={signupButton}>Create your Nomzaa account</button>
+    </div>
+    </div>
+  </div>
   );
 };
 

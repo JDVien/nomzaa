@@ -77,6 +77,9 @@ const OrderList = ({ user }) => {
       <div id="order_container">
         <h1>Your Orders</h1>
         {next_order?.map((item) => (
+          <>
+          {console.log(item, 'item')}
+          {next_order[0]?.item?.purchased && (
           <div className="order_by_num" key={item?.order_id}>
             <div id="order_content">
               <div id="order_item">
@@ -149,6 +152,8 @@ const OrderList = ({ user }) => {
             </div>
             {add()}
           </div>
+            )}
+          </>
         ))}
       </div>
     </>
@@ -156,4 +161,3 @@ const OrderList = ({ user }) => {
 };
 
 export default OrderList;
-

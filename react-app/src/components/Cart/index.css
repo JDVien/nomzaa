@@ -55,3 +55,26 @@
   padding-right: 10px;
   padding-left: 10px;
 }
+
+#checkout_proceed_bttn {
+  background: #FFD814;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 26px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
+  padding-top: 6px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgba(113, 112, 112, 0.5);
+  cursor: pointer;
+  text-align: center;
+}
+
+#checkout_proceed_bttn:hover {
+  background: #F7CA00;
+  border-color: #F2C200;
+}

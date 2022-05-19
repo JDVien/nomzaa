@@ -1,7 +1,8 @@
-import { get_all_carts, delete_cart, update_cart } from '../../store/cart'
+import { get_all_carts, delete_cart, update_cart, create_cart, edit_cart } from '../../store/cart'
 import { useDispatch, useSelector } from 'react-redux'
 import { get_all_products } from '../../store/product';
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 import './index.css'
 // import { Link } from 'react-router-dom';
 
@@ -9,20 +10,23 @@ import './index.css'
 const Cart = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
   const [isDeleted, setIsDeleted] = useState(false);
-  const [hasCheckedOut, setHasCheckedOut] = useState(false);
+  let [hasCheckedOut, setHasCheckedOut] = useState(false);
   // const products = useSelector(state => Object.values(state.products))
   const cart_items = useSelector(state => Object.values(state.carts))
   const user_cart = cart_items.filter(item => item.user_id === sessionUser.id && !item.purchased)
   let cart_subtotal = 0.00;
-  user_cart.forEach(item => cart_subtotal += item?.product?.price)
-  const [user_quantity, setUser_Quantity] = useState(user_cart?.item?.quantity)
+  user_cart.forEach(item => cart_subtotal += (item?.product?.price * item?.quantity))
+  const [quantity, setQuantity] = useState(user_cart?.item?.quantity)
+  // const [inCart, setInCart] = useState(false)
   let cart_total_quantity = 0;
-  console.log(user_quantity, "user_quantity")
-  user_cart.forEach(item => cart_total_quantity += user_quantity)
+  console.log(quantity, "user_quantity")
+  user_cart.forEach(item => cart_total_quantity += item?.quantity)
 
   useEffect(() => {
     dispatch(get_all_products())
+
   }, [dispatch])
 
   const removeCartItem = (id) => {
@@ -37,9 +41,28 @@ const Cart = () => {
     }
   }
 
-const handleQuantity = (e) => {
-  setUser_Quantity(e.target.value)
-}
+// const handleQuantity = (e, item) => {
+//   //  setQuantity(e);
+
+//    handleUpdateCart(e.target.value,item)
+// }
+
+
+const handleUpdateCart = async (e, item) => {
+  window.location.reload()
+    const data = {
+      id: item?.id,
+      // user_id: sessionUser.id,
+      // product_id: item?.product_id,
+      // purchased: false,
+      // order_id: item?.order_id,
+      quantity: e.target.value,
+    };
+    if (data) {
+      await dispatch(edit_cart(data));
+      // return history.push("/cart");
+    }
+};
 
 console.log('cart_items', cart_items)
 console.log('user_cart', user_cart)
@@ -59,7 +82,7 @@ console.log('user_cart', user_cart)
               <div id='active_shopping_cart_body'>
               {isDeleted && <div id="removed-cart-item">Your item has been removed!</div>}
                 {user_cart?.map(item =>
-                  <div className='cart_item_container' key={item.product_id}>
+                  <div className='cart_item_container' key={item?.quantity}>
                     <div className="cart_item_image">
                       <a href={`/products/${item?.product_id}`}>
                         <img alt='product' src={item?.product?.img} width='180' height='180' />
@@ -72,8 +95,8 @@ console.log('user_cart', user_cart)
                               {item.product.title}
                             </a>
                           </span>
-                          <div id='cart_item_price'>{" "}{item.product.price}</div>
-                          <div id='cart_item_stock'><span>Only {item.product.stock} left - order soon.</span></div>
+                          <div id='cart_item_price'>{" "}${item.product.price}</div>
+                          <div id='cart_item_stock'><span>Only {item?.product?.stock} left - order soon.</span></div>
                           <div id='cart_item_brand'><span>Shipped from: {item.product.brand}</span></div>
                           <span>Gift options not available. Learn More</span><br/>
                           <div id='cart_item_user_options'>
@@ -81,12 +104,13 @@ console.log('user_cart', user_cart)
                             <form className='ppd_add_quantity'>
                               <label htmlFor='quantity'>Qty:
                               <select
+                                key={item?.quantity}
                                 className='product_quantity_select'
                                 name="quantity"
-                                value={user_quantity}
-                                onChange={(e) => handleQuantity(e)}
+                                value={quantity}
+                                onChange={(e) => handleUpdateCart(e, item)}
                               >
-                                <option defaultValue={item?.quantity}>{item?.quantity}</option>
+                                <option defaultValue="">{item?.quantity}</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -108,7 +132,6 @@ console.log('user_cart', user_cart)
                           </div>
                       </div>
                     </div>
-
                   </div>
                 )}
               </div>
@@ -119,8 +142,8 @@ console.log('user_cart', user_cart)
           <div id='right_cart_col_container' className='cart_right_column'>
             <div id='checkout_box'>
               <div className='subtotal_row'>
-                <span id='subtotal_text_quantity'>Subtotal ({cart_total_quantity}):</span><br/>
-                <span id='subtotal_price'>$ {cart_subtotal}</span><br/>
+                <span id='subtotal_text_quantity'>Subtotal ({cart_total_quantity}): </span>
+                <span id='subtotal_price'>$ {cart_subtotal.toFixed(2)}</span><br/>
                 <button id='checkout_proceed_bttn' onClick={handlePurchaseCart}>Proceed to checkout</button>
               </div>
             </div>
