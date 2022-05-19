@@ -5,7 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
+// import UsersList from './components/UsersList';
 import User from './components/User';
 import ProductsList from './components/Products/ProductsList';
 import ProductDetails from './components/Products/ProductDetail';
@@ -26,6 +26,7 @@ function App() {
   const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     (async() => {
