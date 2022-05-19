@@ -16,7 +16,7 @@ const DeleteReview = () => {
 
   const handleDelete = () => {
     dispatch(delete_review(reviewId))
-    history.push(`/products/${productId}`)
+    history.push(`/reviews/delete`)
   }
 
   return (

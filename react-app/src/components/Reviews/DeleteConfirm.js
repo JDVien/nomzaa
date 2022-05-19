@@ -1,13 +1,13 @@
 // import { useEffect, useState } from "react";
-import './orders.css';
+import '../Orders/orders.css';
 
-const CancelConfirmation = () => {
+const DeleteConfirmation = () => {
 
   return (
     <>
       <div className='confirmation_box'>
         <div className='confirmation_main_actions'>
-        <span>You have successfully cancelled your order</span>
+        <span>You have successfully deleted your review</span>
         <div className='confirmation_options'>
         <a href='/'>
           <span className='c_option'>Continue Shopping</span>
@@ -22,4 +22,4 @@ const CancelConfirmation = () => {
   )
 }
 
-export default CancelConfirmation;
+export default DeleteConfirmation;

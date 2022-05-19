@@ -17,8 +17,10 @@ const ProductDetails = ({ loaded }) => {
   const { fromFiltered } = location?.state;
   console.log(fromFiltered, "fromFiltered------------------")
   const sessionUser = useSelector((state) => state.session.user);
-  const { productId } = useParams();
-  const product = useSelector((state) => state.products[fromFiltered?.id]);
+  // const { productId } = useParams();
+  const  productId  = fromFiltered?.id;
+  console.log(productId, 'productId-------------')
+  const product = useSelector((state) => state.products[productId]);
   const { reviewId } = useParams();
   const review = useSelector((state) => state.reviews[reviewId]);
   const reviews = useSelector((state) => Object.values(state.reviews));
@@ -33,10 +35,11 @@ const ProductDetails = ({ loaded }) => {
     (review) => review.product_id === +productId
   );
 
-  // const userReview = reviews.filter(
-  //   (review) =>
-  //     review?.user_id === sessionUser?.id && review.product_id === +productId
-  // );
+  const userReview = reviews.filter(
+    (review) =>
+      review?.user_id === sessionUser?.id && review?.product_id === +productId
+  );
+  console.log(userReview, 'userReview-------------------')
 
   const handleAddToCart = () => {
     // console.log(user_quantity, "user_quantity")
@@ -53,7 +56,7 @@ const ProductDetails = ({ loaded }) => {
 
   return (
     <>
-    
+
       <div id="product_page_content_container">
         <div id="ppd_top_section">
         <div id="ppd_left_box">
@@ -109,27 +112,34 @@ const ProductDetails = ({ loaded }) => {
               product={product}
               handleAddToCart={handleAddToCart}
             />
-            <button id='buy_bttn'>Buy Now</button>
+            <button id='buy_bttn' onClick={handleAddToCart}>Buy Now</button>
           </div>
         </div>
         <div id="ppd_bottom_section">
           <div id='create_review_box'>
+        <div id="customer_reviews_div"><h2>CUSTOMER REVIEWS</h2></div>
             <h2>Review this product</h2>
             <h4>Share your thoughts with other customers</h4>
             <div id="create_review_bttn_div">
-              <Link className="review-link-bttn" to={{
-                  pathname:'/reviews/new', state: { fromProductDetails: product?.id}
-                }}>
-                <span>
-                  Write a customer review
-                </span>
-              </Link>
+            {sessionUser && sessionUser?.id === userReview[0]?.user_id ? (
+                    <div>
+                    <span>You've reviewed this product. View Your Review</span>
+                    </div>
+                  ) : (
+                    <Link className="review-link-bttn" to={{
+                      pathname:'/reviews/new', state: { fromProductDetails: product}
+                    }}>
+                    <span>
+                      Write a customer review
+                    </span>
+                    </Link>
+                  )}
             </div>
           </div>
+
           <div id="ppd_reviews_box">
           {filteredReviews.length ? (
                 <>
-                  <div id="customer_reviews_div">CUSTOMER REVIEWS</div>
                   <div className="reviews_container">
                     <Reviews user={sessionUser} filteredReviews={filteredReviews} />
                   </div>

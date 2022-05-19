@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
@@ -13,14 +13,18 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(fullname, city, zipcode, email, password));
+      const data = await dispatch(signUp(fullname, city, zipcode, email, password, repeatPassword));
       if (data) {
         setErrors(data)
       }
+
+    } else {
+      setErrors(["passwords must match"])
     }
   };
 
@@ -33,6 +37,7 @@ const SignUpForm = () => {
   };
 
   const updateCity = (e) => {
+
     setCity(e.target.value);
   }
 
@@ -48,12 +53,21 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const signinButton = (e) => {
+    e.preventDefault();
+    history.push('/login')
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <div className='top_level_login'>
+    <div className='login_container'>
+      <div className='login-form-container'>
+      <h1>Create Account</h1>
+    <form className='login_form' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -67,6 +81,9 @@ const SignUpForm = () => {
           onChange={updateFullname}
           value={fullname}
         ></input>
+        {/* {errors?.fullname?.map(error => {
+          return (<p className="form_error" key={error}>{error}</p>)
+        })} */}
       </div>
       <div>
         <label>City</label>
@@ -76,6 +93,9 @@ const SignUpForm = () => {
           onChange={updateCity}
           value={city}
         ></input>
+        {/* {errors?.city?.map(error => {
+          return (<p className="form_error" key={error}>{error}</p>)
+        })} */}
       </div>
       <div>
         <label>Zip Code</label>
@@ -85,6 +105,9 @@ const SignUpForm = () => {
           onChange={updateZipcode}
           value={zipcode}
         ></input>
+        {/* {errors?.zipcode?.map(error => {
+          return (<p className="form_error" key={error}>{error}</p>)
+        })} */}
       </div>
       <div>
         <label>Email</label>
@@ -94,18 +117,24 @@ const SignUpForm = () => {
           onChange={updateEmail}
           value={email}
         ></input>
+        {/* {errors?.email?.map(error => {
+          return (<p className="form_error" key={error}>{error}</p>)
+        })} */}
       </div>
       <div>
-        <label>Password</label>
+        <label htmlFor='password'>Password</label>
         <input
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
+        {/* {errors?.password?.map(error => {
+          return (<p className="form_error" key={error}>{error}</p>)
+        })} */}
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label htmlFor='repeat_password'>Repeat Password</label>
         <input
           type='password'
           name='repeat_password'
@@ -116,6 +145,14 @@ const SignUpForm = () => {
       </div>
       <button type='submit'>Sign Up</button>
     </form>
+    <span className='priv_text'>By continuing, you agree to Nomzaa's Conditions of Use and Privacy Notice.</span>
+    </div>
+    <div className='signup_bttn_container'>
+      <span className='new_user_text'>Already have an account?</span>
+      <button onClick={signinButton}>Sign In</button>
+    </div>
+    </div>
+  </div>
   );
 };
 

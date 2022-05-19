@@ -14,9 +14,11 @@ import Main from './components/MainPage/index';
 import OrderList from './components/Orders/OrderList';
 import CancelOrder from './components/Orders/CancelOrder';
 import CancelConfirmation from './components/Orders/CancelConfirmation';
+import ReviewConfirmation from './components/Reviews/ReviewEditConfirm';
 import CreateReview from './components/Reviews/CreateReviewForm';
 import EditReview from './components/Reviews/EditReviewForm';
 import DeleteReview from './components/Reviews/DeleteReview';
+import DeleteConfirmation from './components/Reviews/DeleteConfirm';
 import FilteredProducts from './components/Products/FilteredProductsList';
 import { authenticate } from './store/session';
 
@@ -39,56 +41,69 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <NavBar user={user}/>
+
       <Switch>
         <Route exact path="/products">
+          <NavBar user={user}/>
           <ProductsList />
         </Route>
         <Route exact path="/products/:filter">
+        <NavBar user={user}/>
           <FilteredProducts />
         </Route>
         <Route path="/products/:productId">
+        <NavBar user={user}/>
           <ProductDetails loaded={loaded} />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/signup' exact={true}>
           <SignUpForm />
         </Route>
         <ProtectedRoute path="/reviews/new">
+        <NavBar user={user}/>
             <CreateReview />
         </ProtectedRoute>
         <ProtectedRoute path="/reviews/:reviewId/edit">
+        <NavBar user={user}/>
             <EditReview />
         </ProtectedRoute>
+        <ProtectedRoute path="/reviews/confirm">
+        <NavBar user={user}/>
+            <ReviewConfirmation />
+        </ProtectedRoute>
+        <ProtectedRoute path="/reviews/delete">
+        <NavBar user={user}/>
+            <DeleteConfirmation />
+        </ProtectedRoute>
         <ProtectedRoute path="/reviews/:reviewId/delete">
+        <NavBar user={user}/>
             <DeleteReview />
         </ProtectedRoute>
         <ProtectedRoute exact path="/" >
+        <NavBar user={user}/>
           <Main user={user} />
         </ProtectedRoute>
         <ProtectedRoute path='/cart'>
+        <NavBar user={user}/>
           <Cart />
         </ProtectedRoute>
         <ProtectedRoute exact path="/orders">
+                <NavBar user={user}/>
             <OrderList user={user} />
         </ProtectedRoute>
         <ProtectedRoute exact path="/orders/:orderId/delete">
+        <NavBar user={user}/>
             <CancelOrder user={user} />
         </ProtectedRoute>
         <ProtectedRoute exact path="/confirm">
+        <NavBar user={user}/>
             <CancelConfirmation />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/' exact={true} >
-          <h1>Main</h1>
-        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
     </>

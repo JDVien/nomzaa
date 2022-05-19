@@ -223,3 +223,18 @@
   border-right: 1px solid lightgrey;
   text-align: center;
 }
+
+.profile_dropdown_menu {
+  background: white;
+  width: 100px;
+  height: 100px;
+  z-index: 130;
+  position: absolute;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+}
+
+#logout_a {
+  text-decoration: none;
+  padding: 10px;
+}
