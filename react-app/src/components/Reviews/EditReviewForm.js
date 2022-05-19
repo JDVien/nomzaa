@@ -4,6 +4,7 @@ import { useHistory, useParams, useLocation } from "react-router-dom";
 import { update_review } from '../../store/reviews';
 import { get_one_product } from "../../store/product";
 import ReactStars from 'react-stars'
+import ReviewBanner from './ReviewBanner';
 import './reviewform.css';
 
 const EditReview = () => {
@@ -50,15 +51,12 @@ const EditReview = () => {
     setContent("");
     setRating("");
     setHasSubmitted(false);
-    history.push(`/products/${product?.category}/${productId}`)
+    history.push(`/reviews/confirm`)
   }
 
   return (
     <>
-    <div className='user_top_banner'>
-    <img id="profile_img_rev_banner" src='/static/images/default._CR0,0,1024,1024_SX48_.jpg' width='34' height='34' alt=""></img>
-      <p id='rev_prof_name'>{sessionUser?.fullname}</p>
-      </div>
+    <ReviewBanner />
       <div className='top_level_page'>
         <div className="create_review_container">
           <div className="create_form_top_box">
@@ -94,11 +92,11 @@ const EditReview = () => {
               value={review_title}
               onChange={(e) => setReview_Title(e.target.value)}
             />
-          {errors?.review_title?.map(error => {
-            return (
-              <p className='error' key={error}>{error}</p>
-            )
-          })}
+            <div>
+            {errors.length > 0 && (
+                   errors[0]
+                )}
+          </div>
           </div>
           {/* <div className="review_controls_body">
           <div className="review_controls_container">
@@ -117,11 +115,11 @@ const EditReview = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
-          {errors?.content?.map(error => {
-            return (
-              <p className='error' key={error}>{error}</p>
-            )
-          })}
+            <div>
+            {errors.length > 0 && (
+                   errors[1]
+                )}
+          </div>
           </div>
           <div className='submit_bttn_rev'>
           <button className="button btn-submit-review" type="submit">

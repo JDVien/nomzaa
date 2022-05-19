@@ -1,4 +1,4 @@
-#customer_reviews_div {
+/* #customer_reviews_div {
   font-family: "Motiva Sans", Sans-serif;
   font-weight: 300;
   font-weight: normal;
@@ -7,10 +7,45 @@
   text-transform: uppercase;
   padding-bottom: 5px;
   letter-spacing: 2px;
-}
+} */
 
-.review-content-container {
+/* .review-content-container {
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  position: relative;
+  top: 50px;
+} */
+
+.edit_review_link, .delete_review_link {
+  text-decoration: none;
+  height: 22px;
+  width: 87px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+  background: #FFF;
+/* border-radius: 3px; */
+  border-color: #D5D9D9;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none !important;
+  color: black;
+  vertical-align: middle;
+}
+
+.edit_review_link:hover, .delete_review_link:hover {
+  background-color: #F7FAFA;
+  border-color: #D5D9D9;
+}
+
+.rev_edit_span, .rev_delete_span {
+  height: 20px !important;
+  text-align: center;
+  font-size: 11px;
+  line-height: 20px;
 }

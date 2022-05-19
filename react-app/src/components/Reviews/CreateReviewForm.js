@@ -4,6 +4,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { create_review } from '../../store/reviews';
 import { get_one_product } from "../../store/product";
 import ReactStars from 'react-stars'
+import ReviewBanner from './ReviewBanner';
 
 import './reviewform.css';
 
@@ -32,7 +33,7 @@ const CreateReview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHasSubmitted(true)
-
+    console.log(errors, "errors-----------------")
     let formErrors = [];
     if (!review_title) formErrors.push("Please provide a title for you review")
     if (!content) formErrors.push("Please provide details")
@@ -41,6 +42,7 @@ const CreateReview = () => {
       return setErrors(formErrors)
     }
 
+
     const review = {
       review_title,
       content,
@@ -48,22 +50,21 @@ const CreateReview = () => {
       user_id: sessionUser.id,
       product_id: productId
     };
+
     let createReview = await dispatch(create_review(review))
+    if (review) return setErrors(review);
     setReview_Title("")
     setContent("")
     setRating("")
     setHasSubmitted(false);
-    history.push(`/products/${product?.category}/${productId}`)
+    history.push(`/reviews/confirm`)
 
   }
 
 
   return (
     <>
-    <div className='user_top_banner'>
-    <img id="profile_img_rev_banner" src='/static/images/default._CR0,0,1024,1024_SX48_.jpg' width='34' height='34' alt=""></img>
-      <p id='rev_prof_name'>{sessionUser?.fullname}</p>
-      </div>
+    <ReviewBanner />
       <div className='top_level_page'>
         <div className="create_review_container">
           <div className="create_form_top_box">
@@ -99,11 +100,11 @@ const CreateReview = () => {
               value={review_title}
               onChange={(e) => setReview_Title(e.target.value)}
             />
-          {errors?.review_title?.map(error => {
-            return (
-              <p className='error' key={error}>{error}</p>
-            )
-          })}
+            <div>
+            {errors.length > 0 && (
+                   errors[0]
+                )}
+          </div>
           </div>
           {/* <div className="review_controls_body">
           <div className="review_controls_container">
@@ -122,11 +123,11 @@ const CreateReview = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
-          {errors?.content?.map(error => {
-            return (
-              <p className='error' key={error}>{error}</p>
-            )
-          })}
+            <div>
+            {errors.length > 0 && (
+                   errors[1]
+                )}
+          </div>
           </div>
           <div className='submit_bttn_rev'>
           <button className="button btn-submit-review" type="submit">

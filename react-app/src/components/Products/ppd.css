@@ -63,8 +63,8 @@
 }
 
 #ppd_reviews_box {
-  border: 1px solid lightgrey;
-  border-radius: 8px;
+  /* border: 1px solid lightgrey;
+  border-radius: 8px; */
   padding: 25px;
 }
 
@@ -118,4 +118,19 @@
 
 .label_select:hover {
   background: #e3e6e6;
+}
+
+#customer_reviews_div {
+  border-bottom: 1px solid lightgrey;
+  height: 310px;
+}
+
+#create_review_box {
+  padding-right: 25px;
+}
+
+.profile_box {
+  display: flex;
+  align-items: center;
+  padding: 8px;
 }
