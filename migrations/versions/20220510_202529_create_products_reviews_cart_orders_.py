@@ -41,6 +41,7 @@ def upgrade():
     sa.Column('product_id', sa.Integer(), nullable=True),
     sa.Column('quantity', sa.Integer(), nullable=False),
     sa.Column('purchased', sa.Boolean(), nullable=True),
+    sa.Column('saved', sa.Boolean(), nullable=True),
     sa.Column('order_id', sa.Integer()),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),

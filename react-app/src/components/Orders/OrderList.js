@@ -73,6 +73,7 @@ const OrderList = ({ user }) => {
         user_id: user.id,
         product_id: item?.product?.id,
         purchased: false,
+        saved: false,
         order_id: orderid,
         quantity: user_quantity,
       };

@@ -15,11 +15,9 @@ const ProductDetails = ({ loaded }) => {
   const history = useHistory();
   const location = useLocation();
   const { fromFiltered } = location?.state;
-  console.log(fromFiltered, "fromFiltered------------------")
   const sessionUser = useSelector((state) => state.session.user);
   // const { productId } = useParams();
   const  productId  = fromFiltered?.id;
-  console.log(productId, 'productId-------------')
   const product = useSelector((state) => state.products[productId]);
   const { reviewId } = useParams();
   const review = useSelector((state) => state.reviews[reviewId]);
@@ -31,6 +29,10 @@ const ProductDetails = ({ loaded }) => {
     dispatch(get_one_product(fromFiltered?.id));
   }, [dispatch]);
 
+  let detailsList = product?.description.split(" . ");
+  let decZero = product?.price.toString().split(".")[0]
+  let decOne = product?.price.toString().split(".")[1]
+
   const filteredReviews = reviews.filter(
     (review) => review.product_id === +productId
   );
@@ -39,14 +41,14 @@ const ProductDetails = ({ loaded }) => {
     (review) =>
       review?.user_id === sessionUser?.id && review?.product_id === +productId
   );
-  console.log(userReview, 'userReview-------------------')
+
 
   const handleAddToCart = () => {
-    // console.log(user_quantity, "user_quantity")
       const data = {
         user_id: sessionUser.id,
         product_id: product.id,
         purchased: false,
+        saved: false,
         order_id: orderid,
         quantity: user_quantity,
       };
@@ -56,16 +58,15 @@ const ProductDetails = ({ loaded }) => {
 
   return (
     <>
-
       <div id="product_page_content_container">
+        <div id='top_ad_bar'>.</div>
         <div id="ppd_top_section">
         <div id="ppd_left_box">
             <div className="s_product_img_container">
               <img
-                className=""
+                className="main_detail_img"
                 src={product?.img}
-                width="213"
-                height="218"
+
                 alt=""
               ></img>
             </div>
@@ -76,17 +77,35 @@ const ProductDetails = ({ loaded }) => {
               <h2>{product?.title}</h2>
             </div>
             <div className='ppd_price_sub_box'>
-              <h3>${product?.price}</h3>
+              <p>$</p><h1>{decZero}</h1><p>{decOne}</p>
             </div>
             <div className='ppd_colors_sub_box'>
               <p>Color:</p>
             </div>
             <div className='ppd_desc_sub_box'>
-              <p>{product?.description}</p>
+            <h2 className='about_text'>About this item</h2>
+              {detailsList?.map(detail =>
+                  <ul id='details_list'>
+                    <li className='list_detail_item'>
+                      {detail}
+                    </li>
+                  </ul>
+                )}
             </div>
           </div>
           <div id="ppd_right_box">
-            <h3>${product?.price}</h3>
+          <div className='ppd_price_sub_box' id='right_price_sub_box'>
+              <p>$</p><h1>{decZero}</h1><p>{decOne}</p>
+              <div><span id='ampersand'>& FREE Returns</span></div>
+            </div>
+              <div><span id='amp_free_prime'>FREE Prime delivery </span></div>
+              <div><span id='amp_date_prime'>Wednesday, May 25. Order within </span></div>
+              <div><span id='amp_deadline'> 2 hrs 50 mins</span></div>
+              <div><span id='amp_location'>
+              <i className='fas fa-map-marker-alt'></i>
+                Deliver to {sessionUser?.fullname} -
+                          {sessionUser?.city} {sessionUser?.zipcode
+                    }</span></div>
             <form className='ppd_add_quantity'>
               <label className='label_select' htmlFor='quantity'>Qty:
               <select
@@ -108,10 +127,8 @@ const ProductDetails = ({ loaded }) => {
               </select>
               </label>
             </form>
-            <AddToCart
-              product={product}
-              handleAddToCart={handleAddToCart}
-            />
+            <h3 id='stock_left' className='stock_right'>Only {product?.stock} left in stock - order soon.</h3>
+            <AddToCart handleAddToCart={handleAddToCart} />
             <button id='buy_bttn' onClick={handleAddToCart}>Buy Now</button>
           </div>
         </div>

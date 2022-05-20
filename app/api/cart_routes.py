@@ -37,6 +37,7 @@ def create_cart():
     user_id = data['user_id'],
     product_id = data['product_id'],
     purchased = data['purchased'],
+    saved = data['saved'],
     order_id = data['order_id'],
     quantity = data['quantity']
   )

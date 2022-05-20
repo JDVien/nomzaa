@@ -10,6 +10,7 @@ class Cart_Item(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     purchased = db.Column(db.Boolean)
     order_id = db.Column(db.Integer)
+    saved = db.Column(db.Boolean)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     #default=datetime.now
@@ -23,6 +24,7 @@ class Cart_Item(db.Model):
             'product_id': self.product_id,
             'quantity': self.quantity,
             'purchased': self.purchased,
+            'saved': self.saved,
             'order_id': self.order_id,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
