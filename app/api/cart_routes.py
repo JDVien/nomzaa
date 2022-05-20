@@ -29,6 +29,8 @@ def delete_cart(id):
 #   else:
 #     return "Bad Data"
 
+# @cart_routes.route('', methods=['POST'])
+# def save_cart():
 
 @cart_routes.route('', methods=['POST'])
 def create_cart():

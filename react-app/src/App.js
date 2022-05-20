@@ -5,7 +5,6 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-// import UsersList from './components/UsersList';
 import User from './components/User';
 import ProductsList from './components/Products/ProductsList';
 import ProductDetails from './components/Products/ProductDetail';
@@ -20,13 +19,14 @@ import EditReview from './components/Reviews/EditReviewForm';
 import DeleteReview from './components/Reviews/DeleteReview';
 import DeleteConfirmation from './components/Reviews/DeleteConfirm';
 import FilteredProducts from './components/Products/FilteredProductsList';
+import ScrollToTop from "./components/ScrollToTop";
+
 import { authenticate } from './store/session';
 
 function App() {
   const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     (async() => {
@@ -41,8 +41,9 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
 
+    <BrowserRouter>
+    <ScrollToTop />
       <Switch>
         <Route exact path="/products">
           <NavBar user={user}/>
