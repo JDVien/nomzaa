@@ -14,7 +14,7 @@
 
 #top_ad_bar {
   margin-top: 25px;
-  background-image: linear-gradient(to right, #ffffff, #e6e5e5 50%);
+  background-image: linear-gradient(to right, #e6e5e5, #fafafac0  70%);
   height: 55px;
 }
 

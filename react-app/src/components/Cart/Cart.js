@@ -121,7 +121,7 @@ const Cart = () => {
     total.push(cart_subtotal);
     if (user_cart.length) {
       setHasCheckedOut(true);
-      setIsSaved(false)
+      // setIsSaved(false)
       dispatch(update_cart(user_cart));
     }
   };

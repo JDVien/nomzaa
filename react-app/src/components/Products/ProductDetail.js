@@ -42,6 +42,18 @@ const ProductDetails = ({ loaded }) => {
       review?.user_id === sessionUser?.id && review?.product_id === +productId
   );
 
+  const handleAddCartRedirect = () => {
+    const data = {
+      user_id: sessionUser.id,
+      product_id: product.id,
+      purchased: false,
+      saved: false,
+      order_id: orderid,
+      quantity: user_quantity,
+    };
+    dispatch(create_cart(data));
+    return history.push("/cart");
+  }
 
   const handleAddToCart = () => {
       const data = {
@@ -53,7 +65,7 @@ const ProductDetails = ({ loaded }) => {
         quantity: user_quantity,
       };
       dispatch(create_cart(data));
-      return history.push("/cart");
+      // return history.push("/cart");
   };
 
   return (
@@ -130,7 +142,7 @@ const ProductDetails = ({ loaded }) => {
             </form>
             <h3 id='stock_left' className='stock_right'>Only {product?.stock} left in stock - order soon.</h3>
             <AddToCart handleAddToCart={handleAddToCart} />
-            <button id='buy_bttn' onClick={handleAddToCart}>Buy Now</button>
+            <button id='buy_bttn' onClick={handleAddCartRedirect}>Buy Now</button>
           </div>
         </div>
         <div id="ppd_bottom_section">

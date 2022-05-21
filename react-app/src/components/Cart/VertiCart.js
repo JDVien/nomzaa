@@ -2,7 +2,7 @@ import {
   delete_cart,
   update_cart,
   create_cart,
-
+  get_all_carts
 } from "../../store/cart";
 import {
   get_all_saved,
