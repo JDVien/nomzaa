@@ -1,4 +1,4 @@
-"""create products reviews cart orders tables
+"""create products reviews cart orders saved tables
 
 Revision ID: ac6ad343928b
 Revises: 44a4c544e5fa

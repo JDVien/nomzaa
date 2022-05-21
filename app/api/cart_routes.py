@@ -16,21 +16,20 @@ def delete_cart(id):
   db.session.commit()
   return "successful delete"
 
-# @cart_routes.route('/', methods=["PUT"])
-# def edit_cart():
-#   data = request.get_json()
-#   # print(data['id'], "data--------------------------------")
-#   cart = Cart_Item.query.get(data['id'])
-#   if request.method == "PUT":
-#     if (cart):
-#       cart.quantity = data['quantity']
-#     db.session.commit()
-#     return cart.to_dict()
-#   else:
-#     return "Bad Data"
+@cart_routes.route('/', methods=["PUT"])
+def edit_cart(id):
+  
+  data = request.get_json()
+  # print(data['id'], "data--------------------------------")
+  cart = Cart_Item.query.get(data['id'])
+  if request.method == "PUT":
+    if (cart):
+      cart.quantity = data['quantity']
+    db.session.commit()
+    return cart.to_dict()
+  else:
+    return "Bad Data"
 
-# @cart_routes.route('', methods=['POST'])
-# def save_cart():
 
 @cart_routes.route('', methods=['POST'])
 def create_cart():

@@ -4,6 +4,8 @@ const CREATE_CART = 'carts/CREATE'
 const UPDATE_CART = 'carts/UPDATE'
 const DELETE_CART = 'carts/DELETE'
 const EDIT_CART = 'carts/EDIT'
+const SAVE_CART = 'carts/SAVE'
+const LOAD_SAVES = 'carts/GET_SAVES'
 
 const all_carts = (carts) => ({
   type: LOAD_ALL_CARTS,
@@ -17,6 +19,11 @@ const get_one = (cart) => ({
 
 const create = (cart) => ({
   type: CREATE_CART,
+  cart
+})
+
+const save = (cart) => ({
+  type: SAVE_CART,
   cart
 })
 
@@ -61,6 +68,25 @@ export const create_cart = (cart) => async (dispatch) => {
     return "ERROR AT CREATE_CART THUNK"
   }
 }
+
+export const save_cart = (cart) => async (dispatch) => {
+  const response = await fetch("/api/carts", {
+    method: "PUT",
+    headers: {
+      'Accept': 'application/json',
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(cart)
+  })
+  if (response.ok) {
+    const cart = await response.json()
+    dispatch(save(cart))
+  } else {
+    return "ERROR AT SAVE_CART THUNK"
+  }
+}
+
+
 export const edit_cart = cart => async (dispatch) => {
   const response = await fetch(`/api/carts/`, {
       method: "PUT",
@@ -119,6 +145,9 @@ const cart_reducer = (state = {}, action) => {
         }
       }
     case CREATE_CART:
+      newState = { ...state, [action.cart.id]: action.cart }
+      return newState;
+    case SAVE_CART:
       newState = { ...state, [action.cart.id]: action.cart }
       return newState;
     case UPDATE_CART:

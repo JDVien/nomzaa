@@ -1,16 +1,23 @@
 import {
-  get_all_carts,
   delete_cart,
   update_cart,
   create_cart,
   edit_cart,
+
 } from "../../store/cart";
+import {
+  get_all_saved,
+  delete_saved,
+  update_saved,
+  create_saved,
+} from "../../store/saved.js";
+
 import { useDispatch, useSelector } from "react-redux";
 import { get_all_products } from "../../store/product";
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import "./index.css";
-import AddToCart from "./AddToCart";
+// import AddToCart from "./AddToCart";
 // import { Link } from 'react-router-dom';
 
 const Cart = () => {
@@ -21,9 +28,13 @@ const Cart = () => {
   const [isDeleted, setIsDeleted] = useState(false);
   let [hasCheckedOut, setHasCheckedOut] = useState(false);
   // const products = useSelector(state => Object.values(state.products))
+  const saved_items = useSelector((state) => Object.values(state.saved));
   const cart_items = useSelector((state) => Object.values(state.carts));
   const user_cart = cart_items.filter(
     (item) => item.user_id === sessionUser.id && !item.purchased
+  );
+  const user_saved = saved_items.filter(
+    (item) => item.user_id === sessionUser.id
   );
   let cart_subtotal = 0.0;
   user_cart.forEach(
@@ -31,9 +42,10 @@ const Cart = () => {
   );
   const total_cost = cart_subtotal;
   const [quantity, setQuantity] = useState(user_cart?.item?.quantity);
-  const [saved, setSaved] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const [yourItems, setYourItems] = useState([]);
-  // const [inCart, setInCart] = useState(false)
+
+  // const saved_items = cart_items.filter((item) => item?.saved === true)
 
   let cart_total_quantity = 0;
   console.log(quantity, "user_quantity");
@@ -41,6 +53,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(get_all_products());
+    dispatch(get_all_saved())
   }, [dispatch]);
 
   const removeCartItem = (item) => {
@@ -49,12 +62,31 @@ const Cart = () => {
   };
 
   const removeSavedItem = (item) => {
-    const newItem = yourItems?.findIndex((i) => i.id === item?.id);
-    setIsDeleted(true);
-    const temp = [...yourItems];
-    temp.splice(newItem, 1);
-    setYourItems(temp);
-    dispatch(delete_cart(item?.id));
+    // const newItem = yourItems?.findIndex((i) => i.id === item?.id);
+    // setIsDeleted(true);
+    // const temp = [...yourItems];
+    // temp.splice(newItem, 1);
+    // setYourItems(temp);
+    setIsSaved(false);
+    dispatch(delete_saved(item?.id));
+  };
+
+  const handleUpdateCart = async (e, item) => {
+    // window.location.reload();
+    const data = {
+      user_id: sessionUser.id,
+      product_id: item?.product_id,
+      purchased: false,
+      saved: false,
+      order_id: item?.order_id,
+      quantity: e.target.value,
+    };
+    if (data) {
+      removeCartItem(item)
+      await dispatch(create_cart(data));
+
+      // return history.push("/cart");
+    }
   };
 
   const handleAddToCart = async (item) => {
@@ -72,48 +104,45 @@ const Cart = () => {
     temp.splice(newItem, 1);
     setYourItems(temp);
     await dispatch(create_cart(data));
+    setIsSaved(false);
+    removeSavedItem(item)
+  };
+
+  const handleSave = async (item) => {
+    const sList = [...yourItems];
+    setIsSaved(true);
+    sList.push(item);
+    const data = {
+      user_id: sessionUser.id,
+      product_id: item?.product_id,
+      purchased: false,
+      cartitem_id: item?.id,
+      saved: true,
+      order_id: item?.order_id,
+      quantity: item?.quantity
+    };
+    if (sList.length) {
+      await dispatch(create_saved(data));
+      dispatch(delete_cart(item?.id));
+      return setYourItems(sList);
+    }
   };
 
   const handlePurchaseCart = () => {
     total.push(cart_subtotal);
     if (user_cart.length) {
       setHasCheckedOut(true);
+      setIsSaved(false)
       dispatch(update_cart(user_cart));
     }
   };
 
-  const handleSave = async (item) => {
-    const sList = [...yourItems];
-    setSaved(true);
-    sList.push(item);
-    if (sList.length) {
-      console.log(sList, "saved");
-      setIsDeleted(true);
-      await dispatch(delete_cart(item?.id));
-      return setYourItems(sList);
-    }
-    console.log(sList, "saved list ------------------>");
-  };
   // const handleQuantity = (e, item) => {
   //   //  setQuantity(e);
   //    handleUpdateCart(e.target.value,item)
   // }
 
-  const handleUpdateCart = async (e, item) => {
-    window.location.reload();
-    const data = {
-      id: item?.id,
-      // user_id: sessionUser.id,
-      // product_id: item?.product_id,
-      // purchased: false,
-      // order_id: item?.order_id,
-      quantity: e.target.value,
-    };
-    if (data) {
-      await dispatch(edit_cart(data));
-      // return history.push("/cart");
-    }
-  };
+
 
   return (
     <>
@@ -141,91 +170,94 @@ const Cart = () => {
                   </>
                 )}
                 {isDeleted && (
-                  <div id="removed-cart-item">Your item has been removed!</div>
+                  <div id="removed-cart-item"><h3>Your item has been removed!</h3></div>
+                )}
+                {isSaved && (
+                  <div id="removed-cart-item"><h3>Your item has has saved below!</h3></div>
                 )}
                 {user_cart?.map((item) => (
-                  <div className="cart_item_container" key={item?.id}>
-                    <div className="cart_item_image">
-                      <a href={`/products/${item?.product_id}`}>
-                        <img
-                          alt="product"
-                          src={item?.product?.img}
-                          width="180"
-                          height="180"
-                        />
-                      </a>
-                    </div>
-                    <div className="cart_item_content_group">
-                      <div className="cart_item_details_list">
-                        <span className="item_title_text">
-                          <Link
-                            className="item_title_a"
-                            to={{
-                              pathname: `/products/${item?.product?.category}/${item?.product_id}`,
-                              state: { fromFiltered: item?.product },
-                            }}
-                          >
-                            {item.product.title}
-                          </Link>
-                        </span>
-                        <div id="cart_item_price"> ${item.product.price}</div>
-                        <div id="cart_item_stock">
-                          <span>
-                            Only {item?.product?.stock} left - order soon.
+                    <div className="cart_item_container" key={item?.id}>
+                      <div className="cart_item_image">
+                        <a href={`/products/${item?.product_id}`}>
+                          <img
+                            alt="product"
+                            src={item?.product?.img}
+                            width="180"
+                            height="180"
+                          />
+                        </a>
+                      </div>
+                      <div className="cart_item_content_group">
+                        <div className="cart_item_details_list">
+                          <span className="item_title_text">
+                            <Link
+                              className="item_title_a"
+                              to={{
+                                pathname: `/products/${item?.product?.category}/${item?.product_id}`,
+                                state: { fromFiltered: item?.product },
+                              }}
+                            >
+                              {item.product.title}
+                            </Link>
                           </span>
-                        </div>
-                        <div id="cart_item_brand">
-                          <span>Shipped from: {item.product.brand}</span>
-                        </div>
-                        <span>Gift options not available. Learn More</span>
-                        <br />
-                        <div id="cart_item_user_options">
-                          <span className="cart_item_option cart_qty">
-                            Qty: {item?.quantity}
-                          </span>
-                          {/* <span className='cart_item_option cart_item_quantity_select'>Qty: {item.quantity}</span> */}
-                          {/* <form className='ppd_add_quantity'>
-                              <label htmlFor='quantity'>Qty:
-                              <select
-                                key={item?.quantity}
-                                className='product_quantity_select'
-                                name="quantity"
-                                value={quantity}
-                                onChange={(e) => handleUpdateCart(e, item)}
-                              >
-                                <option defaultValue="">{item?.quantity}</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                              </select>
-                              </label>
-                            </form> */}
-                          <span className="cart_options_separator">|</span>
-                          <span
-                            id="cart_item_delete_bttn"
-                            className="cart_item_option"
-                            onClick={() => removeCartItem(item)}
-                          >
-                            Delete
-                          </span>
-                          <span className="cart_options_separator">|</span>
-                          <span
-                            className="cart_item_option cart_save"
-                            onClick={() => handleSave(item)}
-                          >
-                            Save for Later
-                          </span>
+                          <div id="cart_item_price"> ${item.product.price}</div>
+                          <div id="cart_item_stock">
+                            <span>
+                              Only {item?.product?.stock} left - order soon.
+                            </span>
+                          </div>
+                          <div id="cart_item_brand">
+                            <span>Shipped from: {item.product.brand}</span>
+                          </div>
+                          <span>Gift options not available. Learn More</span>
+                          <br />
+                          <div id="cart_item_user_options">
+                            {/* <span className="cart_item_option cart_qty">
+                              Qty: {item?.quantity}
+                            </span> */}
+                            {/* <span className='cart_item_option cart_item_quantity_select'>Qty: {item.quantity}</span>  */}
+                             <form className='ppd_add_quantity'>
+                                <label htmlFor='quantity'>Qty:
+                                <select
+                                  key={item?.quantity}
+                                  className='product_quantity_select'
+                                  name="quantity"
+                                  value={quantity}
+                                  onChange={(e) => handleUpdateCart(e, item)}
+                                >
+                                  <option defaultValue="">{item?.quantity}</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                </select>
+                                </label>
+                              </form>
+                            <span className="cart_options_separator">|</span>
+                            <span
+                              id="cart_item_delete_bttn"
+                              className="cart_item_option"
+                              onClick={() => removeCartItem(item)}
+                            >
+                              Delete
+                            </span>
+                            <span className="cart_options_separator">|</span>
+                            <span
+                              className="cart_item_option cart_save"
+                              onClick={() => handleSave(item)}
+                            >
+                              Save for Later
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                 ))}
               </div>
             </div>
@@ -251,13 +283,15 @@ const Cart = () => {
             </div>
           </div>
         </div>
+
         <div className="your_items_container">
           <div className="saved_items_banner_text">
-            <h2>Your Items</h2>
+            <h2>Saved for later</h2>
           </div>
           <div className="page_lower_container">
             <div className="saved_items_box_left">
-              {yourItems.map((item) => (
+              {/* {yourItems.map((item) => ( */}
+              {user_saved?.map((item) => (
                 <div
                   className="cart_item_container"
                   id="saved_box"

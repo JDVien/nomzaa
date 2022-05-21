@@ -26,6 +26,7 @@ class Product(db.Model):
     # image = db.relationship("Image", backref="products", cascade='all,delete')
     # orders = db.relationship("Order", back_populates="products")
     cart_item = db.relationship("Cart_Item", backref="products", cascade='all,delete')
+    saved_item = db.relationship("Saved_Item", backref="products")
 
     def to_dict(self):
         return {
