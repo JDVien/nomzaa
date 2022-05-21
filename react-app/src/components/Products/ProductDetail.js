@@ -1,12 +1,12 @@
 import { get_one_product } from "../../store/product";
-import { get_all_reviews, get_one_review } from "../../store/reviews";
+import { get_all_reviews} from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-// import CreateReview from '../Reviews/CreateReviewForm';
 import Reviews from "../Reviews/ReviewsList";
 import { useParams, useHistory, Link, useLocation } from "react-router-dom";
 import { create_cart } from "../../store/cart";
 import AddToCart from "../Cart/AddToCart";
+import VertiCart from '../Cart/VertiCart';
 
 import "./ppd.css";
 
@@ -20,7 +20,7 @@ const ProductDetails = ({ loaded }) => {
   const  productId  = fromFiltered?.id;
   const product = useSelector((state) => state.products[productId]);
   const { reviewId } = useParams();
-  const review = useSelector((state) => state.reviews[reviewId]);
+  // const review = useSelector((state) => state.reviews[reviewId]);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
@@ -58,6 +58,7 @@ const ProductDetails = ({ loaded }) => {
 
   return (
     <>
+      <VertiCart />
       <div id="product_page_content_container">
         <div id='top_ad_bar'>.</div>
         <div id="ppd_top_section">

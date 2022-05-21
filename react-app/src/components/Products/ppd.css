@@ -24,10 +24,6 @@
   padding: 40px;
 }
 
-.s_product_img_container {
-  width: 625px;
-}
-
 .main_detail_img {
   max-width: 425px;
 }
@@ -66,7 +62,6 @@
 .ppd_desc_sub_box {
   padding: 5px;
   border-top: 1px solid lightgrey;
-
 }
 
 /* .ppd_desc_sub_box::before {

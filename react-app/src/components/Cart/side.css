@@ -1,0 +1,152 @@
+.vcart_page_container {
+  width: 220px;
+  height: 756px;
+  height: 100%;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #333;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  border: 1px solid #bbb;
+  box-shadow: 0 0 2px 1px rgba(222, 220, 218, 0.5);
+  background-color: white;
+  padding: 0;
+  z-index: 100;
+  overflow-x: hidden;
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}
+
+#shopping_vcart_text_div {
+  text-align: center;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+#vcheckout_box {
+  padding: 10px;
+}
+
+.vsubtotal_row {
+  margin-bottom: 10px;
+}
+
+#vsubtotal_text_quantity {
+  font-weight: 600;
+}
+
+#vsubtotal_price {
+  color: #982002 !important;
+  font-weight: 600;
+}
+
+.v_checkout_bttn {
+  padding-bottom: 10px;
+  border-radius: 1px;
+}
+.vcart_item_container {
+  padding: 16px 0 15px 11px;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.vcart_item_container:hover {
+  padding: 16px 0 15px 11px;
+  border-bottom: 1px solid #E5E5E5;
+  box-shadow: 0 0 2px 1px rgba(228, 123, 17, 0.371);
+}
+
+
+.item_title_a {
+  text-decoration: none;
+  color: black;
+}
+.item_title_a:hover {
+  color: rgb(228, 123, 17);
+}
+
+.v_add_quantity {
+  border: 1px solid lightgrey;
+  position:relative;
+  border-radius: 3px;
+  right: 5px;
+  padding-left: 2px;
+  background: #fbfdff;
+  box-shadow: 0 2px 5px 0 rgba(113, 112, 112, 0.5);
+  cursor: pointer;
+  font-size: 12px;
+  background-image: linear-gradient(to bottom,#f7f8fa,#ebedf19f);
+}
+
+.v_add_quantity:hover {
+  background: #e3e6e6;
+}
+
+.v_quantity_select {
+  border: none;
+  background: none;
+  font-size: 12px;
+}
+
+#v_img {
+  float: left;
+  width: 50px;
+  padding-right: 9px;
+  /* height: 50px; */
+}
+
+.vcart_stock, .vcart_price {
+  color: #B12704 !important;
+  padding-top: 4px;
+}
+
+#v_prime_sm {
+  margin-top: 3px;
+  padding-top: 2px;
+  padding-left: 8px;
+}
+
+.vcart_item_option {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #0066C0;
+  font-weight: 600;
+
+}
+
+.vcart_item_option:hover {
+  color: rgb(228, 123, 17);
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(00%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.vw_lab_edit_bg {
+  animation: 300s ease-out 0s 1 slideInFromRight;
+  z-index: 10;
+
+}

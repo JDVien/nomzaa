@@ -1,4 +1,6 @@
-
+body{
+  font-family: "Amazon Ember",Arial,sans-serif;
+}
 #main {
   background: #EAEDED;
   display: flex;

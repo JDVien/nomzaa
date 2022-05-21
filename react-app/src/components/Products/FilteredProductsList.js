@@ -3,6 +3,7 @@ import { useLocation, Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
 import { get_all_products } from "../../store/product";
+import VertiCart from '../Cart/VertiCart';
 import "./index.css";
 
 const FilteredProducts = () => {
@@ -52,6 +53,7 @@ const FilteredProducts = () => {
 
   return (
     <>
+     <VertiCart />
     <div className='filter_list_container'>
       {filter?.map((product) => (
         <div className='list_item_box' key={product?.id}>
@@ -68,11 +70,19 @@ const FilteredProducts = () => {
               <div className="product_item_detail_row_sub_container">
 
                 {/* <Link to={{ pathname:`/products/'${filter}'/${product?.id}`, state: { fromFiltered: product }}}> */}
-                <Link to={{ pathname:`/products/${product?.category}/${product?.id}`, state: { fromFiltered: product }}}>
-                  <h2>{product?.title}</h2>
+                <Link className='fpl_link' to={{ pathname:`/products/${product?.category}/${product?.id}`, state: { fromFiltered: product }}}>
+                  <h2 id='fpl_prod_title'>{product?.title}</h2>
                 </Link>
-                <p>{product?.brand}</p>
-                <p>${product?.price}</p>
+                <span className='fpl_brand'>{product?.brand}</span>
+                <div className='fpl_price_sub_box'>
+                   <p>$</p><h2>{product?.price.toString().split(".")[0]}</h2><p id='fpl_price_p'>{product?.price.toString().split(".")[1]}</p>
+                </div>
+                <div className='fpl_prime_div'>
+                <img id='prime_sm' src='/static/images/prime_sm_fpl.png' alt='prime'/>
+                <span className='fpl_span'>FREE Delivery{":  "}<p className='fpl_delivery'> Wed, May 25</p></span><br />
+                </div>
+                <span className='fpl_stock'>Only {product?.stock} left in stock - order soon.</span><br />
+                <span className='fpl_item_age_limit'>Ages: 15 years and up</span>
               </div>
             </div>
           </div>

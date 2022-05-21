@@ -1,18 +1,112 @@
 .product_item_row_container {
-  border-top: 1px solid lightgrey;
+  /* border-top: 1px solid lightgrey; */
   display: inline-flex;
-  padding: 50px;
+  width: 300px;
+  height: 525px;
+  /* height: calc(100% - 8px); */
+  flex-direction: column;
+
   /* background-color: #f7f7f7; */
 }
 
 .list_item_box {
-  margin-left: 200px;
   display: inline-flex;
-  padding: 35px;
-  max-width: 568px;
-  /* border-bottom: 1px solid lightgrey; */
+  /* padding: 35px; */
+  /* max-width: 568px; */
+  border: 1px solid rgba(228, 226, 226, 0.464);
+  border-radius: 5px;
+  margin-bottom: 8px;
+  margin: 0 0 0 10px;
 }
 
 .product_item_detail_row_sub_container {
   padding-left: 16px;
+}
+
+.filter_list_container{
+  position: relative;
+  top: 100px;
+  left: 400px;
+  width: 1296px;
+  /* display: flex; */
+  /* justify-content: right; */
+  overflow-x: hidden;
+  grid-column: auto/span 4;
+  grid-column-start: auto;
+  grid-column-end: span 2;
+}
+
+.s_product_img_container {
+  display: flex;
+  justify-content: center;
+  border: 0.5px solid rgba(228, 226, 226, 0.464);
+  border-radius: 5px;
+}
+
+.fpl_link {
+  text-decoration: none;
+}
+
+#fpl_prod_title {
+  font-size: 17px !important;
+  line-height: 24px !important;
+  text-decoration: none;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+}
+
+#fpl_prod_title:hover {
+  color: #c45500 !important;
+}
+
+.fpl_brand {
+  font-size: 14px;
+}
+
+.fpl_span{
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  direction: ltr;
+}
+
+.fpl_delivery {
+  font-weight: 700 !important;
+
+}
+
+.fpl_stock {
+  color: #B12704 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+.fpl_item_age_limit {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+.fpl_prime_div {
+  height: 35px;
+}
+
+#prime_sm {
+  padding-right: 5px;
+}
+
+.fpl_price_sub_box {
+  display: flex;
+  height: 30px;
+}
+.fpl_price_sub_box h2 {
+  position: relative;
+  bottom: 10px;
+}
+
+#fpl_price_p {
+  top: -.5em;
+  font-size: 12px;
 }
