@@ -178,6 +178,11 @@
   color: #eca140;
 }
 
+.search_to_link {
+  text-decoration: none;
+  color: black;
+}
+
 .search_bttn {
   background-color: #febd69;
   height: 100%;

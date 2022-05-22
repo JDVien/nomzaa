@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 
-
-
 const SearchBar = () => {
     const history = useHistory()
 
@@ -16,6 +14,7 @@ const SearchBar = () => {
     useEffect(() => {
         setFilteredList(productlist.filter(product => product[0].toLowerCase().includes(searchWord.toLowerCase())))
     }, [searchWord])
+
     function handleSubmit(e) {
         console.log(filteredList[0][2], 'filteredList')
         e.preventDefault();
@@ -47,10 +46,10 @@ const SearchBar = () => {
                                 key={product.id}
                                 value={product.title}
                                 onClick={() => (
-                                    history.push(`/products/${product?.category}/${product?.id}`)
-                                    // <Link to={{ pathname:`/products/${product?.category}/${product[2]}`, state: { fromSearch: product}}}/>
+                                    // history.push(`/products/${product?.category}/${product?.id}`)
+                                    <Link to={{ pathname:`/products/${product?.category}/${product[2]}`, state: { fromSearch: product}}}/>
 
-                                    // </Link>
+                          
 
                                     )}
                             >{product[0]}</li>

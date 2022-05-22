@@ -18,7 +18,7 @@ const NavBar = ({user}) => {
   const history = useHistory()
   const [showCart, setShowCart] = useState(false);
   const products = useSelector(state => state.products)
-  const productlist = Object.values(products).map(product => [product.title, product.id])
+  const productlist = Object.values(products).map(product => [product.title, product])
 
   const [filteredList, setFilteredList] = useState([])
   const [searchWord, setSearchWord] = useState("")
@@ -35,6 +35,7 @@ const NavBar = ({user}) => {
       if (filteredList.length > 0) {
           history.push(`/products/${filteredList[0][2]}`)
       }
+      setSearchWord("")
   }
 
   // const openMenu = () => {
@@ -89,15 +90,23 @@ const NavBar = ({user}) => {
                 className='nav_input'
                 placeholder='Search for products'
             />
-            {searchWord != '' && (
+            {searchWord !== '' && filteredList.length > 0 && (
                 <div className='search_result_body'>
                     <ul className='search_result_list'>
                         {filteredList.map((product) => (
                             <li className='search_result_li'
                                 key={product.id}
                                 value={product.long_name}
-                                onClick={() => history.push(`/products/${product[2]}`)}
-                            >{product[0]}</li>
+                                onClick={() => (
+                                  setFilteredList([])
+                                )}
+                            >
+                                <Link className='search_to_link'
+                                      to={{ pathname:`/products/${product[1]?.category}/${product[1]?.id}`,
+                                      state: { fromFiltered: product[1]}}}>
+                                      {product[0]}
+                                </Link>
+                              </li>
                         ))}
                     </ul>
                 </div>
