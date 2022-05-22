@@ -1,6 +1,11 @@
 body{
   font-family: "Amazon Ember",Arial,sans-serif;
 }
+
+a {
+  text-decoration: none;
+}
+
 #main {
   background: #EAEDED;
   display: flex;
@@ -41,7 +46,7 @@ h3 {
 }
 
 .a_box_left:hover, .b_box_left:hover {
-  box-shadow: 0 2px 5px 0 #f7dfa5;
+  box-shadow: 0 2px 12px 0 #f7dfa5;
 }
 
 .a_box_img, .b_box_img {

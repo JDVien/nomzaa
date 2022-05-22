@@ -126,8 +126,8 @@ const Main = ({ user, loaded }) => {
               <Link
                     className="filter_link"
                     to={{
-                      pathname: "/products/groceries",
-                      state: { fromMainGroceries: "groceries" },
+                      pathname: `/products/${saved_items[0]?.product?.category}/${saved_items[0]?.product?.id}`,
+                      state: { fromFiltered: saved_items[0]?.product },
                     }}
                 >
                   <img
@@ -138,7 +138,13 @@ const Main = ({ user, loaded }) => {
                     alt=""
                   ></img>
                 </Link>
-                <a href="/products">
+                <Link
+                    className="filter_link"
+                    to={{
+                      pathname: `/products/${saved_items[1]?.product?.category}/${saved_items[1]?.product?.id}`,
+                      state: { fromFiltered: saved_items[1]?.product },
+                    }}
+                >
                   <img
                     className="b_box_img quad_img"
                     src={saved_items[1]?.product?.img}
@@ -146,8 +152,14 @@ const Main = ({ user, loaded }) => {
                     height="auto"
                     alt=""
                   ></img>
-                </a>
-                <a href="/products">
+                </Link>
+                <Link
+                    className="filter_link"
+                    to={{
+                      pathname: `/products/${saved_items[2]?.product?.category}/${saved_items[2]?.product?.id}`,
+                      state: { fromFiltered: saved_items[2]?.product },
+                    }}
+                >
                   <img
                     className="b_box_img quad_img"
                     src={saved_items[2]?.product?.img}
@@ -155,8 +167,14 @@ const Main = ({ user, loaded }) => {
                     height="auto"
                     alt=""
                   ></img>
-                </a>
-                <a href="/products">
+                </Link>
+                <Link
+                    className="filter_link"
+                    to={{
+                      pathname: `/products/${saved_items[3]?.product?.category}/${saved_items[3]?.product?.id}`,
+                      state: { fromFiltered: saved_items[3]?.product },
+                    }}
+                >
                   <img
                     className="b_box_img quad_img"
                     src={saved_items[3]?.product?.img}
@@ -164,7 +182,7 @@ const Main = ({ user, loaded }) => {
                     height="auto"
                     alt=""
                   ></img>
-                </a>
+                </Link>
               </div>
               <Link to={'/cart'}>
               <p className="shop_now_text">See More</p>
