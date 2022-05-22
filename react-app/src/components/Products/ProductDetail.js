@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 // import ReactImageZoom from 'react-image-zoom';
 import Reviews from "../Reviews/ReviewsList";
-import { useParams, useHistory, Link, useLocation } from "react-router-dom";
+import { useHistory, Link, useLocation } from "react-router-dom";
 import { create_cart } from "../../store/cart";
 import ReactStars from 'react-stars'
 import AddToCart from "../Cart/AddToCart";
@@ -18,10 +18,11 @@ const ProductDetails = ({ loaded }) => {
   const location = useLocation();
   const { fromFiltered } = location?.state;
   const sessionUser = useSelector((state) => state.session.user);
+  console.log(fromFiltered, "fromFiltered for search")
   // const { productId } = useParams();
   const  productId  = fromFiltered?.id;
   const product = useSelector((state) => state.products[productId]);
-  const { reviewId } = useParams();
+  // const { reviewId } = useParams();
   // const review = useSelector((state) => state.reviews[reviewId]);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)

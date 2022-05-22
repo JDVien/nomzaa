@@ -5,9 +5,11 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Products from '../Products/ProductsList';
+import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import "./index.css";
 
-const Main = ({ user }) => {
+const Main = ({ user, loaded }) => {
   const dispatch = useDispatch();
   const products = useSelector((state) => Object.values(state.products));
   const getRandomInt = (max) => {return Math.floor(Math.random() * max);};
@@ -19,18 +21,27 @@ const Main = ({ user }) => {
   }, [dispatch]);
 
   const saved_items = useSelector((state) => Object.values(state.saved));
-  console.log(saved_items, "products")
-  const saved_products = products.filter((item) => item?.id === saved_items[getRandomInt(saved_items.length -1)]?.product_id)
-  console.log(saved_products, "saved_products")
+  // const saved_products = saved_items.filter((item) => item?.product_id === product?.id)
+  console.log(saved_items, "saved_products+++++++++++++++++++++")
+  // const getLoad = () => {
 
+  //   setTimeout(() => {
+
+  //     <CircularProgress width="40" />
+
+  //   }, 4000)
+
+  // }
 
   return (
+    <>
     <div id="main">
       <div id="main_content_body">
         <div id="header_panel_content">
           <div id="header_banner">
             <div className="banner_carousel">
-              <input type="checkbox" className="faux-ui-facia"></input>
+
+              <input type="checkbox" className="faux-ui-facia"/>
               <div
                 className="slide"
                 slide="5"
@@ -112,10 +123,16 @@ const Main = ({ user }) => {
                 <h3>Pick Up Where You Left Off</h3>
               </span>
               <div className="b_box_left_content quad_box">
-                <Link to={`/products`}>
+              <Link
+                    className="filter_link"
+                    to={{
+                      pathname: "/products/groceries",
+                      state: { fromMainGroceries: "groceries" },
+                    }}
+                >
                   <img
                     className="b_box_img quad_img"
-                    src={products[getRandomInt(30)]?.img}
+                    src={saved_items[0]?.product?.img}
                     width="120"
                     height="auto"
                     alt=""
@@ -124,7 +141,7 @@ const Main = ({ user }) => {
                 <a href="/products">
                   <img
                     className="b_box_img quad_img"
-                    src={products[getRandomInt(30)]?.img}
+                    src={saved_items[1]?.product?.img}
                     width="120"
                     height="auto"
                     alt=""
@@ -133,7 +150,7 @@ const Main = ({ user }) => {
                 <a href="/products">
                   <img
                     className="b_box_img quad_img"
-                    src={products[getRandomInt(30)]?.img}
+                    src={saved_items[2]?.product?.img}
                     width="120"
                     height="auto"
                     alt=""
@@ -142,7 +159,7 @@ const Main = ({ user }) => {
                 <a href="/products">
                   <img
                     className="b_box_img quad_img"
-                    src={products[getRandomInt(30)]?.img}
+                    src={saved_items[3]?.product?.img}
                     width="120"
                     height="auto"
                     alt=""
@@ -320,6 +337,7 @@ const Main = ({ user }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
