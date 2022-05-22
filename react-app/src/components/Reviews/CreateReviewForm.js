@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import { create_review } from "../../store/reviews";
 import { get_one_product } from "../../store/product";
 import ReactStars from "react-stars";
@@ -23,7 +23,6 @@ const CreateReview = () => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
 
-  // Catch Rating value
   const updateRating = (val) => setRating(val);
 
   useEffect(() => {
@@ -33,7 +32,6 @@ const CreateReview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHasSubmitted(true);
-    // console.log(errors, "errors-----------------")
     let formErrors = [];
     if (!review_title) formErrors.push("Please provide a title for you review");
     if (!content) formErrors.push("Please provide details");
@@ -52,7 +50,16 @@ const CreateReview = () => {
 
     let createReview = await dispatch(create_review(review));
     if (review.length > 0) return setErrors(review);
-    else history.push(`/reviews/confirm`);
+    else {
+       history.push(`/reviews/confirm`);
+    //   <Link
+    //   className="review_confirm_link"
+    //   to={{
+    //     pathname: `/reviews/confirm`,
+    //     state: { fromReviewCreate: review },
+    //   }}
+    // />
+    }
     setReview_Title("");
     setContent("");
     setRating("");
@@ -72,7 +79,7 @@ const CreateReview = () => {
             </div>
           </div>
           <div className="review-form-container">
-            <form onSubmit={handleSubmit} className="review-content-container">
+            <form onSubmit={(e) => handleSubmit(e)} className="review-content-container">
               <div className="rating-div">
                 <h2>Overall rating</h2>
               </div>

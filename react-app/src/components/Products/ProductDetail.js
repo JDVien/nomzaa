@@ -53,6 +53,7 @@ const ProductDetails = ({ loaded }) => {
   );
 
   const handleAddCartRedirect = () => {
+    if (sessionUser) {
     const data = {
       user_id: sessionUser.id,
       product_id: product.id,
@@ -63,9 +64,11 @@ const ProductDetails = ({ loaded }) => {
     };
     dispatch(create_cart(data));
     return history.push("/cart");
+   } else history.push('/login')
   }
 
   const handleAddToCart = () => {
+    if (sessionUser) {
       const data = {
         user_id: sessionUser.id,
         product_id: product.id,
@@ -75,7 +78,7 @@ const ProductDetails = ({ loaded }) => {
         quantity: user_quantity,
       };
       dispatch(create_cart(data));
-      // return history.push("/cart");
+     } else history.push("/login")
   };
 
   const handleShowVertiCart = () => {

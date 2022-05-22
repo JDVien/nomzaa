@@ -20,7 +20,7 @@ import "./index.css";
 const Cart = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const total = [];
   const [isDeleted, setIsDeleted] = useState(false);
   let [hasCheckedOut, setHasCheckedOut] = useState(false);
@@ -162,14 +162,20 @@ const Cart = () => {
                 {user_cart?.map((item) => (
                     <div className="cart_item_container" key={item?.id}>
                       <div className="cart_item_image">
-                        <a href={`/products/${item?.product_id}`}>
+                      <Link
+                          className="item_title_a"
+                          to={{
+                            pathname: `/products/${item?.product?.category}/${item?.product_id}`,
+                            state: { fromFiltered: item?.product },
+                          }}
+                        >
                           <img
                             alt="product"
                             src={item?.product?.img}
                             width="180"
                             height="180"
                           />
-                        </a>
+                          </Link>
                       </div>
                       <div className="cart_item_content_group">
                         <div className="cart_item_details_list">
@@ -258,7 +264,7 @@ const Cart = () => {
                         <p>$</p>
                         <h1>{cart_subtotal.toString().split(".")[0]}</h1>
                         <p id="fpl_price_p">
-                          {cart_subtotal.toString().split(".")[1]}
+                          {cart_subtotal.toFixed(2).toString().split(".")[1]}
                         </p>
                         </div>
                 <br />
