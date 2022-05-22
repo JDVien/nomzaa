@@ -1,20 +1,28 @@
 import * as React from "react";
 import { get_all_products } from "../../store/product";
+import { get_all_saved } from "../../store/saved";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Products from '../Products/ProductsList';
 import "./index.css";
 
 const Main = ({ user }) => {
   const dispatch = useDispatch();
   const products = useSelector((state) => Object.values(state.products));
-  const getRandomInt = (max) => {
-    return Math.floor(Math.random() * max);
-  };
-
+  const getRandomInt = (max) => {return Math.floor(Math.random() * max);};
   useEffect(() => {
-    dispatch(get_all_products());
+    if (user) {
+      dispatch(get_all_products());
+      dispatch(get_all_saved())
+    }
   }, [dispatch]);
+
+  const saved_items = useSelector((state) => Object.values(state.saved));
+  console.log(saved_items, "products")
+  const saved_products = products.filter((item) => item?.id === saved_items[getRandomInt(saved_items.length -1)]?.product_id)
+  console.log(saved_products, "saved_products")
+
 
   return (
     <div id="main">
@@ -104,7 +112,7 @@ const Main = ({ user }) => {
                 <h3>Pick Up Where You Left Off</h3>
               </span>
               <div className="b_box_left_content quad_box">
-                <a href={`/products/${products[getRandomInt(30)]?.category}`}>
+                <Link to={`/products`}>
                   <img
                     className="b_box_img quad_img"
                     src={products[getRandomInt(30)]?.img}
@@ -112,7 +120,7 @@ const Main = ({ user }) => {
                     height="auto"
                     alt=""
                   ></img>
-                </a>
+                </Link>
                 <a href="/products">
                   <img
                     className="b_box_img quad_img"
@@ -141,7 +149,9 @@ const Main = ({ user }) => {
                   ></img>
                 </a>
               </div>
+              <Link to={'/cart'}>
               <p className="shop_now_text">See More</p>
+              </Link>
             </div>
             <div className="a_box_left">
               <span className="a_box_title_text">
@@ -209,6 +219,9 @@ const Main = ({ user }) => {
             />
           </Link>
         </div>
+        <div className='products_list_carousel'>
+            <Products />
+          </div>
         <div className="b_boxes_container">
           <div className="b_box_left">
             <span className="b_box_title_text">

@@ -15,3 +15,19 @@ def get_specific_product(id):
     product = Product.query.get(id)
     # print('================', product.to_dict())
     return {'product': product.to_dict()}
+
+@product_routes.route('/', methods=['PUT'])
+def update_product():
+  data = request.get_json()
+  products_list = []
+  product = Product.query.get(data[0]['id'])
+  for item in data:
+    product_item = Product.query.get(item['id'])
+    product_item.stock -= product.stock
+
+    products_list.append(product_item.to_dict())
+
+  db.session.commit()
+  return {'products': products_list}
+
+

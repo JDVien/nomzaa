@@ -1,4 +1,6 @@
-
+body{
+  font-family: "Amazon Ember",Arial,sans-serif;
+}
 #main {
   background: #EAEDED;
   display: flex;
@@ -59,7 +61,7 @@ h3 {
   display: flex;
   justify-content: space-around;
   position: relative;
-  top: 140px;
+  top: 165px;
   z-index: 50;
   background: none;
 }

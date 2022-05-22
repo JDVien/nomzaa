@@ -1,5 +1,6 @@
 from app.models import db, User
-
+from faker import Faker
+import requests
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
@@ -16,8 +17,20 @@ def seed_users():
     nate = User(
         fullname='Nate Zavala', email='nate@nate.com', password='jared', city='Los Angeles', zipcode='90210')
 
+    # f = Faker()
+    # response = requests.get('https://dummyjson.com/users')
+    # users = response.json()['users']
+    # for user in users:
+    #   newUser = User(
+    #     fullname=user['firstName'] + ' ' + user['lastName'],
+    #     email=user['email'],
+    #     password='password',
+    #     city=user['address']['city'],
+    #     zipcode=f.postcode(),
+    #   )
 
     db.session.add_all([demo,damian,jason,chris,jared,nate])
+    # db.session.add(newUser)
     db.session.commit()
 
 

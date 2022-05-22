@@ -32,10 +32,15 @@
   color: white;
 }
 
+.navlink_nav_item:hover {
+  color: #febd69;
+}
+
 #nom_nav_logo {
   padding-left: 15px;
   padding-right: 35px;
 }
+
 
 #nav_user_location{
   padding: 25px;
@@ -222,6 +227,14 @@
   height: 36px;
   border-right: 1px solid lightgrey;
   text-align: center;
+}
+
+#profile {
+  cursor: pointer;
+}
+
+#profile:hover {
+  color: #febd69;
 }
 
 .profile_dropdown_menu {

@@ -24,7 +24,6 @@ const OrderList = ({ user }) => {
     // .map((product) => product.product);
 
   const DATE_OPTIONS = { year: 'numeric', month: 'short', day: 'numeric' };
-
   const DAY_OPTION = { day: 'numeric'}
 
   const handleTotalCost = (price) => {
@@ -73,6 +72,7 @@ const OrderList = ({ user }) => {
         user_id: user.id,
         product_id: item?.product?.id,
         purchased: false,
+        saved: false,
         order_id: orderid,
         quantity: user_quantity,
       };

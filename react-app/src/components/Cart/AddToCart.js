@@ -1,6 +1,6 @@
 import '../Products/ppd.css'
 
-const AddToCart = ({ product, handleAddToCart}) => {
+const AddToCart = ({ handleAddToCart}) => {
   return (
     <div id="add-cart-content">
       <div id="add-cart-item-action-div">

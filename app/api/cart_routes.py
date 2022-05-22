@@ -17,7 +17,8 @@ def delete_cart(id):
   return "successful delete"
 
 # @cart_routes.route('/', methods=["PUT"])
-# def edit_cart():
+# def edit_cart(id):
+
 #   data = request.get_json()
 #   # print(data['id'], "data--------------------------------")
 #   cart = Cart_Item.query.get(data['id'])
@@ -37,6 +38,7 @@ def create_cart():
     user_id = data['user_id'],
     product_id = data['product_id'],
     purchased = data['purchased'],
+    saved = data['saved'],
     order_id = data['order_id'],
     quantity = data['quantity']
   )
@@ -53,6 +55,7 @@ def update_cart():
     cart_item = Cart_Item.query.get(item['id'])
     cart_item.order_id = cart_order.id
     cart_item.purchased = True
+    
     carts_list.append(cart_item.to_dict())
 
   db.session.commit()

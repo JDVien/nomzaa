@@ -1,0 +1,61 @@
+#footer {
+  margin-top:  250px;
+}
+
+#footer_top {
+  padding-bottom: 0;
+  background-color: #232F3E;
+  min-width: 500px;
+  position: relative;
+  padding: 0 0 7px 0;
+  padding-bottom: 7px;
+  height: 400px;
+}
+
+#footer_bottom {
+  background-color: #131A22;
+  padding: 30px 0;
+  height: 200px;
+}
+
+
+#footer_top_logo_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid rgba(228, 226, 226, 0.464);
+  width: 100%;
+  padding-left: 20px;
+  padding: 20px;
+}
+
+#footer_head_top {
+  font-family: inherit;
+  background-color: #3d4a5a;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer
+}
+#footer_head_top:hover {
+  font-family: inherit;
+  background-color: #485769;
+}
+
+.bottom_about_row {
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.bottom_about_tag_jdv {
+  padding-left: 40px;
+}
