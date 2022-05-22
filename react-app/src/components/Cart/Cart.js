@@ -11,7 +11,7 @@ import {
 } from "../../store/saved.js";
 
 import { useDispatch, useSelector } from "react-redux";
-import { get_all_products } from "../../store/product";
+import { get_all_products, update_product } from "../../store/product";
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import Products from '../Products/ProductsList';
@@ -122,8 +122,8 @@ const Cart = () => {
     total.push(cart_subtotal);
     if (user_cart.length) {
       setHasCheckedOut(true);
-      // setIsSaved(false)
       dispatch(update_cart(user_cart));
+      // dispatch(update_product(product))
     }
   };
 
@@ -157,7 +157,7 @@ const Cart = () => {
                   <div id="removed-cart-item"><h3>Your item has been removed!</h3></div>
                 )}
                 {isSaved && (
-                  <div id="removed-cart-item"><h3>Your item has has saved below!</h3></div>
+                  <div id="removed-cart-item"><h3>Your item has been saved below!</h3></div>
                 )}
                 {user_cart?.map((item) => (
                     <div className="cart_item_container" key={item?.id}>
@@ -246,13 +246,21 @@ const Cart = () => {
               </div>
             </div>
           </div>
+
           <div id="right_cart_col_container" className="cart_right_column">
             <div id="checkout_box">
               <div className="subtotal_row">
                 <span id="subtotal_text_quantity">
-                  Subtotal ({cart_total_quantity}):{" "}
+                  Subtotal ({cart_total_quantity} items):{" "}
                 </span>
-                <span id="subtotal_price">$ {cart_subtotal.toFixed(2)}</span>
+                {/* <span id="subtotal_price">$ {cart_subtotal.toFixed(2)}</span> */}
+                <div className="fpl_price_sub_box" id='cart_ver_price_box'>
+                        <p>$</p>
+                        <h1>{cart_subtotal.toString().split(".")[0]}</h1>
+                        <p id="fpl_price_p">
+                          {cart_subtotal.toString().split(".")[1]}
+                        </p>
+                        </div>
                 <br />
                 <button
                   id="checkout_proceed_bttn"
@@ -262,9 +270,9 @@ const Cart = () => {
                 </button>
               </div>
             </div>
-            <div id="recent_viewed_items_box">
+            {/* <div id="recent_viewed_items_box">
               <span id="recent_views_text">Your recently viewed items</span>
-            </div>
+            </div> */}
           </div>
         </div>
 

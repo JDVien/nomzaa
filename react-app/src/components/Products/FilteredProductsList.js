@@ -19,6 +19,8 @@ const FilteredProducts = () => {
   const { fromMainFashion } = location?.state;
   const { fromMainPets } = location?.state;
   const { fromMainHousehold } = location?.state;
+  const { fromMainToys } = location?.state;
+  const { fromMainImprovement } = location?.state;
   console.log(Object.values(location?.state)[0], "fromMainFilter");
   // console.log(fromMainElectronics === Object.values(location?.state)[0], "fromMainElectonics")
   const products = useSelector((state) => Object.values(state?.products));
@@ -40,6 +42,12 @@ const FilteredProducts = () => {
   const household = products?.filter(
     (product) => product?.category === "household"
   );
+  const toys = products?.filter(
+    (product) => product?.category === "toys"
+  );
+  const home_improvement = products?.filter(
+    (product) => product?.category === "home-improvement"
+  );
   // (location.state === fromMainGroceries) ? setFilter(groceries) : setFilter(electonics)
   if (Object.values(location?.state)[0] === fromMainGroceries) {
     filter = groceries;
@@ -53,9 +61,11 @@ const FilteredProducts = () => {
     filter = beauty_personal;
   } else if (Object.values(location?.state)[0] === fromMainHousehold) {
     filter = household;
+  } else if (Object.values(location?.state)[0] === fromMainToys) {
+    filter = toys;
+  } else if (Object.values(location?.state)[0] === fromMainImprovement) {
+    filter = home_improvement;
   }
-
-  console.log(filter, "filter");
 
   useEffect(() => {
     dispatch(get_all_products());

@@ -160,8 +160,8 @@ const NavBar = ({user}) => {
           <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
           <span className='subnav_category'>Smart Devices</span>
           </Link>
-          <Link className='filter_link' to='/products'>
-          <span className='subnav_category'>Pharmacy</span>
+          <Link className='filter_link' to={{ pathname: '/products/home-improvment', state: { fromMainImprovement: "home-improvement"}}}>
+          <span className='subnav_category'>Home Improvement</span>
           </Link>
           <Link className='filter_link' to={{ pathname:'/products/pet supplies', state: { fromMainPets: "pet supplies"}}}>
           <span className='subnav_category'>Pet Supplies</span>

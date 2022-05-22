@@ -57,6 +57,8 @@
   top: 50px;
   width: 300px;
   max-height: 106px;
+  border: 1px #D5D9D9 solid;
+   border-radius: 5px;
 }
 
 .cart_right_column {
@@ -73,6 +75,17 @@
 .cart_item_option {
   padding-right: 10px;
   padding-left: 10px;
+}
+
+#subtotal_text_quantity {
+  font-size: 18px;
+}
+
+#cart_ver_price_box {
+  padding-bottom: 15px;
+  position: relative;
+  left: 160px;
+  bottom: 52px;
 }
 
 #checkout_proceed_bttn {

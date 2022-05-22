@@ -7,7 +7,7 @@ class Product(db.Model):
     __tablename__ = 'products'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(150), nullable=False, unique=True)
+    title = db.Column(db.String(300), nullable=False, unique=True)
     brand = db.Column(db.String(50), nullable=False)
     price = db.Column(db.Float(precision=4, asdecimal=False), nullable=False)
     description = db.Column(db.String(2500), nullable=False)

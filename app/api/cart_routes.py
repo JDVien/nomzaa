@@ -55,6 +55,7 @@ def update_cart():
     cart_item = Cart_Item.query.get(item['id'])
     cart_item.order_id = cart_order.id
     cart_item.purchased = True
+    
     carts_list.append(cart_item.to_dict())
 
   db.session.commit()

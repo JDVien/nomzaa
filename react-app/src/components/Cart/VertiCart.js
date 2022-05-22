@@ -20,6 +20,7 @@ import "./side.css";
 const VertiCart = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
   const total = [];
   const [isDeleted, setIsDeleted] = useState(false);
   let [hasCheckedOut, setHasCheckedOut] = useState(false);
@@ -124,6 +125,9 @@ const VertiCart = () => {
 
   return (
     <>
+    {user_cart.length > 0 && (
+
+
       <div className="vcart_page_container">
         <div className="v_page_body">
           <div id="v_cart_col_container" className="vcart_container">
@@ -141,14 +145,14 @@ const VertiCart = () => {
               </div>
                 <button
                   id="checkout_proceed_bttn" className='v_checkout_bttn'
-                  onClick={() => handlePurchaseCart()}
+                  onClick={() => history.push('/cart')}
                 >
                   Proceed to checkout
                 </button>
             </div>
               </div>
               <div id="active_shopping_vcart_body">
-                {/* {hasCheckedOut && (
+                {hasCheckedOut && (
                   <>
                     <div id="removed-cart-item">
                       Order Confirmed! Thank you for your purchase!
@@ -159,13 +163,13 @@ const VertiCart = () => {
                       </a>
                     </div>
                   </>
-                )} */}
-                {/* {isDeleted && (
+                )}
+                {isDeleted && (
                   <div id="removed-cart-item"><h3>Your item has been removed!</h3></div>
                 )}
                 {isSaved && (
-                  <div id="removed-cart-item"><h3>Your item has has saved below!</h3></div>
-                )} */}
+                  <div id="removed-cart-item"><h3>Your item was saved for later! </h3></div>
+                )}
                 {user_cart?.map((item) => (
                     <div className="vcart_item_container" key={item?.id}>
                       <div className="vcart_item_image">
@@ -250,76 +254,8 @@ const VertiCart = () => {
             </div>
           </div>
         </div>
-
-        {/* <div className="your_items_container">
-          <div className="saved_items_banner_text">
-            <h2>Saved for later</h2>
-          </div>
-          <div className="page_lower_container">
-            <div className="saved_items_box_left">
-              {/* {yourItems.map((item) => ( */}
-              {/* {user_saved?.map((item) => (
-                <div
-                  className="cart_item_container"
-                  id="saved_box"
-                  key={item?.id}
-                >
-                  <div className="cart_item_image">
-                    <a href={`/products/${item?.product_id}`}>
-                      <img
-                        alt="product"
-                        src={item?.product?.img}
-                        width="180"
-                        height="180"
-                      />
-                    </a>
-                  </div>
-                  <div className="cart_item_content_group">
-                    <div className="cart_item_details_list">
-                      <span className="item_title_text">
-                        <Link
-                          className="item_title_a"
-                          to={{
-                            pathname: `/products/${item?.product?.category}/${item?.product_id}`,
-                            state: { fromFiltered: item?.product },
-                          }}
-                        >
-                          {item.product.title}
-                        </Link>
-                      </span>
-                      <div id="cart_item_price"> ${item?.product?.price}</div>
-                      <div id="cart_item_stock">
-                        <span>
-                          Only {item?.product?.stock} left - order soon.
-                        </span>
-                      </div>
-                      <div id="cart_item_brand">
-                        <span>Shipped from: {item?.product?.brand}</span>
-                      </div>
-                      <div id="cart_item_user_options">
-                        <button
-                          id="buy_bttn"
-                          className="move_to_cart_bttn"
-                          onClick={() => handleAddToCart(item)}
-                        >
-                          Move to cart
-                        </button>
-                        <span
-                          id="saved_item_delete_bttn"
-                          className="cart_item_option_del"
-                          onClick={() => removeSavedItem(item)}
-                        >
-                          Delete
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div> */}
-        {/* </div> */}
       </div>
+     )}
     </>
   );
 };

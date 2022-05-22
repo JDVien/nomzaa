@@ -66,6 +66,7 @@
 .ppd_price_sub_box {
   display: flex;
   height: 52px;
+  z-index: 1;
 }
 
 .ppd_price_sub_box h1 {
@@ -175,8 +176,8 @@
 
 #ampersand {
   position: relative;
-  top: 50px;
-  right: 50px;
+  top: 30px;
+  left: 10px;
   /* text-align: left; */
   text-decoration: none;
   color: #007185;

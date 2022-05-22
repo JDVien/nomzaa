@@ -2,13 +2,14 @@ import { get_one_product } from "../../store/product";
 import { get_all_reviews} from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
+// import ReactImageZoom from 'react-image-zoom';
 import Reviews from "../Reviews/ReviewsList";
 import { useParams, useHistory, Link, useLocation } from "react-router-dom";
 import { create_cart } from "../../store/cart";
 import ReactStars from 'react-stars'
 import AddToCart from "../Cart/AddToCart";
 import VertiCart from '../Cart/VertiCart';
-
+import './index.css'
 import "./ppd.css";
 
 const ProductDetails = ({ loaded }) => {
@@ -26,6 +27,8 @@ const ProductDetails = ({ loaded }) => {
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
   const [showCart, setShowCart] = useState(false);
+  // const props = {width: 500, zoomWidth: 700,  img: product?.img};
+
   useEffect(() => {
     dispatch(get_all_reviews());
     dispatch(get_one_product(fromFiltered?.id));
@@ -109,11 +112,17 @@ const ProductDetails = ({ loaded }) => {
         <div id="ppd_top_section">
         <div id="ppd_left_box">
             <div className="s_product_img_container">
-              <img
+              <div className='img-zoom-container'>
+              <img id='myimage'
                 className="main_detail_img"
                 src={product?.img}
                 alt=""
               ></img>
+              {/* <div id='myresult' className='img-zoom-result'>
+              <ReactImageZoom {...props} />
+              {document.getElementById('img')}
+              </div> */}
+              </div>
             </div>
           </div>
 
