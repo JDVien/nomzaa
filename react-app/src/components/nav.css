@@ -218,12 +218,12 @@
 .filter_link {
   text-decoration: none;
   color: white;
-  /* border: 1px solid #232f3e; */
+  border: 0.5px solid #d4d4d400;
   padding: 5px;
 }
 
 .filter_link:hover {
-  border: 1px solid white;
+  border: 0.5px solid white;
   padding: 5px;
 }
 
