@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Products from '../Products/ProductsList';
-import LinearProgress from '@mui/material/LinearProgress';
-import CircularProgress from '@material-ui/core/CircularProgress';
+// import LinearProgress from '@mui/material/LinearProgress';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 import "./index.css";
 
 const Main = ({ user, loaded }) => {

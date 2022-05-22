@@ -9,7 +9,7 @@ import {
   delete_saved,
   create_saved,
 } from "../../store/saved.js";
-import LinearProgress from '@mui/material/LinearProgress';
+// import LinearProgress from '@mui/material/LinearProgress';
 import { useDispatch, useSelector } from "react-redux";
 import { get_all_products, update_product } from "../../store/product";
 import React, { useState, useEffect } from "react";
@@ -274,10 +274,10 @@ const Cart = () => {
                 >
                   Proceed to checkout
                 </button>
-                {hasCheckedOut &&
+                {/* {hasCheckedOut &&
                 <LinearProgress />
                 }
-              </div>
+              </div> */}
             </div>
             {/* <div id="recent_viewed_items_box">
               <span id="recent_views_text">Your recently viewed items</span>

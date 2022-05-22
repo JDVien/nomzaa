@@ -21,8 +21,8 @@ import DeleteConfirmation from './components/Reviews/DeleteConfirm';
 import FilteredProducts from './components/Products/FilteredProductsList';
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from './components/footer'
-import CircularProgress from '@material-ui/core/CircularProgress';
-import LinearProgress from '@mui/material/LinearProgress';
+// import CircularProgress from '@material-ui/core/CircularProgress';
+// import LinearProgress from '@mui/material/LinearProgress';
 import { authenticate } from './store/session';
 
 function App() {
@@ -47,8 +47,6 @@ function App() {
   if (!loaded) {
     return null;
   }
-
-
 
   return (
     <>
