@@ -276,8 +276,8 @@ const Cart = () => {
                 </button>
                 {/* {hasCheckedOut &&
                 <LinearProgress />
-                }
-              </div> */}
+                } */}
+              </div>
             </div>
             {/* <div id="recent_viewed_items_box">
               <span id="recent_views_text">Your recently viewed items</span>
