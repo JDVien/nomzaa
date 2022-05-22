@@ -1,11 +1,11 @@
 from app.models import db
 from app.models.review import Review
-from faker import Faker
+
 
 
 
 def seed_reviews():
-    # f = Faker()
+
     review1 = Review(
         review_title = "Black device, white cable?",
         content = "Device is great, but beware... the black ones come with a white cable... unlike the previous model. No idea why they did this.",
@@ -62,16 +62,6 @@ def seed_reviews():
         product_id = 5,
         user_id = 2,
     )
-
-    # for r in range(100):
-    #     review = Review(
-    #         user_id=f.random_int(min=1, max=30),
-    #         review_title=f.paragraph(nb_sentences=1),
-    #         content=f.paragraph(nb_sentences=15),
-    #         rating=f.random_int(min=1, max=5),
-    #         product_id=f.random_int(min=1, max=30),
-    #     )
-
 
 
     db.session.add_all([review1, review2, review3,review4,review5,review6,review7,

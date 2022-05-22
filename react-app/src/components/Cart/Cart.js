@@ -72,7 +72,7 @@ const Cart = () => {
       quantity: e.target.value,
     };
     if (data) {
-      removeCartItem(item)
+      await dispatch(delete_cart(item?.id))
       await dispatch(create_cart(data));
 
       // return history.push("/cart");

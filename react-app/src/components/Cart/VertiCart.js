@@ -69,7 +69,7 @@ const VertiCart = () => {
       quantity: e.target.value,
     };
     if (data) {
-      removeCartItem(item)
+      dispatch(delete_cart(item?.id))
       await dispatch(create_cart(data));
     }
   };
