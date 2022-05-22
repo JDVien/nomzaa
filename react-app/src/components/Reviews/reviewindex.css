@@ -49,3 +49,64 @@
   font-size: 11px;
   line-height: 20px;
 }
+
+.review-box {
+  width: 680px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  padding-bottom: 40px;
+}
+
+.profile_box {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.profile_img_link {
+  padding-right: 12px;
+}
+
+.rating_container_ppd {
+  display: flex;
+  align-items: center;
+}
+
+.set_rating_stars {
+  padding-right: 10px;
+  padding-bottom: 4px;
+}
+
+#review_title  {
+  padding-right: 10px;
+  padding-top: 6px;
+  font-weight: 600;
+}
+
+#review_location_date {
+  padding-right: 10px;
+  padding-top: 4px;
+  color: #666969;
+}
+
+#verified {
+  color: #c45500 !important;
+}
+
+#review_content {
+  padding-top: 15px;
+}
+
+.review_owner_controls {
+  width: 200px;
+  padding-top: 10px;
+  position:relative;
+  right: 6px;
+}
+
+#top_reviews_h {
+  position: relative;
+  right: 6px;
+  bottom: 10px;
+}

@@ -199,3 +199,9 @@
 .move_to_cart_bttn {
   position: relative;
 }
+
+.products_carousel {
+  position: relative;
+  bottom: 125px;
+  left: 20px;
+}

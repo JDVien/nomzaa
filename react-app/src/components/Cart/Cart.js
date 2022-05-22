@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { get_all_products } from "../../store/product";
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
+import Products from '../Products/ProductsList';
 import "./index.css";
 
 const Cart = () => {
@@ -336,6 +337,10 @@ const Cart = () => {
           </div>
         </div>
       </div>
+        <h3>Things you may like</h3>
+      <div className='products_carousel'>
+        <Products />
+        </div>
     </>
   );
 };

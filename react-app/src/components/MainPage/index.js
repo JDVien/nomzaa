@@ -4,17 +4,18 @@ import { get_all_saved } from "../../store/saved";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Products from '../Products/ProductsList';
 import "./index.css";
 
 const Main = ({ user }) => {
   const dispatch = useDispatch();
   const products = useSelector((state) => Object.values(state.products));
-  const getRandomInt = (max) => {
-    return Math.floor(Math.random() * max);
-  };
+  const getRandomInt = (max) => {return Math.floor(Math.random() * max);};
   useEffect(() => {
-    dispatch(get_all_products());
-    dispatch(get_all_saved())
+    if (user) {
+      dispatch(get_all_products());
+      dispatch(get_all_saved())
+    }
   }, [dispatch]);
 
   const saved_items = useSelector((state) => Object.values(state.saved));
@@ -218,6 +219,9 @@ const Main = ({ user }) => {
             />
           </Link>
         </div>
+        <div className='products_list_carousel'>
+            <Products />
+          </div>
         <div className="b_boxes_container">
           <div className="b_box_left">
             <span className="b_box_title_text">

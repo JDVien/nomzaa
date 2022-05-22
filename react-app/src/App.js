@@ -20,6 +20,7 @@ import DeleteReview from './components/Reviews/DeleteReview';
 import DeleteConfirmation from './components/Reviews/DeleteConfirm';
 import FilteredProducts from './components/Products/FilteredProductsList';
 import ScrollToTop from "./components/ScrollToTop";
+import Footer from './components/footer'
 
 import { authenticate } from './store/session';
 
@@ -86,10 +87,12 @@ function App() {
         <Route exact path="/" >
         <NavBar user={user}/>
           <Main user={user} />
+          <Footer />
         </Route>
         <ProtectedRoute path='/cart'>
         <NavBar user={user}/>
           <Cart />
+          <Footer />
         </ProtectedRoute>
         <ProtectedRoute exact path="/orders">
                 <NavBar user={user}/>

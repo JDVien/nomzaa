@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Reviews from "../Reviews/ReviewsList";
 import { useParams, useHistory, Link, useLocation } from "react-router-dom";
 import { create_cart } from "../../store/cart";
+import ReactStars from 'react-stars'
 import AddToCart from "../Cart/AddToCart";
 import VertiCart from '../Cart/VertiCart';
 
@@ -24,6 +25,7 @@ const ProductDetails = ({ loaded }) => {
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
+  const [showCart, setShowCart] = useState(false);
   useEffect(() => {
     dispatch(get_all_reviews());
     dispatch(get_one_product(fromFiltered?.id));
@@ -32,11 +34,16 @@ const ProductDetails = ({ loaded }) => {
   let detailsList = product?.description.split(" . ");
   let decZero = product?.price.toString().split(".")[0]
   let decOne = product?.price.toString().split(".")[1]
+  let upsellFract = (product?.price * 0.05).toFixed(2);
+  const getRandomInt = (max) => {return Math.floor(Math.random() * max);};
 
   const filteredReviews = reviews.filter(
     (review) => review.product_id === +productId
   );
-
+  let user_rating = 0.00
+  filteredReviews.forEach((rev) => {(user_rating += rev?.rating) })
+  let avgRating = 0
+  !filteredReviews.length ? avgRating = 0 : avgRating = (user_rating / filteredReviews.length);
   const userReview = reviews.filter(
     (review) =>
       review?.user_id === sessionUser?.id && review?.product_id === +productId
@@ -68,10 +75,36 @@ const ProductDetails = ({ loaded }) => {
       // return history.push("/cart");
   };
 
+  const handleShowVertiCart = () => {
+    if (showCart) {
+      setShowCart(true)
+      return (
+          <div className='set_verticart_div'>
+            <VertiCart />
+          </div>
+      )
+
+    } else if (!showCart) {
+      return (
+
+        <div>bruh
+          </div>
+      )
+    }
+    setShowCart(false)
+  }
+
   return (
     <>
-      <VertiCart />
       <div id="product_page_content_container">
+        {/* <button onClick={() => handleShowVertiCart()} >set verticart</button>
+        {showCart ? (
+                  <VertiCart />
+        ) : (
+          <>
+          </>
+        )} */}
+        <VertiCart />
         <div id='top_ad_bar'>.</div>
         <div id="ppd_top_section">
         <div id="ppd_left_box">
@@ -79,7 +112,6 @@ const ProductDetails = ({ loaded }) => {
               <img
                 className="main_detail_img"
                 src={product?.img}
-
                 alt=""
               ></img>
             </div>
@@ -88,12 +120,46 @@ const ProductDetails = ({ loaded }) => {
           <div id="ppd_center_column">
             <div className='ppd_title_sub_box'>
               <h2>{product?.title}</h2>
+            <span className='ppd_brand_subtitle'>from: {product?.brand}</span>
+            <div className="rating_container_ppd">
+                <ReactStars
+                  className="set_rating_stars"
+                  count={5}
+                  value={avgRating}
+                  size={24}
+                  color2={"#ffa41c"}
+                  half={true}
+                  // onChange={updateRating}
+                  edit={false}
+                />
+                <span className='ppd_num_ratings'>{filteredReviews?.length} ratings</span>
+              </div>
             </div>
             <div className='ppd_price_sub_box'>
               <p>$</p><h1>{decZero}</h1><p>{decOne}</p>
             </div>
-            <div className='ppd_colors_sub_box'>
-              <p>Color:</p>
+            <div className='ppd_prime_del_div'>
+              <img id='prime_sm' src='/static/images/prime_sm_fpl.png' width='53' height='15' alt='prime'/>
+              <div><span id='ppd_ampersand'>& FREE Returns</span></div>
+            </div>
+            <div className='ppd_cc_upsell_box'>
+            <span className='ppd_cc_upsell'> Earn 5% back on this purchase (worth ${upsellFract} when redeemed)</span>
+            <span className='ppd_cc_upsell_two'>with your Nomzaa Store Card. </span>
+            </div>
+            <div className='ppd_list_details_box'>
+              <div className='desc_left_box'>
+                <span className='descriptor_left'>Brand</span><br/>
+                <span className='descriptor_left'>Product type</span><br/>
+                <span className='descriptor_left'>Item dimensions</span><br/>
+                <span className='ppd_colors_sub_box descriptor_left'>Colors:</span>
+              </div>
+              <div className='desc_right_box'>
+                <span className='descriptor_right'>{product?.brand}</span><br/>
+                <span className='descriptor_right'>{product?.category}</span><br/>
+                <span className='descriptor_right'>
+                  {getRandomInt(10)} x {getRandomInt(10)} x {getRandomInt(10)}
+                </span><br/>
+              </div>
             </div>
             <div className='ppd_desc_sub_box'>
             <h2 className='about_text'>About this item</h2>
@@ -147,13 +213,29 @@ const ProductDetails = ({ loaded }) => {
         </div>
         <div id="ppd_bottom_section">
           <div id='create_review_box'>
-        <div id="customer_reviews_div"><h2>CUSTOMER REVIEWS</h2></div>
-            <h2>Review this product</h2>
-            <h4>Share your thoughts with other customers</h4>
+        <div id="customer_reviews_div">
+          <h2>CUSTOMER REVIEWS</h2>
+          <div className="rating_container_ppd">
+                <ReactStars
+                  className="set_rating_stars"
+                  count={5}
+                  value={avgRating}
+                  size={32}
+                  color2={"#ffa41c"}
+                  half={true}
+                  // onChange={updateRating}
+                  edit={false}
+                />
+                <span>{avgRating} out of 5</span>
+              </div>
+                <span className='ppd_num_ratings_reviews'>{filteredReviews?.length} global ratings</span>
+        </div>
+            <h4>Review this product</h4>
+            <span>Share your thoughts with other customers</span>
             <div id="create_review_bttn_div">
             {sessionUser && sessionUser?.id === userReview[0]?.user_id ? (
                     <div>
-                    <span>You've reviewed this product. View Your Review</span>
+                    <span>You've reviewed this product. Thank you!</span>
                     </div>
                   ) : (
                     <Link className="review-link-bttn" to={{
@@ -171,7 +253,7 @@ const ProductDetails = ({ loaded }) => {
           {filteredReviews.length ? (
                 <>
                   <div className="reviews_container">
-                    <Reviews user={sessionUser} filteredReviews={filteredReviews} />
+                    <Reviews user={sessionUser} filteredReviews={filteredReviews} avgRating={avgRating} />
                   </div>
                 </>
               ) : (

@@ -1,10 +1,12 @@
 import { get_all_carts } from '../store/cart';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Link, useHistory, useLocation  } from 'react-router-dom';
+import { NavLink, Link, useHistory} from 'react-router-dom';
 // import LogoutButton from './auth/LogoutButton';
 // import SearchBar from "./Search/Searchbar";
 import ProfileMenu from './ProfileMenu'
+import VertiCart from './Cart/VertiCart';
+
 import './nav.css';
 
 const NavBar = ({user}) => {
@@ -14,7 +16,7 @@ const NavBar = ({user}) => {
   // const [showUserMenu, setShowUserMenu] = useState(false);
   const firstname = user?.fullname.split(" ");
   const history = useHistory()
-
+  const [showCart, setShowCart] = useState(false);
   const products = useSelector(state => state.products)
   const productlist = Object.values(products).map(product => [product.title, product.id])
 
@@ -22,7 +24,9 @@ const NavBar = ({user}) => {
   const [searchWord, setSearchWord] = useState("")
 
   useEffect(() => {
-    dispatch(get_all_carts())
+    if (user) {
+      dispatch(get_all_carts())
+    }
       setFilteredList(productlist.filter(product => product[0].toLowerCase().includes(searchWord.toLowerCase())))
   }, [searchWord, dispatch])
 
@@ -37,6 +41,17 @@ const NavBar = ({user}) => {
   //   if (showUserMenu) return;
   //   setShowUserMenu(true);
   // };
+
+  const handleShowVertiCart = () => {
+    setShowCart(true)
+    return (
+      <>
+        <div className='set_verticart_div'>
+          <VertiCart />
+        </div>
+      </>
+    )
+  }
 
   return (
     <>
@@ -129,8 +144,15 @@ const NavBar = ({user}) => {
         <div id='nav_row_bottom'>
           <Link className='filter_link' to='/products'>
           <span className='subnav_category'>
-              <img id='nav_all_burger' src='/static/images/nav-sprite-burger.png' alt='burger' />
+              <img id='nav_all_burger' onClick={() => handleShowVertiCart()} src='/static/images/nav-sprite-burger.png' alt='burger' />
           All</span>
+        {/* <button  >set verticart</button> */}
+        {/* {showCart ? (
+                  <VertiCart />
+        ) : (
+          <>
+          </>
+        )} */}
           </Link>
           <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
           <span className='subnav_category'>Nomzaa Basics</span>
@@ -170,7 +192,7 @@ const NavBar = ({user}) => {
           </span>
           <span className='subnav_category'>
           <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'>
-            <i class="fab fa-linkedin-in"></i>
+            <i className="fab fa-linkedin-in"></i>
           </a>
           </span>
         </div>

@@ -24,7 +24,6 @@ const OrderList = ({ user }) => {
     // .map((product) => product.product);
 
   const DATE_OPTIONS = { year: 'numeric', month: 'short', day: 'numeric' };
-
   const DAY_OPTION = { day: 'numeric'}
 
   const handleTotalCost = (price) => {

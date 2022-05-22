@@ -1,3 +1,49 @@
+.all_products_list {
+  position: relative;
+  top: 125px;
+  /* left: 200px; */
+  width: 1496px;
+  height: 435px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* grid-column: auto/span 4;
+  grid-column-start: auto;
+  grid-column-end: span 2; */
+  display: flex;
+  flex-wrap: row;
+  scrollbar-width: auto;
+  /* background-color: white; */
+  /* border: 1px solid rgba(228, 226, 226, 0.464); */
+  border-radius: 5px;
+  scrollbar-color: #f90 #f5f5f5;
+  transition: scrollbar-color 0.3s ease-out;
+  z-index: 150;
+
+}
+
+.products_list_carousel {
+  position: inherit;
+  right: 200px;
+}
+
+.all_products_list:hover {
+  scrollbar-color: #ec8f02 #f5f5f5;
+}
+
+.all_prods_single_box {
+  width: 350px;
+
+}
+
+#all_prods_single_link {
+  text-decoration: none;
+  color: black;
+}
+#all_prods_single_link:hover {
+  text-decoration: none;
+  color: #c45500 !important;
+}
+
 .product_item_row_container {
   /* border-top: 1px solid lightgrey; */
   display: inline-flex;
@@ -17,6 +63,7 @@
   border-radius: 5px;
   margin-bottom: 8px;
   margin: 0 0 0 10px;
+  background-color: white;
 }
 
 .product_item_detail_row_sub_container {
@@ -35,6 +82,8 @@
   grid-column-start: auto;
   grid-column-end: span 2;
 }
+
+
 
 .s_product_img_container {
   display: flex;
@@ -55,6 +104,7 @@
   font-style: normal !important;
   text-transform: none !important;
   text-decoration: none !important;
+  color: black;
 }
 
 #fpl_prod_title:hover {
@@ -109,4 +159,50 @@
 #fpl_price_p {
   top: -.5em;
   font-size: 12px;
+}
+
+.all_products_list::-webkit-scrollbar {
+
+  bottom: 200px;
+}
+
+.all_products_list::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+
+.all_products_list::-webkit-scrollbar-thumb {
+  background-color: rgba(112, 128, 144, 0.426);
+  outline: 1px solid rgba(112, 128, 144, 0.426);
+  width: 5px;
+}
+
+.all_products_list::-webkit-scrollbar-button:single-button {
+  background-color: #ece4e4;
+  display: block;
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
+
+.all_products_list::-webkit-scrollbar-button:single-button:horizontal:decrement {
+  height: 12px;
+  width: 26px;
+  background-position: 4px 5px;
+  background-color: rgba(112, 128, 144, 0.426);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,50 50,100 50,0'/></svg>");
+}
+
+.all_products_list::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,50 50,100 50,0'/></svg>");
+}
+
+.all_products_list::-webkit-scrollbar-button:single-button:horizontal:increment {
+    height: 12px;
+    width: 26px;
+    background-position: 5px 5px;
+    background-color: rgba(112, 128, 144, 0.426);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='0,0 0,100 50,50'/></svg>");
+}
+
+.all_products_list::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,0 0,100 50,50'/></svg>");
 }
