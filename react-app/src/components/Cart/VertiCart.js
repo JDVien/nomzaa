@@ -200,9 +200,9 @@ const VertiCart = () => {
                             <img id='v_prime_sm' src='/static/images/prime_sm_fpl.png' alt='prime'/>
                           </div>
                           <div id="cart_item_stock" className='vcart_stock'>
-                            <span>
+                            {/* <span>
                               Only {item?.product?.stock} left - order soon.
-                            </span>
+                            </span> */}
                           </div>
                           <br />
                           <div id="cart_item_user_options" className="v_cart_options">

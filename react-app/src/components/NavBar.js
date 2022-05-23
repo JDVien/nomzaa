@@ -166,9 +166,6 @@ const NavBar = ({user}) => {
           <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
           <span className='subnav_category'>Nomzaa Basics</span>
           </Link>
-          <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
-          <span className='subnav_category'>Smart Devices</span>
-          </Link>
           <Link className='filter_link' to={{ pathname: '/products/home-improvment', state: { fromMainImprovement: "home-improvement"}}}>
           <span className='subnav_category'>Home Improvement</span>
           </Link>
@@ -190,9 +187,12 @@ const NavBar = ({user}) => {
           <Link className='filter_link' to={{ pathname:'/products/toys', state: { fromMainToys: "toys"}}}>
           <span className='subnav_category'>Toys & Games</span>
           </Link>
-          <Link className='filter_link' to='/products'>
-          <span className='subnav_category'>Today's Deals</span>
+          <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
+          <span className='subnav_category'>Smart Devices</span>
           </Link>
+          {/* <Link className='filter_link' to='/products'>
+          <span className='subnav_category'>Today's Deals</span>
+          </Link> */}
           {/* <span className='subnav_category'>Best Sellers</span> */}
           <span className='subnav_category'>
           <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'>
