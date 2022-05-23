@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 // import ReactImageZoom from 'react-image-zoom';
 import Reviews from "../Reviews/ReviewsList";
 import { useHistory, Link, useLocation } from "react-router-dom";
-import { create_cart } from "../../store/cart";
+import { create_cart, get_all_carts } from "../../store/cart";
 import ReactStars from 'react-stars'
 import AddToCart from "../Cart/AddToCart";
 import VertiCart from '../Cart/VertiCart';
@@ -18,20 +18,24 @@ const ProductDetails = ({ loaded }) => {
   const location = useLocation();
   const { fromFiltered } = location?.state;
   const sessionUser = useSelector((state) => state.session.user);
-  console.log(fromFiltered, "fromFiltered for search")
-  // const { productId } = useParams();
   const  productId  = fromFiltered?.id;
   const product = useSelector((state) => state.products[productId]);
+  // const cart_items = useSelector((state) => Object.values(state.carts))
+  // const cart_item = cart_items?.filter((item) => product?.id === item?.product_id)
+  // console.log(cart_item, "cart_item")
+
   // const { reviewId } = useParams();
   // const review = useSelector((state) => state.reviews[reviewId]);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
   const [showCart, setShowCart] = useState(false);
+  const [inCart, setInCart] = useState(false);
   // const props = {width: 500, zoomWidth: 700,  img: product?.img};
 
   useEffect(() => {
     dispatch(get_all_reviews());
+    dispatch(get_all_carts())
     dispatch(get_one_product(fromFiltered?.id));
   }, [dispatch]);
 
@@ -69,16 +73,22 @@ const ProductDetails = ({ loaded }) => {
   }
 
   const handleAddToCart = () => {
+
     if (sessionUser) {
-      const data = {
-        user_id: sessionUser.id,
-        product_id: product.id,
-        purchased: false,
-        saved: false,
-        order_id: orderid,
-        quantity: user_quantity,
-      };
-      dispatch(create_cart(data));
+      // if (!inCart) {
+        const data = {
+          user_id: sessionUser.id,
+          product_id: product.id,
+          purchased: false,
+          saved: false,
+          order_id: orderid,
+          quantity: user_quantity,
+        };
+        dispatch(create_cart(data));
+        setInCart(true)
+      // } else if (inCart) {
+      //   history.push('/cart')
+      // }
      } else history.push("/login")
   };
 
@@ -219,6 +229,7 @@ const ProductDetails = ({ loaded }) => {
               </select>
               </label>
             </form>
+
             <h3 id='stock_left' className='stock_right'>Only {product?.stock} left in stock - order soon.</h3>
             <AddToCart handleAddToCart={handleAddToCart} />
             <button id='buy_bttn' onClick={handleAddCartRedirect}>Buy Now</button>
