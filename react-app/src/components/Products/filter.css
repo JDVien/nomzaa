@@ -1,0 +1,22 @@
+.fpd_column_container {
+  width: 350px;
+  height: 2200px;
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #333;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  border-right: 1px solid #bbb;
+  /* border-top: 25px solid #f0c14b; */
+  border-radius: 6px;
+  box-shadow: 0 0 2px 1px rgba(222, 220, 218, 0.5);
+  background-color: #fafafa;
+  /* padding: 0; */
+  padding-right: 5px;
+  z-index: 1000;
+  /* animation: 0.5s ease-out 0s 1 slideInFromRight; */
+  left: 0px;
+}

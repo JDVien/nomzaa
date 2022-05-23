@@ -14,7 +14,6 @@ const OrderList = ({ user }) => {
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
   // const products = useSelector((state) => Object.values(state.products));
-  // const [orderid, setOrderid] = useState("")
   // all items in user order history and user cart combined
   const cart_items = useSelector((state) => Object.values(state.carts));
   console.log(cart_items, "cart_items in order list");
@@ -22,6 +21,7 @@ const OrderList = ({ user }) => {
   const user_products = cart_items
     .filter((item) => item.user_id === user.id && item.purchased)
     // .map((product) => product.product);
+
 
   const DATE_OPTIONS = { year: 'numeric', month: 'short', day: 'numeric' };
   const DAY_OPTION = { day: 'numeric'}
@@ -40,20 +40,21 @@ const OrderList = ({ user }) => {
   let an_order = [];
   // order_loop(cart_items);
   for (let i = 0; i < cart_items.length; i++) {
-    if (cart_items[i]?.order_id === cart_items[i + 1]?.order_id) {
-      an_order.push(cart_items[i]);
-      an_order.push(cart_items[i + 1]);
-    } else {
-      next_order.push(an_order);
-      an_order = [];
-    }
+      if (cart_items.length > 1 && cart_items[i]?.order_id === cart_items[i + 1]?.order_id) {
+        an_order.push(cart_items[i]);
+        an_order.push(cart_items[i + 1]);
+      } else {
+        an_order.push(cart_items[0])
+        // if (an_order[i]?.product_id !== an_order[0]?.product_id)
+          next_order.push(an_order);
+         an_order = [];
+      }
+
   }
-  let one_order_item_day = user_products[0]?.created_at
-  let day = new Date(one_order_item_day).toLocaleDateString('en-US', DAY_OPTION)
-  let dayInt = parseInt(day)
-  console.log(typeof(dayInt))
-  console.log(dayInt)
-  console.log(dayInt + 4)
+  // let one_order_item_day = user_products[0]?.created_at
+  // let day = new Date(one_order_item_day).toLocaleDateString('en-US', DAY_OPTION)
+  // let dayInt = parseInt(day)
+
 
 
   useEffect(() => {
@@ -77,7 +78,7 @@ const OrderList = ({ user }) => {
         quantity: user_quantity,
       };
       await dispatch(create_cart(data));
-       return history.push("/cart");
+      //  return history.push("/cart");
   };
   return (
     <>
@@ -85,7 +86,7 @@ const OrderList = ({ user }) => {
         <h1>Your Orders</h1>
         {next_order?.map((item) => (
           <>
-          {console.log(item, 'item')}
+          {console.log(next_order, 'next_order')}
           {/* {next_order[0]?.item?.purchased && ( */}
           <div className="order_by_num" key={item?.order_id}>
             <div id="order_content">
@@ -114,9 +115,12 @@ const OrderList = ({ user }) => {
                   {next_order[k]?.map((item) => (
                     <div className="order_products" key={item?.product?.id}>
                       <div className="order_box">
-                        <a
-                          className="product_link"
-                          href={`/products/${item?.product?.id}`}
+                      <Link
+                          className="item_title_a product_link"
+                          to={{
+                            pathname: `/products/${item?.product?.category}/${item?.product_id}`,
+                            state: { fromFiltered: item?.product },
+                          }}
                         >
                           <div className="product_">
                             <img
@@ -129,7 +133,7 @@ const OrderList = ({ user }) => {
                           <div id="order_product_title">
                             {item?.product?.title}
                           </div>
-                        </a>
+                          </Link>
                       <div className='buy_again_div'>
                       <button className='buy_again_bttn' onClick={() => handleAddToCart(item)}>
                           <img className='bttn_img'

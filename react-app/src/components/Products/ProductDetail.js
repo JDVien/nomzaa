@@ -58,6 +58,7 @@ const ProductDetails = ({ loaded }) => {
   );
 
   const handleAddCartRedirect = () => {
+
     if (sessionUser) {
     const data = {
       user_id: sessionUser.id,
@@ -76,6 +77,7 @@ const ProductDetails = ({ loaded }) => {
 
     if (sessionUser) {
       // if (!inCart) {
+        // if (product?.purchased) setInCart(false)
         const data = {
           user_id: sessionUser.id,
           product_id: product.id,
@@ -87,29 +89,29 @@ const ProductDetails = ({ loaded }) => {
         dispatch(create_cart(data));
         setInCart(true)
       // } else if (inCart) {
-      //   history.push('/cart')
+        // history.push('/cart')
       // }
      } else history.push("/login")
   };
 
-  const handleShowVertiCart = () => {
-    if (showCart) {
-      setShowCart(true)
-      return (
-          <div className='set_verticart_div'>
-            <VertiCart />
-          </div>
-      )
+  // const handleShowVertiCart = () => {
+  //   if (showCart) {
+  //     setShowCart(true)
+  //     return (
+  //         <div className='set_verticart_div'>
+  //           <VertiCart />
+  //         </div>
+  //     )
 
-    } else if (!showCart) {
-      return (
+  //   } else if (!showCart) {
+  //     return (
 
-        <div>bruh
-          </div>
-      )
-    }
-    setShowCart(false)
-  }
+  //       <div>bruh
+  //         </div>
+  //     )
+  //   }
+  //   setShowCart(false)
+  // }
 
   return (
     <>
@@ -234,6 +236,7 @@ const ProductDetails = ({ loaded }) => {
             <i className="fa-solid fa-lock"></i>
               {" "}Secure transaction</span>
             <AddToCart handleAddToCart={handleAddToCart} />
+
             <button id='buy_bttn' onClick={handleAddCartRedirect}>Buy Now</button>
           </div>
         </div>

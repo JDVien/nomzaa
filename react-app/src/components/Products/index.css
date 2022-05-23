@@ -164,6 +164,14 @@
   font-size: 12px;
 }
 
+#mid_banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  left: 71px;
+  margin-top: 15px;
+}
+
 .all_products_list::-webkit-scrollbar {
 
   bottom: 200px;
