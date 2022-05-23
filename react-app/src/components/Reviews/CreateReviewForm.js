@@ -33,6 +33,8 @@ const CreateReview = () => {
     e.preventDefault();
     setHasSubmitted(true);
     let formErrors = [];
+    if (review_title.length > 100) formErrors.push("Your review headline cannot exceed 100 characters in length.")
+    if (content.length > 2500) formErrors.push("Your review content cannot exceed 2500 characters in length.")
     if (!review_title) formErrors.push("Please provide a title for you review");
     if (!content) formErrors.push("Please provide details");
     if (rating === null) formErrors.push("Please provide a rating");
