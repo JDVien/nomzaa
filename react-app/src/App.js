@@ -53,6 +53,7 @@ function App() {
 
     <BrowserRouter>
     <ScrollToTop />
+
       <Switch>
         <Route exact path="/products">
           <NavBar user={user}/>
@@ -95,12 +96,10 @@ function App() {
         <Route exact path="/" >
         <NavBar user={user}/>
           <Main user={user} loaded={loaded} />
-          <Footer />
         </Route>
         <ProtectedRoute path='/cart'>
         <NavBar user={user}/>
           <Cart />
-          <Footer />
         </ProtectedRoute>
         <ProtectedRoute exact path="/orders">
                 <NavBar user={user}/>
@@ -118,6 +117,7 @@ function App() {
           <User />
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
     </>
   );

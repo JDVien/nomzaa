@@ -884,6 +884,622 @@ def seed_products():
     img='https://m.media-amazon.com/images/I/61bi4s98+oS._AC_SL1500_.jpg',
     user_id=1
   )
+  product81 = Product(
+    title="Nomzaa Basics Dog and Puppy Pads, Leak-proof 5-Layer Pee Pads with Quick-dry Surface for Potty Training, Regular (22 x 22 Inches) - Pack of 100 ",
+    brand="Nomzaa",
+    price= 29.38,
+    description="Includes 100 regular size, standard absorbency pee pads for dogs . Super-absorbent core that turns liquid to gel upon contact . Quick-dry surface with built-in attractant helps aid in potty training; leakproof plastic lining keeps floors safe from damage . For indoor/outdoor/car use; ideal for puppy training, assisting senior dogs, or as an alternative when outdoor isnt an option . Pad Dimensions: Regular size pads measure 22x22 inches (LxW); center pad measures 19x19 inches (LxW) with a 1.5 inch plastic border on all sides to help prevent overflow. ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/71Z-lMc5IOS._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product82 = Product(
+    title="Nomzaa Basics Dog and Puppy Pads, Leak-proof 5-Layer Pee Pads with Quick-dry Surface for Potty Training, Regular (22 x 22 Inches) - Pack of 50 ",
+    brand="Nomzaa",
+    price= 24.38,
+    description="Includes 50 regular size, standard absorbency pee pads for dogs . Super-absorbent core that turns liquid to gel upon contact . Quick-dry surface with built-in attractant helps aid in potty training; leakproof plastic lining keeps floors safe from damage . For indoor/outdoor/car use; ideal for puppy training, assisting senior dogs, or as an alternative when outdoor isnt an option . Pad Dimensions: Regular size pads measure 22x22 inches (LxW); center pad measures 19x19 inches (LxW) with a 1.5 inch plastic border on all sides to help prevent overflow. ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/81vkislowDL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product83 = Product(
+    title="Nomzaa Basics Dog and Puppy Pads, Leak-proof 5-Layer Pee Pads with Quick-dry Surface for Potty Training, Regular (22 x 22 Inches) - Pack of 150 ",
+    brand="Nomzaa",
+    price= 32.38,
+    description="Includes 150 regular size, standard absorbency pee pads for dogs . Super-absorbent core that turns liquid to gel upon contact . Quick-dry surface with built-in attractant helps aid in potty training; leakproof plastic lining keeps floors safe from damage . For indoor/outdoor/car use; ideal for puppy training, assisting senior dogs, or as an alternative when outdoor isnt an option . Pad Dimensions: Regular size pads measure 22x22 inches (LxW); center pad measures 19x19 inches (LxW) with a 1.5 inch plastic border on all sides to help prevent overflow. ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/81vkislowDL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product84 = Product(
+    title="Purina Fancy Feast Gravy Wet Cat Food Variety Pack, Gravy Lovers Poultry & Beef Feast Collection - (30) 3 oz. Cans ",
+    brand="Purina",
+    price= 22.38,
+    description="(30) 3 Ounce Can - Purina Fancy Feast Gravy Lovers Poultry & Beef Feast Collection Wet Cat Food Variety Pack . Chicken, Turkey And Beef Flavors Cats Love . 100% Complete And Balanced Nutrition . Tender, Delicate Bites For A Tempting Texture . Essential Vitamins And Minerals To Support Her Overall Health  ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/8126vmXXwkL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product85 = Product(
+    title="30 cans of Fancy Feast Gravy Wet Cat Food Variety Pack, Seafood Grilled Collection, 3 oz. Cans and 1 Bag of BeyondWhiskers Autumn Whitefish Stew cat Treats 4 oz Bundle  ",
+    brand="Purina",
+    price= 53.38,
+    description="(30) 3 Ounce Can - Purina Fancy Feast Gravy Lovers Poultry & Beef Feast Collection Wet Cat Food Variety Pack . Chicken, Turkey And Beef Flavors Cats Love . 100% Complete And Balanced Nutrition . Tender, Delicate Bites For A Tempting Texture . Essential Vitamins And Minerals To Support Her Overall Health  ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/71VGeeEidbL._AC_SL1200_.jpg',
+    user_id=1
+  )
+  product86 = Product(
+    title="Purina Fancy Feast Medleys in Gravy Beef Ragu Recipe with Tomatoes and Pasta in a Savory Sauce - (30) 3 oz. Cans   ",
+    brand="Purina",
+    price= 23.38,
+    description="(30) 3 Ounce Can - Purina Fancy Feast Gravy Lovers Poultry & Beef Feast Collection Wet Cat Food Variety Pack . Chicken, Turkey And Beef Flavors Cats Love . 100% Complete And Balanced Nutrition . Tender, Delicate Bites For A Tempting Texture . Essential Vitamins And Minerals To Support Her Overall Health  ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/81Th1M0Pd6L._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product87 = Product(
+    title="Purina Fancy Feast Wet Cat Food, Medleys Tuna Tuscany With Long Grain Rice & Greens in Savory Sauce  (30) 3 oz. Cans   ",
+    brand="Purina",
+    price= 22.38,
+    description="(30) 3 Ounce Can - Purina Fancy Feast Gravy Lovers Poultry & Beef Feast Collection Wet Cat Food Variety Pack . Chicken, Turkey And Beef Flavors Cats Love . 100% Complete And Balanced Nutrition . Tender, Delicate Bites For A Tempting Texture . Essential Vitamins And Minerals To Support Her Overall Health  ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/91msd18JVOL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product88 = Product(
+    title="Rocco & Roxie Stain & Odor Eliminator for Strong Odor - Enzyme-Powered Pet Odor Eliminator for Home - Carpet Stain Remover for Cats and Dog Pee - Enzymatic Cat Urine Destroyer - Carpet Cleaner Spray ",
+    brand="Rocco & Roxxi",
+    price= 18.97,
+    description="CERTIFIED GENTLE AND SAFE Chlorine free and color safe. Safe to use around pets and children. No hazardous propellants, no residue left behind. So gentle its been Certified Safe for all carpets, earning the Seal of Approval by the trusted Carpet and Rug Institute (CRI) . ELIMINATES STAINS, ODORS AND RESIDUE If its gross, its gone. Not just the stain, but the stink. From stinky yellow pet urine and feces to vomit and other organic spills, our professional strength formula tackles them all. . EVERY SURFACE, EVERY TIME For use on carpets, floors, furniture, clothing, litter boxes, kennels, carriers, all pet living and sleeping areas—anywhere stains happen. . ENZYME ACTIVATED The key is getting to the problem deep-down. This spray contains natural enzymes that are activated on contact with odors and stains, feeding on ammonia crystals and organic matter until they are completely eliminated. ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/61g5ACSe-HL._AC_SL1000_.jpg',
+    user_id=1
+  )
+  product89 = Product(
+    title="Rocco & Roxie Stain & Odor Eliminator for Strong Odor - Enzyme-Powered Pet Odor Eliminator for Home - Carpet Stain Remover for Cats and Dog Pee Gallon Size ",
+    brand="Rocco & Roxxi",
+    price= 47.97,
+    description="CERTIFIED GENTLE AND SAFE Chlorine free and color safe. Safe to use around pets and children. No hazardous propellants, no residue left behind. So gentle its been Certified Safe for all carpets, earning the Seal of Approval by the trusted Carpet and Rug Institute (CRI) . ELIMINATES STAINS, ODORS AND RESIDUE If its gross, its gone. Not just the stain, but the stink. From stinky yellow pet urine and feces to vomit and other organic spills, our professional strength formula tackles them all. . EVERY SURFACE, EVERY TIME For use on carpets, floors, furniture, clothing, litter boxes, kennels, carriers, all pet living and sleeping areas—anywhere stains happen. . ENZYME ACTIVATED The key is getting to the problem deep-down. This spray contains natural enzymes that are activated on contact with odors and stains, feeding on ammonia crystals and organic matter until they are completely eliminated. ",
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/51USvc-YrdL._AC_SL1000_.jpg',
+    user_id=1
+  )
+  product90 = Product(
+    title="Earth Rated Dog Poop Bags, Guaranteed Leak Proof and Extra Thick Waste Bag Refill Rolls For Dogs, Lavender Scented, 270 Count ",
+    brand="Earth Rated",
+    price=13.29,
+    description='BAG POOP BETTER: 9”x13” doggy bags keep your hands safe, and odor contained. More than enough capacity for large dogs! A customer recently said "I love these bags - much thicker than the ones you buy at the store. The scent is not overpowering." . EARTH FIRST, PROFIT SECOND: 120 premium pet poo bags are included in each order. A total of 8 rolls that each include 15 dog bags and a 100% leak-proof guarantee. We use recycled materials in our packaging and roll cores because details matter. . STRESS-FREE WALKS: Poop doesnt smell like roses: Our odor blocking lavender-scent locks in that stank for good without being overpowering. Simple to open and tie securely so you can enjoy a stress-free walk with your best bud. No need to rush! . PAIR WITH DISPENSER: Each bag roll comfortably fits in your pocket, but customers prefer to pair Earth Rated bags with our leash dispenser. Quick and easy access make this an awesome duo! Let us do the heavy lifting while you tackle your walks in style. ',
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/71P1LRERbdL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product91 = Product(
+    title="Earth Rated Dog Poop Bags, Guaranteed Leak Proof and Extra Thick Waste Bag Refill Rolls For Dogs, Lavender Scented, 120 Count ",
+    brand="Earth Rated",
+    price=7.59,
+    description='BAG POOP BETTER: 9”x13” doggy bags keep your hands safe, and odor contained. More than enough capacity for large dogs! A customer recently said "I love these bags - much thicker than the ones you buy at the store. The scent is not overpowering." . EARTH FIRST, PROFIT SECOND: 120 premium pet poo bags are included in each order. A total of 8 rolls that each include 15 dog bags and a 100% leak-proof guarantee. We use recycled materials in our packaging and roll cores because details matter. . STRESS-FREE WALKS: Poop doesnt smell like roses: Our odor blocking lavender-scent locks in that stank for good without being overpowering. Simple to open and tie securely so you can enjoy a stress-free walk with your best bud. No need to rush! . PAIR WITH DISPENSER: Each bag roll comfortably fits in your pocket, but customers prefer to pair Earth Rated bags with our leash dispenser. Quick and easy access make this an awesome duo! Let us do the heavy lifting while you tackle your walks in style. ',
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/61bMSbyAXjL._AC_SL1186_.jpg',
+    user_id=1
+  )
+  product92 = Product(
+    title="Earth Rated 120 Lavender-scented Poop Bags, Leash Dispenser and 100 Lavender-scented Grooming Wipes Bundle  ",
+    brand="Earth Rated",
+    price=27.59,
+    description='BAG POOP BETTER: 9”x13” doggy bags keep your hands safe, and odor contained. More than enough capacity for large dogs! A customer recently said "I love these bags - much thicker than the ones you buy at the store. The scent is not overpowering." . EARTH FIRST, PROFIT SECOND: 120 premium pet poo bags are included in each order. A total of 8 rolls that each include 15 dog bags and a 100% leak-proof guarantee. We use recycled materials in our packaging and roll cores because details matter. . STRESS-FREE WALKS: Poop doesnt smell like roses: Our odor blocking lavender-scent locks in that stank for good without being overpowering. Simple to open and tie securely so you can enjoy a stress-free walk with your best bud. No need to rush! . PAIR WITH DISPENSER: Each bag roll comfortably fits in your pocket, but customers prefer to pair Earth Rated bags with our leash dispenser. Quick and easy access make this an awesome duo! Let us do the heavy lifting while you tackle your walks in style. ',
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/81UxS2H4uJL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product93 = Product(
+    title="Earth Rated Dog Wipes, Thick Plant Based Grooming Wipes for Easy Use on Paws, Body and Bum, Lavender Scented, 100 Count ",
+    brand="Earth Rated",
+    price=9.59,
+    description='BAG POOP BETTER: 9”x13” doggy bags keep your hands safe, and odor contained. More than enough capacity for large dogs! A customer recently said "I love these bags - much thicker than the ones you buy at the store. The scent is not overpowering." . EARTH FIRST, PROFIT SECOND: 120 premium pet poo bags are included in each order. A total of 8 rolls that each include 15 dog bags and a 100% leak-proof guarantee. We use recycled materials in our packaging and roll cores because details matter. . STRESS-FREE WALKS: Poop doesnt smell like roses: Our odor blocking lavender-scent locks in that stank for good without being overpowering. Simple to open and tie securely so you can enjoy a stress-free walk with your best bud. No need to rush! . PAIR WITH DISPENSER: Each bag roll comfortably fits in your pocket, but customers prefer to pair Earth Rated bags with our leash dispenser. Quick and easy access make this an awesome duo! Let us do the heavy lifting while you tackle your walks in style. ',
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/61ehremK0SL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product93 = Product(
+    title="ChomChom Pet Hair Remover - Reusable Cat and Dog Hair Remover for Furniture, Couch, Carpet, Car Seats and Bedding - Eco-Friendly, Portable, Multi-Surface Lint Roller & Animal Fur Removal Tool  ",
+    brand="Earth Rated",
+    price=25.59,
+    description='VERSATILE - Keep your home free from loose lint and hair. The ChomChom lint roller for pet hair removal works like a charm on furniture, upholstery, blankets, and other items riddled with fur. . The scent is not overpowering." . EARTH FIRST, PROFIT SECOND: 120 premium pet poo bags are included in each order. A total of 8 rolls that each include 15 dog bags and a 100% leak-proof guarantee. We use recycled materials in our packaging and roll cores because details matter. . STRESS-FREE WALKS: Poop doesnt smell like roses: Our odor blocking lavender-scent locks in that stank for good without being overpowering. Simple to open and tie securely so you can enjoy a stress-free walk with your best bud. No need to rush! . PAIR WITH DISPENSER: Each bag roll comfortably fits in your pocket, but customers prefer to pair Earth Rated bags with our leash dispenser. Quick and easy access make this an awesome duo! Let us do the heavy lifting while you tackle your walks in style. ',
+    details="",
+    stock=10,
+    category="pet supplies",
+    img='https://m.media-amazon.com/images/I/81Ju+RATjOL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product94 = Product(
+    title="Cucumber, One Count ",
+    brand="Nomzaa Fresh",
+    price=1.09,
+    description="Cucumber . Nutritious . Low calorie and low fat and low flavor. Vegan, obviously . Gluten Free, if you're into that . Its a cucumber, what do you want",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/71t9Hf2OZ0L._SL1500_.jpg',
+    user_id=1
+  )
+  product95 = Product(
+    title="Dole Bananas, 2 lb Bag  ",
+    brand="Nomzaa Fresh",
+    price=1.29,
+    description="Banana . Nutritious . Good source of vitamin B6 and potassium. Vegan, obviously . Gluten Free, if you're into that . Its a banananananana",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/51DU1YwHK1L._SL1000_.jpg',
+    user_id=1
+  )
+  product96 = Product(
+    title="Dole Organic Bananas, 2 lb Bag  ",
+    brand="Nomzaa Fresh",
+    price=1.29,
+    description="Banana . Nutritious . Good source of vitamin B6 and potassium. Vegan, obviously . Gluten Free, if you're into that . Its a banananananana",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/51GtpuGymDL._SL1000_.jpg',
+    user_id=1
+  )
+  product97 = Product(
+    title="Simply Lemonade with Strawberry, All Natural Non-GMO, 52 fl oz  ",
+    brand="Simply",
+    price=2.99,
+    description="Enjoy the delicious, all-natural refreshment of Simply Lemonade combined with sweet taste of strawberries. . This premium, non-GMO Project Verified, all-natural lemonade is free of colors, artificial flavors and added preservatives. . Sip this delicious, all-natural refreshment any time of the day. This product ships as one 52 fl. oz. or 1.53-liter bottle. ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/717XUFdO8GL._SL1500_.jpg',
+    user_id=1
+  )
+  product98 = Product(
+    title="Simply Limeade, All Natural Non-GMO, 52 fl oz  ",
+    brand="Simply",
+    price=2.99,
+    description="Enjoy the delicious, all-natural refreshment of Simply Limeade. . This premium, non-GMO Project Verified, all-natural lemonade is free of colors, artificial flavors and added preservatives. . Sip this delicious, all-natural refreshment any time of the day. This product ships as one 52 fl. oz. or 1.53-liter bottle. ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/71qtrFZ0oZL._SL1500_.jpg',
+    user_id=1
+  )
+  product99 = Product(
+    title="Simply Lemonad, All Natural Non-GMO, 52 fl oz  ",
+    brand="Simply",
+    price=2.99,
+    description="Enjoy the delicious, all-natural refreshment of Simply Limeade. . This premium, non-GMO Project Verified, all-natural lemonade is free of colors, artificial flavors and added preservatives. . Sip this delicious, all-natural refreshment any time of the day. This product ships as one 52 fl. oz. or 1.53-liter bottle. ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/71qtrFZ0oZL._SL1500_.jpg',
+    user_id=1
+  )
+  product100 = Product(
+    title="Coca-Cola,12 Ounce (Pack of 24) ",
+    brand="Coke",
+    price=12.99,
+    description="24 cans of Coca-Cola Original Taste—the refreshing, crisp taste you know and love . Great taste since 1886 . 34 mg of caffeine in each 12 oz serving . 12 FL OZ in each can . This sparkling beverage is best enjoyed ice-cold for maximum refreshment ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/71JKhW0EW5L._SL1500_.jpg',
+    user_id=1
+  )
+  product101 = Product(
+    title="Diet Coke,12 Ounce (Pack of 24) ",
+    brand="Coke",
+    price=12.99,
+    description="24 cans of Diet Coca-Cola Original Taste—the refreshing, crisp taste you know and love . Great taste since 1886 . 34 mg of caffeine in each 12 oz serving . 12 FL OZ in each can . This sparkling beverage is best enjoyed ice-cold for maximum refreshment ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/61KcDEn5rAL._SL1500_.jpg',
+    user_id=1
+  )
+  product102 = Product(
+    title="Just Bare® Natural Fresh Chicken Wingettes & Drumettes | Family Pack | No Antibiotics Ever | Bone-In | 2.0 LB  ",
+    brand="Just Bare",
+    price=11.99,
+    description="ALL NATURAL: Our fresh, hand-trimmed chicken wingettes and drummettes are minimally processed to ensure quality and sustainability. Quick and ready to cook right out of the package for a great game-day snack or dinner appetizer. . NO ADDED HORMONES | NO ANTIBIOTICS EVER | FED A VEGETABLE & GRAIN DIET: Our chickens are raised without antibiotics, fed a vegetable & grain diet, and gluten free with no added hormones or artificial ingredients—ever. . 3RD PARTY HUMANE CERTIFIED: Our Chickens are raised on Family Farms with the verified humane treatment of farm animals by the third party American Humane Certified Program. . DELIVERED FRESH: The raw, fresh chicken is packaged in Amazon’s sustainable, temperature-conscious packaging and delivered to your door with care. Number of wingettes varies (7-10). Number of drummettes varies (7-10). ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/814Q3GxOwqL._SL1500_.jpg',
+    user_id=1
+  )
+  product103 = Product(
+    title="Just Bare® Natural Fresh Chicken Tenders | Family Pack | No Antibiotics Ever | Boneless | Skinless | 2.0 LB  ",
+    brand="Just Bare",
+    price=13.99,
+    description="ALL NATURAL: Our fresh, hand-trimmed tenderloins are minimally processed to ensure quality and sustainability. Quick and ready to cook right out of the package for a great game-day snack or dinner appetizer. . NO ADDED HORMONES | NO ANTIBIOTICS EVER | FED A VEGETABLE & GRAIN DIET: Our chickens are raised without antibiotics, fed a vegetable & grain diet, and gluten free with no added hormones or artificial ingredients—ever. . 3RD PARTY HUMANE CERTIFIED: Our Chickens are raised on Family Farms with the verified humane treatment of farm animals by the third party American Humane Certified Program. . DELIVERED FRESH: The raw, fresh chicken is packaged in Amazon’s sustainable, temperature-conscious packaging and delivered to your door with care. Number of wingettes varies (7-10). Number of drummettes varies (7-10). ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/81-5TyeWb3L._SL1500_.jpg',
+    user_id=1
+  )
+  product104 = Product(
+    title="JUST BARE USDA Organic Fresh Chicken Thighs | No Antibiotics Ever | Boneless | Skinless | 1.25 LB  ",
+    brand="Just Bare",
+    price=10.99,
+    description="ALL NATURAL: Our fresh, hand-trimmed thighs are minimally processed to ensure quality and sustainability. Quick and ready to cook right out of the package for a great game-day snack or dinner appetizer. . NO ADDED HORMONES | NO ANTIBIOTICS EVER | FED A VEGETABLE & GRAIN DIET: Our chickens are raised without antibiotics, fed a vegetable & grain diet, and gluten free with no added hormones or artificial ingredients—ever. . 3RD PARTY HUMANE CERTIFIED: Our Chickens are raised on Family Farms with the verified humane treatment of farm animals by the third party American Humane Certified Program. . DELIVERED FRESH: The raw, fresh chicken is packaged in Amazon’s sustainable, temperature-conscious packaging and delivered to your door with care. Number of wingettes varies (7-10). Number of drummettes varies (7-10). ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/71hx0NUXPfL._SL1500_.jpg',
+    user_id=1
+  )
+  product105 = Product(
+    title="Fresh Brand  Ground Beef 90% Lean/15% Fat, 1 lb  ",
+    brand="Nomzaa Fresh",
+    price=6.69,
+    description="1-pound package of 90% lean/10% fat ground beef . USDA Approved . Product of the USA . Perfect for recipes or burgers . Our beef is delivered in an easy-to-open, leak-proof casing. The freezer-ready packaging allows the meat to stay fresh longer. . Our Fresh brand products are all about high-quality food that fits every budget, every day. ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/71U6IysbhkL._SL1500_.jpg',
+    user_id=1
+  )
+  product106 = Product(
+    title="Fresh Brand  Ground Beef 85% Lean/15% Fat, 1 lb  ",
+    brand="Nomzaa Fresh",
+    price=6.69,
+    description="1-pound package of 85% lean/10% fat ground beef . USDA Approved . Product of the USA . Perfect for recipes or burgers . Our beef is delivered in an easy-to-open, leak-proof casing. The freezer-ready packaging allows the meat to stay fresh longer. . Our Fresh brand products are all about high-quality food that fits every budget, every day. ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/71SfTzCFOcL._SL1500_.jpg',
+    user_id=1
+  )
+  product107 = Product(
+    title="365 Everyday Value, Organic Trimmed Green Beans, 12 oz  ",
+    brand="Nomzaa Fresh",
+    price=3.69,
+    description="365 by Whole Foods Market products give you that dance-down-the-aisles feeling, virtual aisles too! Our huge range of choices with premium ingredients at prices you can get down with makes grocery shopping so much more than tossing the basics in your cart. . USDA ORGANIC . 12OZ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/81cql-XR7JL._SL1500_.jpg',
+    user_id=1
+  )
+  product108 = Product(
+    title="Fresh Brand  Sliced Baby Bella Mushrooms, 8 oz   ",
+    brand="Nomzaa Fresh",
+    price=1.69,
+    description="365 by Whole Foods Market products give you that dance-down-the-aisles feeling, virtual aisles too! Our huge range of choices with premium ingredients at prices you can get down with makes grocery shopping so much more than tossing the basics in your cart. . USDA ORGANIC . 8-ounce package of sliced baby bella mushrooms . ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/81oQzhdCjxL._SL1500_.jpg',
+    user_id=1
+  )
+  product109 = Product(
+    title="Fresh Brand  Cut and Peeled Baby Carrots, 16 oz   ",
+    brand="Nomzaa Fresh",
+    price=1.99,
+    description="365 by Whole Foods Market products give you that dance-down-the-aisles feeling, virtual aisles too! Our huge range of choices with premium ingredients at prices you can get down with makes grocery shopping so much more than tossing the basics in your cart. . USDA ORGANIC . 16-ounce package of sliced baby carrots . ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/716s9vkPTSL._SL1500_.jpg',
+    user_id=1
+  )
+  product110 = Product(
+    title="Fresh Brand  Zucchini Spirals, 14 oz    ",
+    brand="Nomzaa Fresh",
+    price=4.99,
+    description="365 by Whole Foods Market products give you that dance-down-the-aisles feeling, virtual aisles too! Our huge range of choices with premium ingredients at prices you can get down with makes grocery shopping so much more than tossing the basics in your cart. . USDA ORGANIC . 14-ounce zucchini spirals . ",
+    details="",
+    stock=10,
+    category="groceries",
+    img='https://m.media-amazon.com/images/I/71d-NatjUbL._SL1500_.jpg',
+    user_id=1
+  )
+  product111 = Product(
+    title="Burts Bees Overnight Intensive Lip Treatment, Moisturizing Lip Care, Passionfruit & Chamomile, 100% Natural, 0.25 Ounce    ",
+    brand="Burts",
+    price=8.59,
+    description="NOURISH LIPS WHILE YOU SLEEP: Overnight Intensive Lip Treatment moisturizes, conditions, smooths and helps support your lips natural moisture barrier while you sleep . ALL NATURAL: This overnight lip treatment contains ceramides, which are oils found naturally in your skin and are necessary for maintaining your lips natural moisture barrier . RESTORE MOISTURE: This overnight lip therapy acts as a lip moisturizer and soothes, conditions and forms a layer to help hydrate lips natural moisture  . REDUCE the appearance of FINE LINES: Hydrate, condition and reduce the look of fine lines on and around your lips while you sleep and wake up to lips that are ready for an even application of lip color or lip balm  . EXFOLIATE AND HYDRATE: Give yourself an at home spa experience with Burt's Bees Conditioning Lip Scrub followed by Overnight Intensive Lip Treatment, formulated give you a naturally beautiful pout ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/81cB8i8955L._SL1500_.jpg',
+    user_id=1
+  )
+  product112 = Product(
+    title="Burts Bees Renewing Lip Treatment With Ceramides and An All Naturalretinol Alternative To Reduce Fine Lines, White, 0.16 Oz  ",
+    brand="Burts",
+    price=8.59,
+    description="NOURISH LIPS WHILE YOU SLEEP: Overnight Intensive Lip Treatment moisturizes, conditions, smooths and helps support your lips natural moisture barrier while you sleep . ALL NATURAL: This overnight lip treatment contains ceramides, which are oils found naturally in your skin and are necessary for maintaining your lips natural moisture barrier . RESTORE MOISTURE: This overnight lip therapy acts as a lip moisturizer and soothes, conditions and forms a layer to help hydrate lips natural moisture  . REDUCE the appearance of FINE LINES: Hydrate, condition and reduce the look of fine lines on and around your lips while you sleep and wake up to lips that are ready for an even application of lip color or lip balm  . EXFOLIATE AND HYDRATE: Give yourself an at home spa experience with Burt's Bees Conditioning Lip Scrub followed by Overnight Intensive Lip Treatment, formulated give you a naturally beautiful pout ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/814uRcsVtYL._SL1500_.jpg',
+    user_id=1
+  )
+  product113 = Product(
+    title="Lip Balm, Burts Bees Moisturizing Lip Care, 100% Natural, Original Beeswax, Cucumber Mint, Coconut & Pear, Vanilla Bean With Beeswax & Fruit Extracts (4 Pack)  ",
+    brand="Burts",
+    price=8.59,
+    description="NOURISH LIPS WHILE YOU SLEEP: Overnight Intensive Lip Treatment moisturizes, conditions, smooths and helps support your lips natural moisture barrier while you sleep . ALL NATURAL: This overnight lip treatment contains ceramides, which are oils found naturally in your skin and are necessary for maintaining your lips natural moisture barrier . RESTORE MOISTURE: This overnight lip therapy acts as a lip moisturizer and soothes, conditions and forms a layer to help hydrate lips natural moisture  . REDUCE the appearance of FINE LINES: Hydrate, condition and reduce the look of fine lines on and around your lips while you sleep and wake up to lips that are ready for an even application of lip color or lip balm  . EXFOLIATE AND HYDRATE: Give yourself an at home spa experience with Burt's Bees Conditioning Lip Scrub followed by Overnight Intensive Lip Treatment, formulated give you a naturally beautiful pout ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/91fQupOgUFL._SL1500_.jpg',
+    user_id=1
+  )
+  product114 = Product(
+    title="Lip Balm, Burts Bees Lip Masks, Ultra Conditioning Lip Care, 100% Natural, Single Use (6 Count)  ",
+    brand="Burts",
+    price=18.59,
+    description="NOURISH LIPS WHILE YOU SLEEP: Overnight Intensive Lip Treatment moisturizes, conditions, smooths and helps support your lips natural moisture barrier while you sleep . ALL NATURAL: This overnight lip treatment contains ceramides, which are oils found naturally in your skin and are necessary for maintaining your lips natural moisture barrier . RESTORE MOISTURE: This overnight lip therapy acts as a lip moisturizer and soothes, conditions and forms a layer to help hydrate lips natural moisture  . REDUCE the appearance of FINE LINES: Hydrate, condition and reduce the look of fine lines on and around your lips while you sleep and wake up to lips that are ready for an even application of lip color or lip balm  . EXFOLIATE AND HYDRATE: Give yourself an at home spa experience with Burt's Bees Conditioning Lip Scrub followed by Overnight Intensive Lip Treatment, formulated give you a naturally beautiful pout ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/81RPrtwnTwL._SL1500_.jpg',
+    user_id=1
+  )
+  product115 = Product(
+    title="Burts Bees Gift Set, 6 Products - 2 Hand Cream, Foot Cream, Cuticle Cream, Hand Salve & Lip Balm, Tips & Toes Kit in Giftable Tin, Travel Size  ",
+    brand="Burts",
+    price=14.59,
+    description="BURTS BEES GIFT: Give the gift of healthy, glowing skin with our Travel Size Gift Set! Not only do our natural products make the perfect stocking stuffer, but they nourish skin throughout the winter to keep your loved ones glowing on the inside & out. . NOURISH LIPS WHILE YOU SLEEP: Overnight Intensive Lip Treatment moisturizes, conditions, smooths and helps support your lips natural moisture barrier while you sleep . ALL NATURAL: This overnight lip treatment contains ceramides, which are oils found naturally in your skin and are necessary for maintaining your lips natural moisture barrier . RESTORE MOISTURE: This overnight lip therapy acts as a lip moisturizer and soothes, conditions and forms a layer to help hydrate lips natural moisture  . REDUCE the appearance of FINE LINES: Hydrate, condition and reduce the look of fine lines on and around your lips while you sleep and wake up to lips that are ready for an even application of lip color or lip balm  . EXFOLIATE AND HYDRATE: Give yourself an at home spa experience with Burt's Bees Conditioning Lip Scrub followed by Overnight Intensive Lip Treatment, formulated give you a naturally beautiful pout ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/71wwMPcafcL._SL1500_.jpg',
+    user_id=1
+  )
+  product116 = Product(
+    title="Burts Bees Gift Set, 6 Classic Products Cuticle Cream, Hand Salve, Lip Balm, Res-Q Ointment, Hand Repair Cream & Foot Cream, in Giftable Tin  ",
+    brand="Burts",
+    price=23.59,
+    description="BURTS BEES GIFT: Give the gift of healthy, glowing skin with our Travel Size Gift Set! Not only do our natural products make the perfect stocking stuffer, but they nourish skin throughout the winter to keep your loved ones glowing on the inside & out. . NOURISH LIPS WHILE YOU SLEEP: Overnight Intensive Lip Treatment moisturizes, conditions, smooths and helps support your lips natural moisture barrier while you sleep . ALL NATURAL: This overnight lip treatment contains ceramides, which are oils found naturally in your skin and are necessary for maintaining your lips natural moisture barrier . RESTORE MOISTURE: This overnight lip therapy acts as a lip moisturizer and soothes, conditions and forms a layer to help hydrate lips natural moisture  . REDUCE the appearance of FINE LINES: Hydrate, condition and reduce the look of fine lines on and around your lips while you sleep and wake up to lips that are ready for an even application of lip color or lip balm  . EXFOLIATE AND HYDRATE: Give yourself an at home spa experience with Burt's Bees Conditioning Lip Scrub followed by Overnight Intensive Lip Treatment, formulated give you a naturally beautiful pout ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/91iK-JiZMsS._SL1500_.jpg',
+    user_id=1
+  )
+  product117 = Product(
+    title="CeraVe Eye Repair Cream | Under Eye Cream for Dark Circles and Puffiness | Suitable for Delicate Skin Under Eye Area | 0.5 Ounce  ",
+    brand="CeraVe",
+    price=10.48,
+    description="[ UNDER EYE CREAM ] Helps reduce the appearance of dark circles and puffiness in the under eye area. Brightening cream with a non-greasy finish that leaves under eyes looking hydrated, smooth, brightened, and more awake . [ HYDRATING INGREDIENTS ] Formulated with Hyaluronic Acid to help retain skin's moisture and Niacinamide to help soothe skin. With CeraVe's patented MVE ingredient-delivery technology to continually release ingredients and provide lasting hydration. . [ LIGHTWEIGHT TEXTURE ] Apply pea-sized amount to ring fingers and gently pat around the eye area and brow bone, both AM and PM. Fast-absorbing formula can be worn alone or under makeup. . [ 3 ESSENTIAL CERAMIDES ] Ceramides are found naturally in the skin and make up 50% of the lipids in the skin barrier. All CeraVe products are formulated with three essential ceramides (1, 3, 6-II) to help restore and maintain the skin . [ DERMATOLOGIST RECOMMENDED & OPHTHALMOLOGIST TESTED ] Tested for use around the eye area & accepted by the National Eczema Association. CeraVe brand is developed with dermatologists & has products suitable for dry skin, oily skin, acne-prone, & more ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/71saAo1QqJL._SL1500_.jpg',
+    user_id=1
+  )
+  product118 = Product(
+    title="CeraVe Cream Puffiness | Suitable for Delicate Skin Under Eye Area, 2 Tube  ",
+    brand="CeraVe",
+    price=53.48,
+    description="[ UNDER EYE CREAM ] Helps reduce the appearance of dark circles and puffiness in the under eye area. Brightening cream with a non-greasy finish that leaves under eyes looking hydrated, smooth, brightened, and more awake . [ HYDRATING INGREDIENTS ] Formulated with Hyaluronic Acid to help retain skin's moisture and Niacinamide to help soothe skin. With CeraVe's patented MVE ingredient-delivery technology to continually release ingredients and provide lasting hydration. . [ LIGHTWEIGHT TEXTURE ] Apply pea-sized amount to ring fingers and gently pat around the eye area and brow bone, both AM and PM. Fast-absorbing formula can be worn alone or under makeup. . [ 3 ESSENTIAL CERAMIDES ] Ceramides are found naturally in the skin and make up 50% of the lipids in the skin barrier. All CeraVe products are formulated with three essential ceramides (1, 3, 6-II) to help restore and maintain the skin . [ DERMATOLOGIST RECOMMENDED & OPHTHALMOLOGIST TESTED ] Tested for use around the eye area & accepted by the National Eczema Association. CeraVe brand is developed with dermatologists & has products suitable for dry skin, oily skin, acne-prone, & more ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/71mqdqN24YL._SL1500_.jpg',
+    user_id=1
+  )
+  product119 = Product(
+    title="Cold Face Eye Mask Ice Pack Reduce Face Puff,Dark Circles,Gel Beads Hot Heat Cold Compress Pack,Face SPA for Woman Sleeping, Pressure, Headaches, Skin Care[Blue]  ",
+    brand="ZNOCUEDO",
+    price=10.99,
+    description="[ UNDER EYE CREAM ] Helps reduce the appearance of dark circles and puffiness in the under eye area. Brightening cream with a non-greasy finish that leaves under eyes looking hydrated, smooth, brightened, and more awake . [ HYDRATING INGREDIENTS ] Formulated with Hyaluronic Acid to help retain skin's moisture and Niacinamide to help soothe skin. With CeraVe's patented MVE ingredient-delivery technology to continually release ingredients and provide lasting hydration. . [ LIGHTWEIGHT TEXTURE ] Apply pea-sized amount to ring fingers and gently pat around the eye area and brow bone, both AM and PM. Fast-absorbing formula can be worn alone or under makeup. . [ 3 ESSENTIAL CERAMIDES ] Ceramides are found naturally in the skin and make up 50% of the lipids in the skin barrier. All CeraVe products are formulated with three essential ceramides (1, 3, 6-II) to help restore and maintain the skin . [ DERMATOLOGIST RECOMMENDED & OPHTHALMOLOGIST TESTED ] Tested for use around the eye area & accepted by the National Eczema Association. CeraVe brand is developed with dermatologists & has products suitable for dry skin, oily skin, acne-prone, & more ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/71J157-uKML._SL1500_.jpg',
+    user_id=1
+  )
+  product120 = Product(
+    title="Cold Face Eye Mask Ice Pack Reduce Face Puff,Dark Circles,Gel Beads Hot Heat Cold Compress Pack,Face SPA for Woman Sleeping, Pressure, Headaches, Skin Care[Pink]  ",
+    brand="ZNOCUEDO",
+    price=10.99,
+    description="[ UNDER EYE CREAM ] Helps reduce the appearance of dark circles and puffiness in the under eye area. Brightening cream with a non-greasy finish that leaves under eyes looking hydrated, smooth, brightened, and more awake . [ HYDRATING INGREDIENTS ] Formulated with Hyaluronic Acid to help retain skin's moisture and Niacinamide to help soothe skin. With CeraVe's patented MVE ingredient-delivery technology to continually release ingredients and provide lasting hydration. . [ LIGHTWEIGHT TEXTURE ] Apply pea-sized amount to ring fingers and gently pat around the eye area and brow bone, both AM and PM. Fast-absorbing formula can be worn alone or under makeup. . [ 3 ESSENTIAL CERAMIDES ] Ceramides are found naturally in the skin and make up 50% of the lipids in the skin barrier. All CeraVe products are formulated with three essential ceramides (1, 3, 6-II) to help restore and maintain the skin . [ DERMATOLOGIST RECOMMENDED & OPHTHALMOLOGIST TESTED ] Tested for use around the eye area & accepted by the National Eczema Association. CeraVe brand is developed with dermatologists & has products suitable for dry skin, oily skin, acne-prone, & more ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/719DmzNOuWL._SL1500_.jpg',
+    user_id=1
+  )
+  product121 = Product(
+    title="Cold Face Eye Mask Ice Pack Reduce Face Puff,Dark Circles,Gel Beads Hot Heat Cold Compress Pack,Face SPA for Woman Sleeping, Pressure, Headaches, Skin Care[Green]  ",
+    brand="ZNOCUEDO",
+    price=10.99,
+    description="[ UNDER EYE CREAM ] Helps reduce the appearance of dark circles and puffiness in the under eye area. Brightening cream with a non-greasy finish that leaves under eyes looking hydrated, smooth, brightened, and more awake . [ HYDRATING INGREDIENTS ] Formulated with Hyaluronic Acid to help retain skin's moisture and Niacinamide to help soothe skin. With CeraVe's patented MVE ingredient-delivery technology to continually release ingredients and provide lasting hydration. . [ LIGHTWEIGHT TEXTURE ] Apply pea-sized amount to ring fingers and gently pat around the eye area and brow bone, both AM and PM. Fast-absorbing formula can be worn alone or under makeup. . [ 3 ESSENTIAL CERAMIDES ] Ceramides are found naturally in the skin and make up 50% of the lipids in the skin barrier. All CeraVe products are formulated with three essential ceramides (1, 3, 6-II) to help restore and maintain the skin . [ DERMATOLOGIST RECOMMENDED & OPHTHALMOLOGIST TESTED ] Tested for use around the eye area & accepted by the National Eczema Association. CeraVe brand is developed with dermatologists & has products suitable for dry skin, oily skin, acne-prone, & more ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/71omtDyu0mL._SL1500_.jpg',
+    user_id=1
+  )
+  product122 = Product(
+    title="Olay Ultimate Eye Cream for Wrinkles, Puffy Eyes + Dark Circles, 0.4 fl oz ",
+    brand="Olay",
+    price=23.99,
+    description="ALL-IN-ONE EYE CARE: Ultimate younger-looking eye cream that fights wrinkles, puffy eyes and dark circles . RICH FORMULA: Opaque, pink & smooth to the skin, this fragrance-free cream is formulated with a hint of concealer that blends seamlessly with all skin tones . INGREDIENTS THAT RENEW: Revive your eyes with ingredients like B3, Peptides & Pigments that work together to fortify skins natural moisture & instantly reduce signs of tiring days & nights . 24 HOUR HYDRATION: Combat wrinkles, dark circles & tired-looking eyes morning & night by placing a small amount around the eye area & smoothing until absorbed . INSTANT EYE-OPENER: Hydrates & restores eyes from the very first use & contains Olay’s color-correcting technology to blend with all skin tones . SKIN CARE INDUSTRY LEADER: Olay Ultimate Eye Cream beats the competition, hydrating better than $100, $200 & even $400 eye creams ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/71Vj15tB0hL._SL1500_.jpg',
+    user_id=1
+  )
+  product123 = Product(
+    title="Olay Regenerist Retinol 24 Max Moisturizer, Retinol 24 Max Night Face Cream, 1.7 Oz + Whip Face Moisturizer Travel/Trial Size Mothers Day Gifts Bundle ",
+    brand="Olay",
+    price=43.99,
+    description="ALL-IN-ONE EYE CARE: Ultimate younger-looking eye cream that fights wrinkles, puffy eyes and dark circles . RICH FORMULA: Opaque, pink & smooth to the skin, this fragrance-free cream is formulated with a hint of concealer that blends seamlessly with all skin tones . INGREDIENTS THAT RENEW: Revive your eyes with ingredients like B3, Peptides & Pigments that work together to fortify skins natural moisture & instantly reduce signs of tiring days & nights . 24 HOUR HYDRATION: Combat wrinkles, dark circles & tired-looking eyes morning & night by placing a small amount around the eye area & smoothing until absorbed . INSTANT EYE-OPENER: Hydrates & restores eyes from the very first use & contains Olay’s color-correcting technology to blend with all skin tones . SKIN CARE INDUSTRY LEADER: Olay Ultimate Eye Cream beats the competition, hydrating better than $100, $200 & even $400 eye creams ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/718mXByu96L._SL1500_.jpg',
+    user_id=1
+  )
+  product124 = Product(
+    title="Olay Regenerist Vitamin C + Peptide 24 Brightening Face Moisturizer + Whip Face Moisturizer Travel/Trial Size Mothers Day Gifts Set  ",
+    brand="Olay",
+    price=34.99,
+    description="ALL-IN-ONE EYE CARE: Ultimate younger-looking eye cream that fights wrinkles, puffy eyes and dark circles . RICH FORMULA: Opaque, pink & smooth to the skin, this fragrance-free cream is formulated with a hint of concealer that blends seamlessly with all skin tones . INGREDIENTS THAT RENEW: Revive your eyes with ingredients like B3, Peptides & Pigments that work together to fortify skins natural moisture & instantly reduce signs of tiring days & nights . 24 HOUR HYDRATION: Combat wrinkles, dark circles & tired-looking eyes morning & night by placing a small amount around the eye area & smoothing until absorbed . INSTANT EYE-OPENER: Hydrates & restores eyes from the very first use & contains Olay’s color-correcting technology to blend with all skin tones . SKIN CARE INDUSTRY LEADER: Olay Ultimate Eye Cream beats the competition, hydrating better than $100, $200 & even $400 eye creams ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/71Zt5SwX2RL._SL1500_.jpg',
+    user_id=1
+  )
+  product125 = Product(
+    title="Face Wash by Olay Regenerist Advanced Anti-Aging Pore Scrub Cleanser (5.0 Oz) and Micro-Sculpting Face Moisturizer Cream (1.7 Oz) Skin Care Duo Pack ",
+    brand="Olay",
+    price=34.99,
+    description="ALL-IN-ONE EYE CARE: Ultimate younger-looking eye cream that fights wrinkles, puffy eyes and dark circles . RICH FORMULA: Opaque, pink & smooth to the skin, this fragrance-free cream is formulated with a hint of concealer that blends seamlessly with all skin tones . INGREDIENTS THAT RENEW: Revive your eyes with ingredients like B3, Peptides & Pigments that work together to fortify skins natural moisture & instantly reduce signs of tiring days & nights . 24 HOUR HYDRATION: Combat wrinkles, dark circles & tired-looking eyes morning & night by placing a small amount around the eye area & smoothing until absorbed . INSTANT EYE-OPENER: Hydrates & restores eyes from the very first use & contains Olay’s color-correcting technology to blend with all skin tones . SKIN CARE INDUSTRY LEADER: Olay Ultimate Eye Cream beats the competition, hydrating better than $100, $200 & even $400 eye creams ",
+    details="",
+    stock=10,
+    category="beauty&personal",
+    img='https://m.media-amazon.com/images/I/71lLxz8yhKL._SL1500_.jpg',
+    user_id=1
+  )
+  product126 = Product(
+    title="adidas Men's Designed 2 Move Logo Tee   ",
+    brand="Adidas",
+    price=14.99,
+    description="100% Cotton . Tie closure . Hand Wash Only . 100% cotton canvas. Spot / hand wash. Imported. . Wide brimmed bucket hat design, finished with neck tie to secure the hat to your head on all the adventures your day may bring you! . Designed for a relaxed fit, our buckets should be comfortable for wearer and snug in fit (but not too tight), depending on how you like to wear your hats. ",
+    details="",
+    stock=10,
+    category="fashion",
+    img='https://m.media-amazon.com/images/I/41yHFi1HscL._AC_SL1000_.jpg',
+    user_id=1
+  )
+  product127 = Product(
+    title="adidas Men's Designed 2 Move Logo Tee grey  ",
+    brand="Adidas",
+    price=14.99,
+    description="100% Cotton . Tie closure . Hand Wash Only . 100% cotton canvas. Spot / hand wash. Imported. . Wide brimmed bucket hat design, finished with neck tie to secure the hat to your head on all the adventures your day may bring you! . Designed for a relaxed fit, our buckets should be comfortable for wearer and snug in fit (but not too tight), depending on how you like to wear your hats. ",
+    details="",
+    stock=10,
+    category="fashion",
+    img='https://m.media-amazon.com/images/I/81Rim2wb1yL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product128 = Product(
+    title="Cuisinart DFP-14BCNY 14-Cup Food Processor Custom, Brushed Stainless ",
+    brand="Cuisinart",
+    price=249.99,
+    description="SUPERIOR FUNCTION: Cuisinarts 720-watt motor for our 14-cup large-capacity food processor can handle almost anything. Make any kind of dip, puree soup or sauce including hummus, salsa, guacamole - the possibilities are endless .INCLUDED: Stainless steel standard slicing disc (4mm), medium shredding disc and stainless steel chopping/mixing blade. Also includes a spatula, instruction manual and recipe booklet with dishwasher-safe parts . NOTE TO CONSUMER: Shredding and slicing blades are not adjustable. Please refer to the manual before set up .  FULL 5-YEAR WARRANTY: On motor with LIMITED 3-YEAR WARRANTY: Refer to user manual for troubleshooting steps and questions surrounding warranty policies this product is BPA free ",
+    details="",
+    stock=10,
+    category="household",
+    img='https://m.media-amazon.com/images/I/61g-sIyLAmL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product129 = Product(
+    title="Cuisinart CFP-800 Kitchen Central 3-in-1 Food Processor, Gun Metal ",
+    brand="Cuisinart",
+    price=149.99,
+    description="SUPERIOR FUNCTION: Cuisinarts 720-watt motor for our 14-cup large-capacity food processor can handle almost anything. Make any kind of dip, puree soup or sauce including hummus, salsa, guacamole - the possibilities are endless .INCLUDED: Stainless steel standard slicing disc (4mm), medium shredding disc and stainless steel chopping/mixing blade. Also includes a spatula, instruction manual and recipe booklet with dishwasher-safe parts . NOTE TO CONSUMER: Shredding and slicing blades are not adjustable. Please refer to the manual before set up .  FULL 5-YEAR WARRANTY: On motor with LIMITED 3-YEAR WARRANTY: Refer to user manual for troubleshooting steps and questions surrounding warranty policies this product is BPA free ",
+    details="",
+    stock=10,
+    category="household",
+    img='https://m.media-amazon.com/images/I/61kn9yyNq8L._AC_SL1024_.jpg',
+    user_id=1
+  )
+  product130 = Product(
+    title="Cuisinart CSB-179 Smart Stick Variable Speed Hand Blender, Stainless Steel  ",
+    brand="Cuisinart",
+    price=169.99,
+    description="SUPERIOR FUNCTION: Cuisinarts 720-watt motor for our 14-cup large-capacity food processor can handle almost anything. Make any kind of dip, puree soup or sauce including hummus, salsa, guacamole - the possibilities are endless .INCLUDED: Stainless steel standard slicing disc (4mm), medium shredding disc and stainless steel chopping/mixing blade. Also includes a spatula, instruction manual and recipe booklet with dishwasher-safe parts . NOTE TO CONSUMER: Shredding and slicing blades are not adjustable. Please refer to the manual before set up .  FULL 5-YEAR WARRANTY: On motor with LIMITED 3-YEAR WARRANTY: Refer to user manual for troubleshooting steps and questions surrounding warranty policies this product is BPA free ",
+    details="",
+    stock=10,
+    category="household",
+    img='https://m.media-amazon.com/images/I/71LQiVMOmGL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product131 = Product(
+    title="Cuisinart CGG-403 3-in-1 Pizza Oven Plus, Griddle, and Grill ",
+    brand="Cuisinart",
+    price=197.99,
+    description="SUPERIOR FUNCTION: Cuisinarts 720-watt motor for our 14-cup large-capacity food processor can handle almost anything. Make any kind of dip, puree soup or sauce including hummus, salsa, guacamole - the possibilities are endless .INCLUDED: Stainless steel standard slicing disc (4mm), medium shredding disc and stainless steel chopping/mixing blade. Also includes a spatula, instruction manual and recipe booklet with dishwasher-safe parts . NOTE TO CONSUMER: Shredding and slicing blades are not adjustable. Please refer to the manual before set up .  FULL 5-YEAR WARRANTY: On motor with LIMITED 3-YEAR WARRANTY: Refer to user manual for troubleshooting steps and questions surrounding warranty policies this product is BPA free ",
+    details="",
+    stock=10,
+    category="household",
+    img='https://m.media-amazon.com/images/I/71DOTTKLOAL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product132 = Product(
+    title="Cuisinart 5.5 Quart Stand Mixer, Manual, White Linen  ",
+    brand="Cuisinart",
+    price=224.99,
+    description="SUPERIOR FUNCTION: Cuisinarts 720-watt motor for our 14-cup large-capacity food processor can handle almost anything. Make any kind of dip, puree soup or sauce including hummus, salsa, guacamole - the possibilities are endless .INCLUDED: Stainless steel standard slicing disc (4mm), medium shredding disc and stainless steel chopping/mixing blade. Also includes a spatula, instruction manual and recipe booklet with dishwasher-safe parts . NOTE TO CONSUMER: Shredding and slicing blades are not adjustable. Please refer to the manual before set up .  FULL 5-YEAR WARRANTY: On motor with LIMITED 3-YEAR WARRANTY: Refer to user manual for troubleshooting steps and questions surrounding warranty policies this product is BPA free ",
+    details="",
+    stock=10,
+    category="household",
+    img='https://m.media-amazon.com/images/I/81aZxs6FBPL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product133 = Product(
+    title="Cuisinart SS-15P1 Coffeemaker and Single-Serve Brewer Coffee Center, 12-Cup Glass, Stainless Steel ",
+    brand="Cuisinart",
+    price=84.99,
+    description="SUPERIOR FUNCTION: Cuisinarts 720-watt motor for our 14-cup large-capacity food processor can handle almost anything. Make any kind of dip, puree soup or sauce including hummus, salsa, guacamole - the possibilities are endless .INCLUDED: Stainless steel standard slicing disc (4mm), medium shredding disc and stainless steel chopping/mixing blade. Also includes a spatula, instruction manual and recipe booklet with dishwasher-safe parts . NOTE TO CONSUMER: Shredding and slicing blades are not adjustable. Please refer to the manual before set up .  FULL 5-YEAR WARRANTY: On motor with LIMITED 3-YEAR WARRANTY: Refer to user manual for troubleshooting steps and questions surrounding warranty policies this product is BPA free ",
+    details="",
+    stock=10,
+    category="household",
+    img='https://m.media-amazon.com/images/I/61FB1fnbbOL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product134 = Product(
+    title="Instant Pot Duo 7-in-1 Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Sauté, Yogurt Maker, Warmer & Sterilizer, 6 Quart, Stainless Steel/Black ",
+    brand="Instant Pot",
+    price=74.99,
+    description="7-IN-1 FUNCTIONALITY: Pressure cook, slow cook, rice cooker, yogurt maker, steamer, sauté pan and food warmer. . QUICK ONE-TOUCH COOKING: 13 customizable Smart Programs for pressure cooking ribs, soups, beans, rice, poultry, yogurt, desserts and more. . COOK FAST OR SLOW: Pressure cook delicious one-pot meals up to 70% faster than traditional cooking methods or slow cook your favorite traditional recipes  just like grandma used to make. . QUICK AND EASY CLEAN UP: Finger-print resistant, stainless-steel sides and dishwasher-safe lid, inner pot, and accessories.  ",
+    details="",
+    stock=10,
+    category="household",
+    img='https://m.media-amazon.com/images/I/71V1LrY1MSL._AC_SL1500_.jpg',
+    user_id=1
+  )
+  product135 = Product(
+    title="Instant Pot Pro Plus Smart Multi Cooker, 6 Quart, 10-in-1, Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Sauté Pan, Yogurt Maker, Warmer, Canning Pot, Sous Vide, NutriBoost",
+    brand="Instant Pot",
+    price=144.99,
+    description="7-IN-1 FUNCTIONALITY: Pressure cook, slow cook, rice cooker, yogurt maker, steamer, sauté pan and food warmer. . QUICK ONE-TOUCH COOKING: 13 customizable Smart Programs for pressure cooking ribs, soups, beans, rice, poultry, yogurt, desserts and more. . COOK FAST OR SLOW: Pressure cook delicious one-pot meals up to 70% faster than traditional cooking methods or slow cook your favorite traditional recipes  just like grandma used to make. . QUICK AND EASY CLEAN UP: Finger-print resistant, stainless-steel sides and dishwasher-safe lid, inner pot, and accessories.  ",
+    details="",
+    stock=10,
+    category="household",
+    img='https://m.media-amazon.com/images/I/71-fFNk1VqL._AC_SL1500_.jpg',
+    user_id=1
+  )
 
 
   db.session.add_all([echo_dot_4th_gen_clock_white,echo_dot_4th_gen_clock_blue,echo_show_8th_black,
@@ -895,7 +1511,12 @@ def seed_products():
                       product45,product46,product47,product48,product49,product50,product51,product52,product53,product54,
                       product55,product56,product57,product58,product59,product60,product61,product62,product63,product64,
                       product65,product66,product67,product68,product69,product70,product71,product72,product73,product74,
-                      product75,product76,product77,product78,product79,product80])
+                      product75,product76,product77,product78,product79,product80,product81,product82,product83,product84,
+                      product85,product86,product87,product88,product89,product90,product91,product92,product93,product94,
+                      product95,product96,product97,product98,product99,product100,product101,product102,product103,product104,
+                      product105,product106,product107,product108,product109,product110,product111,product112,product113,product114,
+                      product115,product116,product117,product118,product119,product120,product121,product122,product123,product124,
+                      product125,product126,product127,product128,product129,product130,product131,product132,product133,product134,product135])
   db.session.commit()
 
 def undo_products():
