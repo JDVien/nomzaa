@@ -230,7 +230,9 @@ const ProductDetails = ({ loaded }) => {
               </label>
             </form>
 
-            <h3 id='stock_left' className='stock_right'>Only {product?.stock} left in stock - order soon.</h3>
+            <span id='stock_left' className='stock_right'>
+            <i className="fa-solid fa-lock"></i>
+              {" "}Secure transaction</span>
             <AddToCart handleAddToCart={handleAddToCart} />
             <button id='buy_bttn' onClick={handleAddCartRedirect}>Buy Now</button>
           </div>

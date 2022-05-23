@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { get_all_products } from "../../store/product";
 import VertiCart from "../Cart/VertiCart";
+import ReactStars from 'react-stars'
 import "./index.css";
 
 const FilteredProducts = () => {
@@ -12,7 +13,6 @@ const FilteredProducts = () => {
   const location = useLocation();
   // const [filter, setFilter] = useState("")
   let filter;
-  // console.log(location.state, "location state");
   const { fromMainGroceries } = location?.state;
   const { fromMainBeauty } = location?.state;
   const { fromMainElectronics } = location?.state;
@@ -21,8 +21,7 @@ const FilteredProducts = () => {
   const { fromMainHousehold } = location?.state;
   const { fromMainToys } = location?.state;
   const { fromMainImprovement } = location?.state;
-  console.log(Object.values(location?.state)[0], "fromMainFilter");
-  // console.log(fromMainElectronics === Object.values(location?.state)[0], "fromMainElectonics")
+  const getRandomInt = (min,max) => {  return Math.random() * (max - min) + min;};
   const products = useSelector((state) => Object.values(state?.products));
   const groceries = products?.filter(
     (product) => product?.category === "groceries"
@@ -105,6 +104,18 @@ const FilteredProducts = () => {
                   <p id="fpl_price_p">
                     {product?.price.toString().split(".")[1]}
                   </p>
+                  <div className="rating_container_fpl">
+                <ReactStars
+                  className="set_rating_stars"
+                  count={5}
+                  value={getRandomInt(2,5)}
+                  size={32}
+                  color2={"#ffa41c"}
+                  half={true}
+                  // onChange={updateRating}
+                  edit={false}
+                />
+              </div>
                 </div>
                 <div className="fpl_prime_div">
                   <img
@@ -118,10 +129,9 @@ const FilteredProducts = () => {
                   </span>
                   <br />
                 </div>
-                <span className="fpl_stock">
+                {/* <span className="fpl_stock">
                   Only {product?.stock} left in stock - order soon.
-                </span>
-                <br />
+                </span> */}
                 <span className="fpl_item_age_limit">
                   Ages: 15 years and up
                 </span>

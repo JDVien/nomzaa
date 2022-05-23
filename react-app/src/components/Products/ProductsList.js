@@ -8,7 +8,7 @@ import "./index.css";
 const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => Object.values(state.products));
-  const getRandomInt = (max) => {return Math.floor(Math.random() * max);};
+  const getRandomInt = (min,max) => {  return Math.random() * (max - min) + min;};
   useEffect(() => {
     dispatch(get_all_products());
   }, [dispatch]);
@@ -50,7 +50,7 @@ const Products = () => {
                       <ReactStars
                         className="set_rating_stars"
                         count={5}
-                        value={getRandomInt(5)}
+                        value={getRandomInt(2,5)}
                         size={24}
                         color2={"#ffa41c"}
                         half={true}

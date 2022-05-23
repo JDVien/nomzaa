@@ -190,11 +190,23 @@ const Cart = () => {
                               {item.product.title}
                             </Link>
                           </span>
-                          <div id="cart_item_price"> ${item.product.price}</div>
+                          <div className="fpl_price_sub_box" id='cart_ver_price_box_item'>
+                        <p>$</p>
+                        <h1 id='cart_price_dec'>{cart_subtotal.toString().split(".")[0]}</h1>
+                        <p id="fpl_price_p">
+                          {cart_subtotal.toFixed(2).toString().split(".")[1]}
+                        </p>
+                        </div>
+                       <br />
+                                      <div className='cart_prime_del_div'>
+              <img id='prime_sm' src='/static/images/prime_sm_fpl.png' width='53' height='15' alt='prime'/>
+              <div><span id='cart_ampersand'>& FREE Returns</span></div>
+            </div>
                           <div id="cart_item_stock">
-                            <span>
+
+                            {/* <span>
                               Only {item?.product?.stock} left - order soon.
-                            </span>
+                            </span> */}
                           </div>
                           <div id="cart_item_brand">
                             <span>Shipped from: {item.product.brand}</span>
@@ -262,7 +274,7 @@ const Cart = () => {
                 {/* <span id="subtotal_price">$ {cart_subtotal.toFixed(2)}</span> */}
                 <div className="fpl_price_sub_box" id='cart_ver_price_box'>
                         <p>$</p>
-                        <h1>{cart_subtotal.toString().split(".")[0]}</h1>
+                        <h1 id='cart_price_dec'>{cart_subtotal.toString().split(".")[0]}</h1>
                         <p id="fpl_price_p">
                           {cart_subtotal.toFixed(2).toString().split(".")[1]}
                         </p>
@@ -322,17 +334,22 @@ const Cart = () => {
                         </Link>
                       </span>
                       <div id="cart_item_price"> ${item?.product?.price}</div>
+                      <span id='avail_text'>In Stock</span><br/>
+                      <div className='cart_prime_del_div'>
+              <img id='prime_sm' src='/static/images/prime_sm_fpl.png' width='53' height='15' alt='prime'/>
+              <div><span id='cart_ampersand'>& FREE Returns</span></div>
+            </div>
                       <div id="cart_item_stock">
-                        <span>
+                        {/* <span>
                           Only {item?.product?.stock} left - order soon.
-                        </span>
+                        </span> */}
                       </div>
                       <div id="cart_item_brand">
                         <span>Shipped from: {item?.product?.brand}</span>
                       </div>
                       <div id="cart_item_user_options">
                         <button
-                          id="buy_bttn"
+                          // id="buy_bttn"
                           className="move_to_cart_bttn"
                           onClick={() => handleAddToCart(item)}
                         >
