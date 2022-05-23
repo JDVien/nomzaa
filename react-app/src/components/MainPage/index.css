@@ -116,7 +116,13 @@ h3 {
   display: flex;
   position: relative;
   top: 210px;
+  right: 73px;
   /* z-index: 49; */
+}
+
+#mid_banner_bottom {
+  position: relative;
+  left: 73px;
 }
 
 /* * {
