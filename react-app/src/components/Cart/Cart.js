@@ -192,9 +192,9 @@ const Cart = () => {
                           </span>
                           <div className="fpl_price_sub_box" id='cart_ver_price_box_item'>
                         <p>$</p>
-                        <h1 id='cart_price_dec'>{cart_subtotal.toString().split(".")[0]}</h1>
+                        <h1 id='cart_price_dec'>{item?.product?.price.toString().split(".")[0]}</h1>
                         <p id="fpl_price_p">
-                          {cart_subtotal.toFixed(2).toString().split(".")[1]}
+                          {item?.product?.price.toFixed(2).toString().split(".")[1]}
                         </p>
                         </div>
                        <br />

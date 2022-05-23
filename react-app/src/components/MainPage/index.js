@@ -1,7 +1,7 @@
 import * as React from "react";
 import { get_all_products } from "../../store/product";
 import { get_all_saved } from "../../store/saved";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Products from '../Products/ProductsList';
@@ -11,8 +11,8 @@ import "./index.css";
 
 const Main = ({ user, loaded }) => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => Object.values(state.products));
-  const getRandomInt = (max) => {return Math.floor(Math.random() * max);};
+  // const products = useSelector((state) => Object.values(state.products));
+  // const getRandomInt = (max) => {return Math.floor(Math.random() * max);};
   useEffect(() => {
     if (user) {
       dispatch(get_all_products());
@@ -22,16 +22,8 @@ const Main = ({ user, loaded }) => {
 
   const saved_items = useSelector((state) => Object.values(state.saved));
   // const saved_products = saved_items.filter((item) => item?.product_id === product?.id)
-  console.log(saved_items, "saved_products+++++++++++++++++++++")
-  // const getLoad = () => {
 
-  //   setTimeout(() => {
 
-  //     <CircularProgress width="40" />
-
-  //   }, 4000)
-
-  // }
 
   return (
     <>

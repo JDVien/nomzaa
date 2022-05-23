@@ -234,8 +234,8 @@
 
 #saved_box {
   display: flex;
-  width: 260px;
-  height: 481px;
+  width: 266px;
+  height: 525px;
   flex-direction: column;
   flex-wrap: wrap;
   margin: 12px;

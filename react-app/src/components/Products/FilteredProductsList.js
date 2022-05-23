@@ -1,18 +1,24 @@
 // import React, { useState } from 'react';
 import { useLocation, Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { get_all_products } from "../../store/product";
 import VertiCart from "../Cart/VertiCart";
+// import FiltersColumn from './FiltersColumn';
+import ProductBanner from './ProductBanner';
 import ReactStars from 'react-stars'
 import "./index.css";
+import "./filter.css";
 
 const FilteredProducts = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const location = useLocation();
   // const [filter, setFilter] = useState("")
+  const [IsFiltered, setIsFilterd] = useState(false)
+
   let filter;
+  let nom_type;
   const { fromMainGroceries } = location?.state;
   const { fromMainBeauty } = location?.state;
   const { fromMainElectronics } = location?.state;
@@ -49,31 +55,59 @@ const FilteredProducts = () => {
   );
   // (location.state === fromMainGroceries) ? setFilter(groceries) : setFilter(electonics)
   if (Object.values(location?.state)[0] === fromMainGroceries) {
-    filter = groceries;
+    filter = groceries; nom_type = "fresh"
   } else if (Object.values(location?.state)[0] === fromMainElectronics) {
-    filter = electronics;
+    filter = electronics; nom_type = "smart"
   } else if (Object.values(location?.state)[0] === fromMainPets) {
-    filter = pet_supplies;
+    filter = pet_supplies; nom_type = "pets"
   } else if (Object.values(location?.state)[0] === fromMainFashion) {
-    filter = fashion;
+    filter = fashion; nom_type = "fashion"
   } else if (Object.values(location?.state)[0] === fromMainBeauty) {
-    filter = beauty_personal;
+    filter = beauty_personal; nom_type = "beauty"
   } else if (Object.values(location?.state)[0] === fromMainHousehold) {
-    filter = household;
+    filter = household; nom_type = "home"
   } else if (Object.values(location?.state)[0] === fromMainToys) {
-    filter = toys;
+    filter = toys; nom_type = "toys"
   } else if (Object.values(location?.state)[0] === fromMainImprovement) {
-    filter = home_improvement;
+    filter = home_improvement; nom_type = "hi"
   }
+  let priceSetFifty;
+
+  // const priceFilter = () => {
+  //   priceSetFifty = filter?.filter((product) => product?.price < 50)
+
+  //   setIsFilterd(true)
+  //   return priceSetFifty;
+  // }
 
   useEffect(() => {
     dispatch(get_all_products());
   }, [dispatch]);
 
   return (
+
     <>
-      <VertiCart />
+        <>
+      <div className='fpd_column_container'>
+        {/* <div className='user_filter_options'>
+          <input type="checkbox" className='brand_filter_checkbox' onClick={() => priceFilter()}/>
+        </div> */}
+      </div>
+    </>
+    <VertiCart />
+        <ProductBanner type={nom_type} />
       <div className="filter_list_container">
+        {/* <div className='price_filter'>
+          {IsFiltered && (
+            <div id='price_filtered_list'>
+              {priceSetFifty?.map((item) => (
+                <div className="filtered_item">
+                  <h2 id="fpl_prod_title">{item?.title}</h2>
+                </div>
+              ))}
+            </div>
+          )}
+        </div> */}
         {filter?.map((product) => (
           <div className="list_item_box" key={product?.id}>
             <div className="product_item_row_container">
