@@ -52,7 +52,7 @@ const Footer = () => {
 
       <span className='bottom_about_tag_jdv'>Jason Vien
       <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'> - Github</a>
-      <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'>- LinkedIn</a>
+      <a className='subnav_jd_github_a' href='https://www.linkedin.com/in/jd-v-52a595237/'>- LinkedIn</a>
       </span>
       </div>
     </div>

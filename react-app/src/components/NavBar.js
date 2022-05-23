@@ -200,7 +200,7 @@ const NavBar = ({user}) => {
           </a>
           </span>
           <span className='subnav_category'>
-          <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'>
+          <a className='subnav_jd_github_a' href='https://www.linkedin.com/in/jd-v-52a595237/'>
             <i className="fab fa-linkedin-in"></i>
           </a>
           </span>
