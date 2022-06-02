@@ -10,3 +10,4 @@ def delete_order(id):
   cart = Cart_Item.query.filter(Cart_Item.id == id).delete()
   db.session.commit()
   return "successful delete"
+

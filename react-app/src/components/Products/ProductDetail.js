@@ -29,8 +29,8 @@ const ProductDetails = ({ loaded }) => {
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
-  const [showCart, setShowCart] = useState(false);
-  const [inCart, setInCart] = useState(false);
+  // const [showCart, setShowCart] = useState(false);
+  // const [inCart, setInCart] = useState(false);
   // const props = {width: 500, zoomWidth: 700,  img: product?.img};
 
   useEffect(() => {
@@ -76,8 +76,6 @@ const ProductDetails = ({ loaded }) => {
   const handleAddToCart = () => {
 
     if (sessionUser) {
-      // if (!inCart) {
-        // if (product?.purchased) setInCart(false)
         const data = {
           user_id: sessionUser.id,
           product_id: product.id,
@@ -87,42 +85,14 @@ const ProductDetails = ({ loaded }) => {
           quantity: user_quantity,
         };
         dispatch(create_cart(data));
-        setInCart(true)
-      // } else if (inCart) {
-        // history.push('/cart')
-      // }
      } else history.push("/login")
   };
 
-  // const handleShowVertiCart = () => {
-  //   if (showCart) {
-  //     setShowCart(true)
-  //     return (
-  //         <div className='set_verticart_div'>
-  //           <VertiCart />
-  //         </div>
-  //     )
-
-  //   } else if (!showCart) {
-  //     return (
-
-  //       <div>bruh
-  //         </div>
-  //     )
-  //   }
-  //   setShowCart(false)
-  // }
 
   return (
     <>
       <div id="product_page_content_container">
-        {/* <button onClick={() => handleShowVertiCart()} >set verticart</button>
-        {showCart ? (
-                  <VertiCart />
-        ) : (
-          <>
-          </>
-        )} */}
+
         <VertiCart />
         <div id='top_ad_bar'>.</div>
         <div id="ppd_top_section">
@@ -265,7 +235,7 @@ const ProductDetails = ({ loaded }) => {
             {sessionUser && sessionUser?.id === userReview[0]?.user_id ? (
                     <div>
                     <span>You've reviewed this product. Thank you!</span>
-                    </div>
+                    </div>``
                   ) : (
                     <Link className="review-link-bttn" to={{
                       pathname:'/reviews/new', state: { fromProductDetails: product}

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { update_review } from '../../store/reviews';
-import { get_one_product } from "../../store/product";
+
 import ReactStars from 'react-stars'
 import ReviewBanner from './ReviewBanner';
 import './reviewform.css';

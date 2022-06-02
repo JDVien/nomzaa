@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
-import { useLocation, Link, useHistory } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { get_all_products } from "../../store/product";
 import VertiCart from "../Cart/VertiCart";
 // import FiltersColumn from './FiltersColumn';
@@ -15,7 +15,7 @@ const FilteredProducts = () => {
   // const history = useHistory();
   const location = useLocation();
   // const [filter, setFilter] = useState("")
-  const [IsFiltered, setIsFilterd] = useState(false)
+  // const [IsFiltered, setIsFilterd] = useState(false)
 
   let filter;
   let nom_type;

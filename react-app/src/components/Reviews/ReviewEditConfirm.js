@@ -1,7 +1,7 @@
 // import { useEffect, useState } from "react";
 import './reviewform.css';
-import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+// import { useSelector } from "react-redux";
+// import { Link, useLocation } from "react-router-dom";
 import ReviewBanner from './ReviewBanner';
 
 const ReviewConfirmation = () => {

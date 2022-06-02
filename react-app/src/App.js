@@ -30,13 +30,6 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  // const getDataFromAPI = () => {
-  //   console.log("API called!!")
-  //     setTimeout(()=>{
-  //       setLoaded(false)
-  //     }, 5000)
-  // }
-
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
@@ -50,10 +43,8 @@ function App() {
 
   return (
     <>
-
     <BrowserRouter>
     <ScrollToTop />
-
       <Switch>
         <Route exact path="/products">
           <NavBar user={user}/>
