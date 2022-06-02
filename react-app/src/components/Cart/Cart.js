@@ -11,9 +11,9 @@ import {
 } from "../../store/saved.js";
 // import LinearProgress from '@mui/material/LinearProgress';
 import { useDispatch, useSelector } from "react-redux";
-import { get_all_products, update_product } from "../../store/product";
+import { get_all_products} from "../../store/product";
 import React, { useState, useEffect } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Products from '../Products/ProductsList';
 import "./index.css";
 

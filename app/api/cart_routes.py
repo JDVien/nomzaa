@@ -2,6 +2,7 @@ from crypt import methods
 from flask import Blueprint, request, session
 from app.models import db, Product, Cart_Item
 from flask_login import current_user
+import random
 
 cart_routes = Blueprint("carts", __name__)
 
@@ -16,30 +17,10 @@ def delete_cart(id):
   db.session.commit()
   return "successful delete"
 
-# @cart_routes.route('/', methods=["PUT"])
-# def edit_cart(id):
-
-#   data = request.get_json()
-#   # print(data['id'], "data--------------------------------")
-#   cart = Cart_Item.query.get(data['id'])
-#   if request.method == "PUT":
-#     if (cart):
-#       cart.quantity = data['quantity']
-#     db.session.commit()
-#     return cart.to_dict()
-#   else:
-#     return "Bad Data"
-
 
 @cart_routes.route('', methods=['POST'])
 def create_cart():
   data = request.get_json()
-  cart_item = Cart_Item.query.filter(Cart_Item.user_id == current_user.id, Cart_Item.product_id == data['product_id']).first()
-  # print(cart_item.to_dict(), "============================================================>>>>>")
-  if cart_item != None:
-    cart_item.quantity = cart_item.quantity + 1
-    db.session.commit()
-    return cart_item.to_dict()
   new_cart = Cart_Item(
     user_id = data['user_id'],
     product_id = data['product_id'],
@@ -59,7 +40,7 @@ def update_cart():
   cart_order = Cart_Item.query.get(data[0]['id'])
   for item in data:
     cart_item = Cart_Item.query.get(item['id'])
-    cart_item.order_id = cart_order.id
+    cart_item.order_id = cart_order.id + len(data)
     cart_item.purchased = True
 
     carts_list.append(cart_item.to_dict())

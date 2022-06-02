@@ -1,8 +1,6 @@
-import { get_all_products } from "../../store/product";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory, useLocation } from 'react-router-dom';
-import { delete_order } from '../../store/order';
 import { delete_cart } from '../../store/cart';
 
 
@@ -22,12 +20,12 @@ const CancelOrder = ({ user }) => {
     .filter((item) =>  item.purchased && item?.order_id === orderId)
     // .map((product) => product.product);
   console.log(user_products, 'user_products in delete orders --------------------')
-  const user_order = user_products.filter(
-    (item) => item.order_id === cart_items[user_products.length - 1].order_id
-  );
+  // const user_order = user_products.filter(
+  //   (item) => item.order_id === cart_items[user_products.length - 1].order_id
+  // );
 
 
-  const cart_item = user_products[user_products.length - 1]
+  // const cart_item = user_products[user_products.length - 1]
 
   user_products.forEach(item => (
     console.log(item?.id, "item_id")

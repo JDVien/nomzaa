@@ -1,5 +1,5 @@
 import { get_all_reviews } from "../../store/reviews";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
@@ -8,7 +8,7 @@ import "./reviewindex.css";
 
 const Reviews = ({ user, filteredReviews, avgRating }) => {
   const dispatch = useDispatch();
-  const reviews = useSelector((state) => Object.values(state.reviews));
+  // const reviews = useSelector((state) => Object.values(state.reviews));
   const DATE_OPTIONS = { year: 'numeric', month: 'short', day: 'numeric' };
 
   useEffect(() => {

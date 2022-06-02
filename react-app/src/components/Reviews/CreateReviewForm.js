@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation, Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { create_review } from "../../store/reviews";
 import { get_one_product } from "../../store/product";
 import ReactStars from "react-stars";
@@ -50,7 +50,7 @@ const CreateReview = () => {
       product_id: productId,
     };
 
-    let createReview = await dispatch(create_review(review));
+    await dispatch(create_review(review));
     if (review.length > 0) return setErrors(review);
     else {
        history.push(`/reviews/confirm`);

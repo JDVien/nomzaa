@@ -14,7 +14,7 @@ const NavBar = ({user}) => {
   const cart_items = useSelector(state => Object.values(state.carts)); // Object.values for list of carts
   const user_cart = cart_items.filter(item => item.user_id === user.id && !item.purchased)
   // const [showUserMenu, setShowUserMenu] = useState(false);
-  const firstname = user?.fullname.split(" ");
+  // const firstname = user?.fullname.split(" ");
   const history = useHistory()
   const [showCart, setShowCart] = useState(false);
   const products = useSelector(state => state.products)

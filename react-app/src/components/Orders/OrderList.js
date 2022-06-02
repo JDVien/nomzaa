@@ -2,7 +2,7 @@ import { get_all_products } from "../../store/product";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
-import { useHistory} from 'react-router-dom';
+// import { useHistory} from 'react-router-dom';
 // import order_loop from './order_utils';
 // import CancelOrder from './CancelOrder';
 import { create_cart } from "../../store/cart";
@@ -10,7 +10,7 @@ import "./orders.css";
 
 const OrderList = ({ user }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
   // const products = useSelector((state) => Object.values(state.products));
@@ -22,9 +22,23 @@ const OrderList = ({ user }) => {
     .filter((item) => item.user_id === user.id && item.purchased)
     // .map((product) => product.product);
 
+    // cart items filtered by order_id
+    // const order_items = user_products
+    //   .filter((item, i) => { if (!(i)) {return true} return (item.order_id === user_products[i-1].order_id )})
+    // console.log(order_items, "order items from order list filtered --------------->")
+
+
+    // let count = 0
+    // let order = []
+    // while (order_items[0].order_id === order_items[count].order_id) {
+    //   order.push(order_items[count])
+    //   count++
+    // }
+    // console.log(order, "order +++++++++++")
+
 
   const DATE_OPTIONS = { year: 'numeric', month: 'short', day: 'numeric' };
-  const DAY_OPTION = { day: 'numeric'}
+  // const DAY_OPTION = { day: 'numeric'}
 
   const handleTotalCost = (price) => {
     let total_price = 0.00;
@@ -39,15 +53,17 @@ const OrderList = ({ user }) => {
   let next_order = [];
   let an_order = [];
   // order_loop(cart_items);
-  for (let i = 0; i < cart_items.length; i++) {
-      if (cart_items.length > 1 && cart_items[i]?.order_id === cart_items[i + 1]?.order_id) {
-        an_order.push(cart_items[i]);
-        an_order.push(cart_items[i + 1]);
+  for (let i = 0; i < user_products.length; i++) {
+      if (user_products[i + 1] && user_products[i]?.order_id === user_products[i + 1]?.order_id) {
+        an_order.push(user_products[i]);
+        // next_order.push(an_order)
+        // an_order = []
+        console.log(an_order)
       } else {
-        an_order.push(cart_items[0])
         // if (an_order[i]?.product_id !== an_order[0]?.product_id)
+          an_order.push(user_products[i])
           next_order.push(an_order);
-         an_order = [];
+          an_order = [];
       }
 
   }

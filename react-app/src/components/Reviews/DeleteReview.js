@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { delete_review } from '../../store/reviews';
@@ -12,7 +12,7 @@ const DeleteReview = () => {
   const reviewId = fromReviews;
   const review = useSelector((state) => state.reviews[reviewId])
   const productId = review?.product_id
-  const product = useSelector((state) => state.products[productId])
+  // const product = useSelector((state) => state.products[productId])
 
   const handleDelete = () => {
     dispatch(delete_review(reviewId))
