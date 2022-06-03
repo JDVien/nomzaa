@@ -1,5 +1,5 @@
 import { get_one_product } from "../../store/product";
-import { get_all_reviews} from "../../store/reviews";
+// import { get_all_reviews} from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import ReactImageZoom from 'react-image-zoom';
@@ -13,12 +13,12 @@ import './index.css'
 import "./ppd.css";
 import "./zoom.css";
 
-const ProductDetails = ({ loaded }) => {
+const ProductDetails = ({ loaded, user }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
   const { fromFiltered } = location?.state;
-  const sessionUser = useSelector((state) => state.session.user);
+  // const sessionUser = useSelector((state) => state.session.user);
   const  productId  = fromFiltered?.id;
   const product = useSelector((state) => state.products[productId]);
 
@@ -30,7 +30,7 @@ const ProductDetails = ({ loaded }) => {
   const [props, setProps] = useState({width: 300, zoomWidth: 700,  img: thisImg});
 
   useEffect(() => {
-    dispatch(get_all_reviews());
+    // dispatch(get_all_reviews());
     dispatch(get_all_carts())
     dispatch(get_one_product(fromFiltered?.id));
   }, [dispatch]);
@@ -50,14 +50,14 @@ const ProductDetails = ({ loaded }) => {
   !filteredReviews.length ? avgRating = 0 : avgRating = (user_rating / filteredReviews.length);
   const userReview = reviews.filter(
     (review) =>
-      review?.user_id === sessionUser?.id && review?.product_id === +productId
+      review?.user_id === user?.id && review?.product_id === +productId
   );
 
   const handleAddCartRedirect = () => {
 
-    if (sessionUser) {
+    if (user) {
     const data = {
-      user_id: sessionUser.id,
+      user_id: user.id,
       product_id: product.id,
       purchased: false,
       saved: false,
@@ -71,9 +71,9 @@ const ProductDetails = ({ loaded }) => {
 
   const handleAddToCart = () => {
 
-    if (sessionUser) {
+    if (user) {
         const data = {
-          user_id: sessionUser.id,
+          user_id: user.id,
           product_id: product.id,
           purchased: false,
           saved: false,
@@ -180,8 +180,8 @@ const ProductDetails = ({ loaded }) => {
               </div>
               <div><span id='amp_location'>
               <i className='fas fa-map-marker-alt'></i>
-                Deliver to {sessionUser?.fullname} -
-                          {sessionUser?.city} {sessionUser?.zipcode
+                Deliver to {user?.fullname} -
+                          {user?.city} {user?.zipcode
                     }</span></div>
             <form className='ppd_add_quantity'>
               <label className='label_select' htmlFor='quantity'>Qty:
@@ -256,7 +256,7 @@ const ProductDetails = ({ loaded }) => {
             <h4>Review this product</h4>
             <span>Share your thoughts with other customers</span>
             <div id="create_review_bttn_div">
-            {sessionUser && sessionUser?.id === userReview[0]?.user_id ? (
+            {user && user?.id === userReview[0]?.user_id ? (
                     <div>
                     <span>You've reviewed this product. Thank you!</span>
                     </div>``
@@ -276,7 +276,7 @@ const ProductDetails = ({ loaded }) => {
           {filteredReviews.length ? (
                 <>
                   <div className="reviews_container">
-                    <Reviews user={sessionUser} filteredReviews={filteredReviews} avgRating={avgRating} />
+                    <Reviews user={user} filteredReviews={filteredReviews} avgRating={avgRating} />
                   </div>
                 </>
               ) : (

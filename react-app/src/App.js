@@ -57,7 +57,7 @@ function App() {
         </Route>
         <Route path="/products/:productId">
         <NavBar user={user}/>
-          <ProductDetails loaded={loaded} />
+          <ProductDetails loaded={loaded} user={user}/>
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
