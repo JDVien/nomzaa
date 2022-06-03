@@ -33,7 +33,8 @@
 .login_form input {
   background-color: #fff;
   margin: 5px 0 8px 0;
-  width: stretch;
+  width: 99%;
+  max-width: 280px;
   font-family: inherit;
   height: 27px;
   line-height: normal;
@@ -60,6 +61,10 @@
   padding-bottom: 2px;
 }
 
+.login_controller {
+  margin-top: 25px;
+}
+
 .login_form button {
   margin-top: 5px;
   cursor: pointer;
@@ -83,6 +88,13 @@
   font-size:medium;
   margin: 0;
 }
+
+.priv_text {
+  position: relative;
+  top: 15px;
+  padding-bottom: 15px;
+  font-size: 12px;
+}
 .new_user_text {
   line-height: 1.5;
   margin-top: 18px;
@@ -98,6 +110,7 @@
   justify-content: center;
   align-items: center;
   border-top: solid #e7e7e7 1px;
+  margin-top: 10px;
 }
 
 .signup_bttn_container span {
@@ -128,6 +141,7 @@
   text-decoration: none !important;
   vertical-align: middle;
   font-size: 13px;
+  margin-top: 15px;
 }
 
 .signup_bttn_container button:hover {
