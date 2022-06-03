@@ -2,7 +2,7 @@ import { get_one_product } from "../../store/product";
 import { get_all_reviews} from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-// import ReactImageZoom from 'react-image-zoom';
+import ReactImageZoom from 'react-image-zoom';
 import Reviews from "../Reviews/ReviewsList";
 import { useHistory, Link, useLocation } from "react-router-dom";
 import { create_cart, get_all_carts } from "../../store/cart";
@@ -11,7 +11,7 @@ import AddToCart from "../Cart/AddToCart";
 import VertiCart from '../Cart/VertiCart';
 import './index.css'
 import "./ppd.css";
-// import "./zoom.css";
+import "./zoom.css";
 
 const ProductDetails = ({ loaded }) => {
   const dispatch = useDispatch();
@@ -21,19 +21,13 @@ const ProductDetails = ({ loaded }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const  productId  = fromFiltered?.id;
   const product = useSelector((state) => state.products[productId]);
-  // const cart_items = useSelector((state) => Object.values(state.carts))
-  // const cart_item = cart_items?.filter((item) => product?.id === item?.product_id)
-  // console.log(cart_item, "cart_item")
 
-  // const { reviewId } = useParams();
-  // const review = useSelector((state) => state.reviews[reviewId]);
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
   const [thisImg, setThisImg] = useState(product?.img)
-  // const [showCart, setShowCart] = useState(false);
-  // const [inCart, setInCart] = useState(false);
-  // const [props, setProps] = useState({width: 300, zoomWidth: 700,  img: thisImg});
+
+  const [props, setProps] = useState({width: 300, zoomWidth: 700,  img: thisImg});
 
   useEffect(() => {
     dispatch(get_all_reviews());
@@ -101,15 +95,15 @@ const ProductDetails = ({ loaded }) => {
         <div id="ppd_left_box">
             <div className="s_product_img_container">
               <div className='img-zoom-container'>
-              <img id='myimage'
+              {/* <img id='myimage'
                 className="main_detail_img"
                 src={product?.img}
                 alt=""
-              ></img>
-              {/* <div id='myresult' className='img-zoom-result'>
+              ></img> */}
+              <div id='myresult' className='img-zoom-result'>
               <ReactImageZoom {...props} />
               {document.querySelector('.image')}
-              </div> */}
+              </div>
               </div>
             </div>
           </div>

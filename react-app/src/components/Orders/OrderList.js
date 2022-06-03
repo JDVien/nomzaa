@@ -17,7 +17,6 @@ const OrderList = ({ user }) => {
   // const products = useSelector((state) => Object.values(state.products));
   // all items in user order history and user cart combined
   const cart_items = useSelector((state) => Object.values(state.carts));
-  console.log(cart_items, "cart_items in order list");
   // all items that have been purchsed and are in the users order history
   const user_products = cart_items
     .filter((item) => item.user_id === user.id && item.purchased)
@@ -37,7 +36,6 @@ const OrderList = ({ user }) => {
   for (let i = 0; i < user_products.length; i++) {
       if (user_products[i + 1] && user_products[i]?.order_id === user_products[i + 1]?.order_id) {
         an_order.push(user_products[i]);
-        console.log(an_order)
       } else {
           an_order.push(user_products[i])
           next_order.push(an_order);
@@ -47,8 +45,6 @@ const OrderList = ({ user }) => {
   }
 // setDate_String(user_products[0]?.created_at.split(" "))
   // let delivery_day = new Date(one_order_item_day).toLocaleDateString('en-US', DAY_OPTIONS)
-
-  // console.log(date_string, "day as int")
 
 
   useEffect(() => {
@@ -61,7 +57,6 @@ const OrderList = ({ user }) => {
 
 
   const handleAddToCart = async (item) => {
-    // console.log(user_quantity, "user_quantity")
 
       const data = {
         user_id: user.id,

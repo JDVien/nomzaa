@@ -258,7 +258,13 @@
 
 #logout_a {
   text-decoration: none;
+  color: black;
+  cursor: pointer;
   padding: 10px;
+}
+
+#logout_a:hover {
+  color: #febd69;
 }
 
 .subnav_jd_github_a {

@@ -13,8 +13,8 @@ const ProfileMenu = ({user}) => {
   // console.log(nameSplit[0])
 
   const onLogout = async (e) => {
-    dispatch(logout());
-    window.location.reload();
+    await dispatch(logout());
+    // window.location.reload();
   };
 
   const openMenu = () => {
@@ -44,7 +44,7 @@ const ProfileMenu = ({user}) => {
         <>
           <div className='profile_dropdown_menu'>
             {/* <div id='orders_'><a id='orders_a' href={`/`}>Orders</a></div> */}
-            <div id='logout_'><a id='logout_a' onClick={(e) => onLogout(e)} href="/">Sign Out</a></div>
+            <div id='logout_'><span id='logout_a' onClick={(e) => onLogout(e)} >Sign Out</span></div>
             {/* <LogoutButton /> */}
             {!user && (
             <NavLink to='/login' exact={true} activeClassName='active'>
