@@ -65,7 +65,7 @@ const LoginForm = () => {
                 ))}
               </div>
               <div>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email</label><br/>
                 <input
                   name="email"
                   type="text"
@@ -76,7 +76,7 @@ const LoginForm = () => {
               </div>
 
               <div>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Password</label><br/>
                 <input
                   name="password"
                   type="password"
@@ -84,9 +84,10 @@ const LoginForm = () => {
                   value={password}
                   onChange={updatePassword}
                 />
-
+                <div className="login_controller">
                 <button type="submit">Sign In</button>
                 <button onClick={demo}>Demo User</button>
+                </div>
               </div>
             </form>
             <span className="priv_text">
