@@ -1,8 +1,9 @@
-* {box-sizing: border-box;}
+
 
 .img-zoom-container {
 position: relative;
 z-index: 200;
+margin-right: 100px;
 }
 
 .img-zoom-lens {
@@ -15,18 +16,18 @@ z-index: 200;
 }
 
 .img-zoom-result {
-border: 1px solid #d4d4d4;
 /*set the size of the result div:*/
 width: 300px;
 height: 300px;
+position: relative;
 z-index: 200;
 }
 
 div.image {
   width: 300px;
-  height: 200px;
+  height: 300px;
   overflow: hidden;
-  z-index: 200;
+  z-index: 2000;
   }
   div.image img {
   width: 100%;
@@ -43,6 +44,7 @@ div.image {
   -ms-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
+  z-index: 2000;
   }
   div.image img:hover {
   -webkit-transform: scale(1.2);
@@ -50,5 +52,6 @@ div.image {
   -ms-transform: scale(1.2);
   -o-transform: scale(1.2);
   transform: scale(1.2);
-  z-index: 200;
+  z-index: 2000;
+
   }

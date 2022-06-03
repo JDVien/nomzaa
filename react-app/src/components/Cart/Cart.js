@@ -13,14 +13,14 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { get_all_products} from "../../store/product";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Products from '../Products/ProductsList';
 import "./index.css";
 
 const Cart = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
   const total = [];
   const [isDeleted, setIsDeleted] = useState(false);
   let [hasCheckedOut, setHasCheckedOut] = useState(false);
@@ -122,8 +122,9 @@ const Cart = () => {
     total.push(cart_subtotal);
     if (user_cart.length) {
       setHasCheckedOut(true);
+      history.push('/confirmation')
       dispatch(update_cart(user_cart));
-      // dispatch(update_product(product))
+
     }
   };
 
@@ -132,7 +133,8 @@ const Cart = () => {
     <>
       <div className="cart_page_container">
         <div id="ad_banner_body">
-          <h2>this is an advertisement</h2>
+        <img id='nom_pay_bttn' src='/static/images/nom_pay_lg.png' alt='nompay_lg1'/>
+        <img id='nom_pay_banner' src='/static/images/ShopperPg_banner1.png' width='1350' alt='nompay'/>
         </div>
         <div className="main_page_body">
           <div id="left_cart_col_container" className="cart_left_container">
@@ -192,7 +194,7 @@ const Cart = () => {
                           </span>
                           <div className="fpl_price_sub_box" id='cart_ver_price_box_item'>
                         <p>$</p>
-                        <h1 id='cart_price_dec'>{item?.product?.price.toString().split(".")[0]}</h1>
+                        <h1 className='cart_price_dec'>{item?.product?.price.toString().split(".")[0]}</h1>
                         <p id="fpl_price_p">
                           {item?.product?.price.toFixed(2).toString().split(".")[1]}
                         </p>
@@ -274,7 +276,7 @@ const Cart = () => {
                 {/* <span id="subtotal_price">$ {cart_subtotal.toFixed(2)}</span> */}
                 <div className="fpl_price_sub_box" id='cart_ver_price_box'>
                         <p>$</p>
-                        <h1 id='cart_price_dec'>{cart_subtotal.toString().split(".")[0]}</h1>
+                        <h1 className='cart_price_dec'>{cart_subtotal.toString().split(".")[0]}</h1>
                         <p id="fpl_price_p">
                           {cart_subtotal.toFixed(2).toString().split(".")[1]}
                         </p>
@@ -282,6 +284,7 @@ const Cart = () => {
                 <br />
                 <button
                   id="checkout_proceed_bttn"
+                  className="checkout_cart_bttn"
                   onClick={() => handlePurchaseCart()}
                 >
                   Proceed to checkout
@@ -372,7 +375,7 @@ const Cart = () => {
         </div>
       </div>
         <h3>Things you may like</h3>
-      <div className='products_carousel'>
+      <div className='products_carousel' id='cart_carousel'>
         <Products />
         </div>
     </>

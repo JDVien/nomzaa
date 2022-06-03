@@ -13,6 +13,7 @@ const OrderList = ({ user }) => {
   // const history = useHistory();
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
+  // const [date_string, setDate_String] = useState([])
   // const products = useSelector((state) => Object.values(state.products));
   // all items in user order history and user cart combined
   const cart_items = useSelector((state) => Object.values(state.carts));
@@ -20,25 +21,10 @@ const OrderList = ({ user }) => {
   // all items that have been purchsed and are in the users order history
   const user_products = cart_items
     .filter((item) => item.user_id === user.id && item.purchased)
-    // .map((product) => product.product);
-
-    // cart items filtered by order_id
-    // const order_items = user_products
-    //   .filter((item, i) => { if (!(i)) {return true} return (item.order_id === user_products[i-1].order_id )})
-    // console.log(order_items, "order items from order list filtered --------------->")
-
-
-    // let count = 0
-    // let order = []
-    // while (order_items[0].order_id === order_items[count].order_id) {
-    //   order.push(order_items[count])
-    //   count++
-    // }
-    // console.log(order, "order +++++++++++")
 
 
   const DATE_OPTIONS = { year: 'numeric', month: 'short', day: 'numeric' };
-  // const DAY_OPTION = { day: 'numeric'}
+  const DAY_OPTIONS = { weekday: 'long', month: 'short', day: 'numeric'}
 
   const handleTotalCost = (price) => {
     let total_price = 0.00;
@@ -46,31 +32,23 @@ const OrderList = ({ user }) => {
     return total_price
   }
 
-  // let total_price = 0.00;
-  // user_products.forEach(item => total_price += item?.product?.price)
-  // console.log("$", total_price)
-
   let next_order = [];
   let an_order = [];
-  // order_loop(cart_items);
   for (let i = 0; i < user_products.length; i++) {
       if (user_products[i + 1] && user_products[i]?.order_id === user_products[i + 1]?.order_id) {
         an_order.push(user_products[i]);
-        // next_order.push(an_order)
-        // an_order = []
         console.log(an_order)
       } else {
-        // if (an_order[i]?.product_id !== an_order[0]?.product_id)
           an_order.push(user_products[i])
           next_order.push(an_order);
           an_order = [];
       }
 
   }
-  // let one_order_item_day = user_products[0]?.created_at
-  // let day = new Date(one_order_item_day).toLocaleDateString('en-US', DAY_OPTION)
-  // let dayInt = parseInt(day)
+// setDate_String(user_products[0]?.created_at.split(" "))
+  // let delivery_day = new Date(one_order_item_day).toLocaleDateString('en-US', DAY_OPTIONS)
 
+  // console.log(date_string, "day as int")
 
 
   useEffect(() => {
@@ -99,11 +77,9 @@ const OrderList = ({ user }) => {
   return (
     <>
       <div id="order_container">
-        <h1>Your Orders</h1>
+        <h1 id="your_orders_text">Your Orders</h1>
         {next_order?.map((item) => (
           <>
-          {console.log(next_order, 'next_order')}
-          {/* {next_order[0]?.item?.purchased && ( */}
           <div className="order_by_num" key={item?.order_id}>
             <div id="order_content">
               <div id="order_item">
@@ -125,7 +101,9 @@ const OrderList = ({ user }) => {
                       </span>
                     </div>
                   </div>
-                  <span id='order_status_text'><h2>Arriving by tomorrow</h2></span>
+                  <span id='order_status_text'><h2>Arriving by {" "}
+                    { new Date(item[0]?.created_at).toLocaleDateString('en-US', DAY_OPTIONS)}
+                    </h2></span>
                 <div className="order_items_body">
                   <div className='order_items_active'>
                   {next_order[k]?.map((item) => (

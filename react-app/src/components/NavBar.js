@@ -142,9 +142,9 @@ const NavBar = ({user}) => {
               </NavLink>
             </div>
             <div className='nav_top_right_cart'>
-            <i className='fas fa-shopping-cart'></i>
             <NavLink className='navlink_nav_item ' to="/cart">
-                {(user_cart.length ? `Cart (${user_cart.length})` : "Cart")}
+            <i className='fas fa-shopping-cart'></i>
+                {(user_cart.length ? `  ( ${user_cart.length} )` : " Cart")}
                 {/* <span id='cart_text'>Cart</span> */}
               </NavLink>
             </div>
