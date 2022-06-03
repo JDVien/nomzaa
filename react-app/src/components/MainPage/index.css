@@ -27,11 +27,11 @@ a {
 }
 
 #header_banner {
-  max-width: 1500px;
+  max-width: 1600px;
 }
 
 .main_banner_image {
-  width: 1500px;
+  width: 1600px;
   box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.586);
 }
 
@@ -41,13 +41,21 @@ h3 {
 
 .a_box_left, .b_box_left {
   max-width: 656px;
+  height: 459px;
   background: white;
   box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.586);
+
 }
 
 .a_box_left:hover, .b_box_left:hover {
   box-shadow: 0 2px 12px 0 #f7dfa5;
+  max-width: 656px;
+  background: white;
 }
+
+/* #box_a {
+  margin: 10px;
+} */
 
 .a_box_img, .b_box_img {
   padding: 15px;
@@ -66,7 +74,8 @@ h3 {
   display: flex;
   justify-content: space-around;
   position: relative;
-  top: 165px;
+  top: 15px;
+  right: 4px;
   z-index: 50;
   background: none;
 }
@@ -89,16 +98,30 @@ h3 {
 }
 
 .shop_now_text {
+  position: relative;
+  bottom: 10px;
   padding-left: 20px;
-
+  text-decoration: none;
+  color: black;
 }
 
 #banner_fade_div {
     background-image: linear-gradient(to bottom,#aeccb0, #eaeded 70% );
     position: relative;
     height: 100px;
+    width: 1600px;
     z-index: 45;
     top: 600px;
+}
+
+.banner_fade_mid {
+  background-image: linear-gradient(to bottom,#d5c3ad, #eaeded 70% );
+  position: relative;
+  right: 2px;
+  height: 100px;
+  width: 1600px;
+  z-index: 1;
+  top: 196px;
 }
 
 #banner_fade_2:checked{
@@ -115,14 +138,15 @@ h3 {
 .mid_banner_image {
   display: flex;
   position: relative;
-  top: 210px;
+  top: 204px;
   right: 73px;
   /* z-index: 49; */
 }
 
 #mid_banner_bottom {
   position: relative;
-  left: 73px;
+  left: 119px;
+  bottom: 110px;
 }
 
 /* * {

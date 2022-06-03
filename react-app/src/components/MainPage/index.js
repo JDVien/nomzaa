@@ -21,6 +21,7 @@ const Main = ({ user, loaded }) => {
   }, [dispatch]);
 
   const saved_items = useSelector((state) => Object.values(state.saved));
+  console.log(saved_items, "saved_items categories")
   // const saved_products = saved_items.filter((item) => item?.product_id === product?.id)
 
 
@@ -93,12 +94,18 @@ const Main = ({ user, loaded }) => {
           </div>
 
           <div className="a_boxes_container">
-            <div className="a_box_left">
+            <div className="a_box_left" id='box_a'>
               <span className="a_box_title_text">
                 <h3>Nomzaa Devices</h3>
               </span>
               <div className="a_box_left_content">
-                <a href="/products">
+              <Link
+                  className="filter_link_main"
+                  to={{
+                    pathname: "/products/electronics",
+                    state: { fromMainElectronics: "electronics" },
+                  }}
+                >
                   <img
                     className="a_box_img"
                     src="https://m.media-amazon.com/images/I/711UZVBYXGL._AC_SL1000_.jpg"
@@ -106,17 +113,18 @@ const Main = ({ user, loaded }) => {
                     height="326"
                     alt=""
                   ></img>
-                </a>
                 <p className="shop_now_text">Shop Now</p>
+                </Link>
+
               </div>
             </div>
-            <div className="a_box_left">
+            <div className="a_box_left" id='box_a'>
               <span className="a_box_title_text">
                 <h3>Pick Up Where You Left Off</h3>
               </span>
               <div className="b_box_left_content quad_box">
               <Link
-                    className="filter_link"
+                    className="filter_link_main"
                     to={{
                       pathname: `/products/${saved_items[0]?.product?.category}/${saved_items[0]?.product?.id}`,
                       state: { fromFiltered: saved_items[0]?.product },
@@ -131,7 +139,7 @@ const Main = ({ user, loaded }) => {
                   ></img>
                 </Link>
                 <Link
-                    className="filter_link"
+                    className="filter_link_main"
                     to={{
                       pathname: `/products/${saved_items[1]?.product?.category}/${saved_items[1]?.product?.id}`,
                       state: { fromFiltered: saved_items[1]?.product },
@@ -146,7 +154,7 @@ const Main = ({ user, loaded }) => {
                   ></img>
                 </Link>
                 <Link
-                    className="filter_link"
+                    className="filter_link_main"
                     to={{
                       pathname: `/products/${saved_items[2]?.product?.category}/${saved_items[2]?.product?.id}`,
                       state: { fromFiltered: saved_items[2]?.product },
@@ -161,7 +169,7 @@ const Main = ({ user, loaded }) => {
                   ></img>
                 </Link>
                 <Link
-                    className="filter_link"
+                    className="filter_link_main"
                     to={{
                       pathname: `/products/${saved_items[3]?.product?.category}/${saved_items[3]?.product?.id}`,
                       state: { fromFiltered: saved_items[3]?.product },
@@ -180,13 +188,13 @@ const Main = ({ user, loaded }) => {
               <p className="shop_now_text">See More</p>
               </Link>
             </div>
-            <div className="a_box_left">
+            <div className="a_box_left" id='box_a'>
               <span className="a_box_title_text">
                 <h3>Shop Everyday Essentials</h3>
               </span>
               <div className="a_box_left_content">
                 <Link
-                  className="filter_link"
+                  className="filter_link_main"
                   to={{
                     pathname: "/products/groceries",
                     state: { fromMainGroceries: "groceries" },
@@ -203,13 +211,13 @@ const Main = ({ user, loaded }) => {
                 </Link>
               </div>
             </div>
-            <div className="a_box_left">
+            <div className="a_box_left" id='box_a'>
               <span className="a_box_title_text">
                 <h3>Must-Have for Pets</h3>
               </span>
               <div className="a_box_left_content">
                 <Link
-                  className="filter_link"
+                  className="filter_link_main"
                   to={{
                     pathname: "/products/pet supplies",
                     state: { fromMainPets: "pet supplies" },
@@ -231,26 +239,30 @@ const Main = ({ user, loaded }) => {
 
         <div id="mid_banner">
           <Link
-            className="filter_link"
+            className="filter_link_main"
             to={{
               pathname: "/products/fashion",
               state: { fromMainFashion: "fashion" },
             }}
           >
             <img
-              className="mid_banner_image"
+              className="mid_banner_image mid1"
               src="https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2022/CORE/SPRING_SALES/browse/browse-hero-macro-snd-DT.jpg"
-              width="1500"
-              height="600"
+              width="1600"
+              height="700"
               alt="main_img"
             />
           </Link>
         </div>
+        <div className="banner_fade_mid">
+            <span>.</span>
+            {/* <input type="checkbox" className="faux-ui-facia" /> */}
+          </div>
         <div className='products_list_carousel'>
             <Products />
           </div>
         <div className="b_boxes_container">
-          <div className="b_box_left">
+          <div className="b_box_left" >
             <span className="b_box_title_text">
               <h3>Distract From Existential Dread</h3>
             </span>
@@ -273,7 +285,7 @@ const Main = ({ user, loaded }) => {
             </span>
             <div className="b_box_left_content">
               <Link
-                className="filter_link"
+                className="filter_link_main"
                 to={{
                   pathname: "/products/household",
                   state: { fromMainHousehold: "household" },
@@ -296,7 +308,7 @@ const Main = ({ user, loaded }) => {
             </span>
             <div className="b_box_left_content">
               <Link
-                className="filter_link"
+                className="filter_link_main"
                 to={{
                   pathname: "/products/beauty&personal",
                   state: { fromMainBeauty: "beauty&personal" },
@@ -319,7 +331,7 @@ const Main = ({ user, loaded }) => {
             </span>
             <div className="a_box_left_content">
               <Link
-                className="filter_link"
+                className="filter_link_main"
                 to={{
                   pathname: "/products/fashion",
                   state: { fromMainFashion: "fashion" },

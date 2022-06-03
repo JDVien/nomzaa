@@ -13,6 +13,7 @@ import Main from './components/MainPage/index';
 import OrderList from './components/Orders/OrderList';
 import CancelOrder from './components/Orders/CancelOrder';
 import CancelConfirmation from './components/Orders/CancelConfirmation';
+import Confirmation from './components/Checkout/Confirmation';
 import ReviewConfirmation from './components/Reviews/ReviewEditConfirm';
 import CreateReview from './components/Reviews/CreateReviewForm';
 import EditReview from './components/Reviews/EditReviewForm';
@@ -91,6 +92,10 @@ function App() {
         <ProtectedRoute path='/cart'>
         <NavBar user={user}/>
           <Cart />
+        </ProtectedRoute>
+        <ProtectedRoute path='/confirmation'>
+        <NavBar user={user}/>
+          <Confirmation />
         </ProtectedRoute>
         <ProtectedRoute exact path="/orders">
                 <NavBar user={user}/>

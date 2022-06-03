@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: column;
   padding: 25px;
-  max-width: 176px;
+  max-width: 196px;
   max-height: 605px;
   border: 1px solid lightgrey;
   border-radius: 10px;
@@ -104,6 +104,14 @@
   padding: 5px;
   display: inline-flex;
 }
+.ppd_ship_details_box {
+  position: relative;
+  top: 65px;
+  padding: 5px;
+  padding-bottom: 10px;
+  display: inline-flex;
+  border-bottom: 1px solid lightgrey;
+}
 
 .descriptor_left {
   padding: 0 60px 0 0;
@@ -111,10 +119,50 @@
   font-size: 14px;
   font-weight:600;
 }
+.descriptor_left_ship {
+  line-height: 16px;
+  font-size: 12px;
+  font-weight:600;
+  color: #565959;
+}
+.descriptor_right_ship {
+  line-height: 16px;
+  font-size: 12px;
+  font-weight:400;
+  color: black;
+}
 
 .descriptor_right {
   line-height: 28px;
   font-size: 14px;
+}
+
+.desc_right_ship_box {
+  margin-left: 15px;
+}
+
+.details_text {
+  position: relative;
+  left: 5px;
+  top: 75px;
+  font-weight:600;
+  line-height: 16px;
+  font-size: 12px;
+  color: #565959;
+}
+
+.return_details_box {
+  position: relative;
+  top: 100px;
+  left: 5px;
+  font-weight:400;
+  line-height: 20px;
+  font-size: 14px;
+  color: black;
+}
+
+.return_blue_details {
+  color: #007185;
 }
 
 .ppd_colors_sub_box {
@@ -133,7 +181,6 @@
 #bttn-cartadd {
   width: 200px;
   position: relative;
-  right: 16px;
   top: 50px;
 }
 
@@ -165,7 +212,6 @@
   font-weight: 400;
   position: relative;
   top: 85px;
-  right: 12px;
 }
 
 #right_price_sub_box {
@@ -174,11 +220,16 @@
   display: flex;
 }
 
+.prime_returns_box {
+  position: relative;
+  bottom: 10px;
+  right: 10px;
+}
+
 #ampersand {
   position: relative;
-  top: 30px;
   left: 10px;
-  /* text-align: left; */
+  bottom: 3px;
   text-decoration: none;
   color: #007185;
   font-size: 13px;
@@ -188,17 +239,20 @@
   /* position: relative; */
   top: 40px;
   right: 50px;
+  font-size: 14px;
 }
 
 #amp_date_prime {
   top: 40px;
   right: 50px;
   font-weight: bold;
+  font-size: 14px;
 }
 
 #amp_deadline {
   color: #83bc83;
-  font-weight: 200;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 #amp_location {
@@ -219,10 +273,8 @@
   overflow: hidden;
   width: 206px;
   height: 29px;
-  padding: 10px;
   padding-left: 40px;
   padding-right: 40px;
-  right: 16px;
   top: 50px;
   margin-top: 10px;
   border: none;
@@ -244,9 +296,7 @@
   width: 206px;
   height: 29px;
   margin-top: 50px;
-  /* background-image: linear-gradient(to bottom, #f7dfa5, #f0c14b); */
   background-color: #f7ca00;
-  /* border: 1px solid #FF8F00; */
   border: none;
   border-radius: 19px;
   box-shadow: 0 2px 5px 0 rgba(113, 112, 112, 0.5);
@@ -266,13 +316,13 @@
 .label_select {
   position: relative;
   top: 65px;
-  right: 12px;
   border: 1px solid lightgrey;
   border-radius: 19px;
   padding: 3px;
   background: #fbfdff;
   box-shadow: 0 2px 5px 0 rgba(113, 112, 112, 0.5);
   cursor: pointer;
+  font-size: 13px;
 }
 
 .label_select:hover {

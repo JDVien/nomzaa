@@ -67,11 +67,7 @@
 }
 
 .nav_search_center {
-  /*
-  flex-direction: row;
-  box-sizing: border-box;
-  width: auto;
-  white-space: nowrap; */
+  max-width: 1059.68px;;
   flex-grow: 1;
   padding-right: 8px;
   margin: 0;
@@ -144,7 +140,7 @@
 .nav_input:focus {
   position: relative;
   bottom: 3px;
-  padding: 5px 19px;
+  padding: 5px 18px;
   border: 5px solid #febd69;
   z-index: 120;
   box-shadow: 0 980px 50px 1000px rgba(0, 0, 0, 0.738);
@@ -216,6 +212,12 @@
 }
 
 .filter_link {
+  text-decoration: none;
+  color: white;
+  border: 0.5px solid #d4d4d400;
+  padding: 5px;
+}
+.filter_link_main {
   text-decoration: none;
   color: white;
   border: 0.5px solid #d4d4d400;

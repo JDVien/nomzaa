@@ -9,6 +9,7 @@ const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => Object.values(state.products));
   const getRandomInt = (min,max) => {  return Math.random() * (max - min) + min;};
+  products.sort( () => .5 - Math.random() );
   useEffect(() => {
     dispatch(get_all_products());
   }, [dispatch]);

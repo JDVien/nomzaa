@@ -2,7 +2,7 @@ import { get_one_product } from "../../store/product";
 import { get_all_reviews} from "../../store/reviews";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-// import ReactImageZoom from 'react-image-zoom';
+import ReactImageZoom from 'react-image-zoom';
 import Reviews from "../Reviews/ReviewsList";
 import { useHistory, Link, useLocation } from "react-router-dom";
 import { create_cart, get_all_carts } from "../../store/cart";
@@ -11,6 +11,7 @@ import AddToCart from "../Cart/AddToCart";
 import VertiCart from '../Cart/VertiCart';
 import './index.css'
 import "./ppd.css";
+import "./zoom.css";
 
 const ProductDetails = ({ loaded }) => {
   const dispatch = useDispatch();
@@ -29,9 +30,10 @@ const ProductDetails = ({ loaded }) => {
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1)
   const [orderid, setOrderid] = useState(0);
+  const [thisImg, setThisImg] = useState(product?.img)
   // const [showCart, setShowCart] = useState(false);
   // const [inCart, setInCart] = useState(false);
-  // const props = {width: 500, zoomWidth: 700,  img: product?.img};
+  const [props, setProps] = useState({width: 300, zoomWidth: 700,  img: thisImg});
 
   useEffect(() => {
     dispatch(get_all_reviews());
@@ -99,15 +101,15 @@ const ProductDetails = ({ loaded }) => {
         <div id="ppd_left_box">
             <div className="s_product_img_container">
               <div className='img-zoom-container'>
-              <img id='myimage'
+              {/* <img id='myimage'
                 className="main_detail_img"
                 src={product?.img}
                 alt=""
-              ></img>
-              {/* <div id='myresult' className='img-zoom-result'>
+              ></img> */}
+              <div id='myresult' className='img-zoom-result'>
               <ReactImageZoom {...props} />
-              {document.getElementById('img')}
-              </div> */}
+              {document.querySelector('.image')}
+              </div>
               </div>
             </div>
           </div>
@@ -170,11 +172,18 @@ const ProductDetails = ({ loaded }) => {
           <div id="ppd_right_box">
           <div className='ppd_price_sub_box' id='right_price_sub_box'>
               <p>$</p><h1>{decZero}</h1><p>{decOne}</p>
-              <div><span id='ampersand'>& FREE Returns</span></div>
             </div>
-              <div><span id='amp_free_prime'>FREE Prime delivery </span></div>
-              <div><span id='amp_date_prime'>Wednesday, May 25. Order within </span></div>
-              <div><span id='amp_deadline'> 2 hrs 50 mins</span></div>
+              <div className='prime_returns_box'>
+              <img id='v_prime_sm' src='/static/images/prime_sm_fpl.png' alt='prime'/>
+                <span id='ampersand'>& FREE Returns</span>
+                </div>
+              <div><span id='amp_free_prime'>FREE delivery </span></div>
+              <div><span id='amp_date_prime'>Monday, June 6 . Order within
+
+              </span>
+
+              <span id='amp_deadline'> 2 hrs 50 mins</span>
+              </div>
               <div><span id='amp_location'>
               <i className='fas fa-map-marker-alt'></i>
                 Deliver to {sessionUser?.fullname} -
@@ -208,6 +217,27 @@ const ProductDetails = ({ loaded }) => {
             <AddToCart handleAddToCart={handleAddToCart} />
 
             <button id='buy_bttn' onClick={handleAddCartRedirect}>Buy Now</button>
+            <div className='ppd_ship_details_box'>
+              <div className='desc_left_ship_box'>
+                <span className='descriptor_left_ship'>Ships from</span><br/>
+                <span className='descriptor_left_ship'>Sold by</span><br/>
+                <span className='descriptor_left_ship'>Packaging</span><br/>
+              </div>
+              <div className='desc_right_ship_box'>
+                <span className='descriptor_right_ship'>Nomzaa</span><br/>
+                <span className='descriptor_right_ship'>{product?.brand}</span><br/>
+                <span className='descriptor_right_ship'>
+                  Nomzaa Packaging
+                </span><br/>
+              </div>
+              </div>
+              <span className='details_text'>Details</span>
+              <div className='return_details_box'>
+                <span>
+                  Return policy:
+                </span>
+                <span className='return_blue_details'>Eligible for Return, Refund or Replacement within 30 days of receipt</span>
+              </div>
           </div>
         </div>
         <div id="ppd_bottom_section">
