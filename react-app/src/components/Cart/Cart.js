@@ -133,8 +133,10 @@ const Cart = () => {
     <>
       <div className="cart_page_container">
         <div id="ad_banner_body">
+          <a  id="nom_pay_a" href='https://jdvien.github.io/'>
         <img id='nom_pay_bttn' src='/static/images/nom_pay_lg.png' alt='nompay_lg1'/>
         <img id='nom_pay_banner' src='/static/images/ShopperPg_banner1.png' width='1350' alt='nompay'/>
+        </a>
         </div>
         <div className="main_page_body">
           <div id="left_cart_col_container" className="cart_left_container">

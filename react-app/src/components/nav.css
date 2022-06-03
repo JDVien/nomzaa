@@ -124,7 +124,6 @@
   /* max-width: 1068px; */
   min-width: 668px;
   width: 100%;
-  /* padding: 10px; */
   flex-grow: 1;
 }
 
@@ -144,6 +143,7 @@
   border: 5px solid #febd69;
   z-index: 120;
   box-shadow: 0 980px 50px 1000px rgba(0, 0, 0, 0.738);
+  transition: box-shadow 0.5s ease-in;
 }
 
 .search_result_body {
@@ -215,6 +215,7 @@
   text-decoration: none;
   color: white;
   border: 0.5px solid #d4d4d400;
+  transition: border 0.3s ease-out;
   padding: 5px;
 }
 .filter_link_main {
@@ -226,6 +227,7 @@
 
 .filter_link:hover {
   border: 0.5px solid white;
+  transition: border 0.3s ease-out;
   padding: 5px;
 }
 

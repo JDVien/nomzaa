@@ -109,7 +109,7 @@ const FilteredProducts = () => {
           )}
         </div> */}
         {filter?.map((product) => (
-          <div className="list_item_box" key={product?.id}>
+          <div className="list_item_box_fpd" key={product?.id}>
             <div className="product_item_row_container">
               <div className="s_product_img_container">
                 <img
