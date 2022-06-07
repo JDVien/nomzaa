@@ -50,9 +50,10 @@ const Footer = () => {
       <span className='bottom_about_tag'>© 2022, Nomzaa.com, Inc. or its affiliates</span>
 
 
-      <span className='bottom_about_tag_jdv'>Jason Vien
-      <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'> - Github</a>
-      <a className='subnav_jd_github_a' href='https://www.linkedin.com/in/jd-v-52a595237/'>- LinkedIn</a>
+      <span className='bottom_about_tag_jdv'>
+      <a className='subnav_jd_github_a' href='https://jdvien.github.io/'>Jason Vien</a>
+      <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'> - Github - </a>
+      <a className='subnav_jd_github_a' href='https://www.linkedin.com/in/jason-v-52a595237?trk=people-guest_people_search-card'> LinkedIn</a>
       </span>
       </div>
     </div>

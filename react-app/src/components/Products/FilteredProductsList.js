@@ -1,18 +1,16 @@
-// import React, { useState } from 'react';
 import { useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { get_all_products } from "../../store/product";
 import VertiCart from "../Cart/VertiCart";
 // import FiltersColumn from './FiltersColumn';
-import ProductBanner from './ProductBanner';
-import ReactStars from 'react-stars'
+import ProductBanner from "./ProductBanner";
+import ReactStars from "react-stars";
 import "./index.css";
 import "./filter.css";
 
 const FilteredProducts = () => {
   const dispatch = useDispatch();
-  // const history = useHistory();
   const location = useLocation();
   // const [filter, setFilter] = useState("")
   // const [IsFiltered, setIsFilterd] = useState(false)
@@ -27,7 +25,9 @@ const FilteredProducts = () => {
   const { fromMainHousehold } = location?.state;
   const { fromMainToys } = location?.state;
   const { fromMainImprovement } = location?.state;
-  const getRandomInt = (min,max) => {  return Math.random() * (max - min) + min;};
+  const getRandomInt = (min, max) => {
+    return Math.random() * (max - min) + min;
+  };
   const products = useSelector((state) => Object.values(state?.products));
   const groceries = products?.filter(
     (product) => product?.category === "groceries"
@@ -47,29 +47,35 @@ const FilteredProducts = () => {
   const household = products?.filter(
     (product) => product?.category === "household"
   );
-  const toys = products?.filter(
-    (product) => product?.category === "toys"
-  );
+  const toys = products?.filter((product) => product?.category === "toys");
   const home_improvement = products?.filter(
     (product) => product?.category === "home-improvement"
   );
   // (location.state === fromMainGroceries) ? setFilter(groceries) : setFilter(electonics)
   if (Object.values(location?.state)[0] === fromMainGroceries) {
-    filter = groceries; nom_type = "fresh"
+    filter = groceries;
+    nom_type = "fresh";
   } else if (Object.values(location?.state)[0] === fromMainElectronics) {
-    filter = electronics; nom_type = "smart"
+    filter = electronics;
+    nom_type = "smart";
   } else if (Object.values(location?.state)[0] === fromMainPets) {
-    filter = pet_supplies; nom_type = "pets"
+    filter = pet_supplies;
+    nom_type = "pets";
   } else if (Object.values(location?.state)[0] === fromMainFashion) {
-    filter = fashion; nom_type = "fashion"
+    filter = fashion;
+    nom_type = "fashion";
   } else if (Object.values(location?.state)[0] === fromMainBeauty) {
-    filter = beauty_personal; nom_type = "beauty"
+    filter = beauty_personal;
+    nom_type = "beauty";
   } else if (Object.values(location?.state)[0] === fromMainHousehold) {
-    filter = household; nom_type = "home"
+    filter = household;
+    nom_type = "home";
   } else if (Object.values(location?.state)[0] === fromMainToys) {
-    filter = toys; nom_type = "toys"
+    filter = toys;
+    nom_type = "toys";
   } else if (Object.values(location?.state)[0] === fromMainImprovement) {
-    filter = home_improvement; nom_type = "hi"
+    filter = home_improvement;
+    nom_type = "hi";
   }
   let priceSetFifty;
 
@@ -85,17 +91,16 @@ const FilteredProducts = () => {
   }, [dispatch]);
 
   return (
-
     <>
-        <>
-      <div className='fpd_column_container'>
-        {/* <div className='user_filter_options'>
+      <>
+        <div className="fpd_column_container">
+          {/* <div className='user_filter_options'>
           <input type="checkbox" className='brand_filter_checkbox' onClick={() => priceFilter()}/>
         </div> */}
-      </div>
-    </>
-    <VertiCart />
-        <ProductBanner type={nom_type} />
+        </div>
+      </>
+      <VertiCart />
+      <ProductBanner type={nom_type} />
       <div className="filter_list_container">
         {/* <div className='price_filter'>
           {IsFiltered && (
@@ -139,17 +144,17 @@ const FilteredProducts = () => {
                     {product?.price.toString().split(".")[1]}
                   </p>
                   <div className="rating_container_fpl">
-                <ReactStars
-                  className="set_rating_stars"
-                  count={5}
-                  value={getRandomInt(2,5)}
-                  size={32}
-                  color2={"#ffa41c"}
-                  half={true}
-                  // onChange={updateRating}
-                  edit={false}
-                />
-              </div>
+                    <ReactStars
+                      className="set_rating_stars"
+                      count={5}
+                      value={getRandomInt(2, 5)}
+                      size={32}
+                      color2={"#ffa41c"}
+                      half={true}
+                      // onChange={updateRating}
+                      edit={false}
+                    />
+                  </div>
                 </div>
                 <div className="fpl_prime_div">
                   <img
