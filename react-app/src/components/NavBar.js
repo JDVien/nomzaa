@@ -2,8 +2,6 @@ import { get_all_carts } from '../store/cart';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Link, useHistory} from 'react-router-dom';
-// import LogoutButton from './auth/LogoutButton';
-// import SearchBar from "./Search/Searchbar";
 import ProfileMenu from './ProfileMenu'
 import VertiCart from './Cart/VertiCart';
 
@@ -13,8 +11,6 @@ const NavBar = ({user}) => {
   const dispatch = useDispatch();
   const cart_items = useSelector(state => Object.values(state.carts)); // Object.values for list of carts
   const user_cart = cart_items.filter(item => item.user_id === user.id && !item.purchased)
-  // const [showUserMenu, setShowUserMenu] = useState(false);
-  // const firstname = user?.fullname.split(" ");
   const history = useHistory()
   const [showCart, setShowCart] = useState(false);
   const products = useSelector(state => state.products)
@@ -37,11 +33,6 @@ const NavBar = ({user}) => {
       }
       setSearchWord("")
   }
-
-  // const openMenu = () => {
-  //   if (showUserMenu) return;
-  //   setShowUserMenu(true);
-  // };
 
   const handleShowVertiCart = () => {
     setShowCart(true)
@@ -155,13 +146,6 @@ const NavBar = ({user}) => {
           <span className='subnav_category'>
               <img id='nav_all_burger' onClick={() => handleShowVertiCart()} src='/static/images/nav-sprite-burger.png' alt='burger' />
           All</span>
-        {/* <button  >set verticart</button> */}
-        {/* {showCart ? (
-                  <VertiCart />
-        ) : (
-          <>
-          </>
-        )} */}
           </Link>
           <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
           <span className='subnav_category'>Nomzaa Basics</span>
@@ -190,17 +174,13 @@ const NavBar = ({user}) => {
           <Link className='filter_link' to={{ pathname:'/products/electronics', state: { fromMainElectronics: "electronics"}}}>
           <span className='subnav_category'>Smart Devices</span>
           </Link>
-          {/* <Link className='filter_link' to='/products'>
-          <span className='subnav_category'>Today's Deals</span>
-          </Link> */}
-          {/* <span className='subnav_category'>Best Sellers</span> */}
           <span className='subnav_category'>
           <a className='subnav_jd_github_a' href='https://github.com/JDVien/nomzaa'>
             <i className='fab fa-github'/>
           </a>
           </span>
           <span className='subnav_category'>
-          <a className='subnav_jd_github_a' href='https://www.linkedin.com/in/jd-v-52a595237/'>
+          <a className='subnav_jd_github_a' href='https://www.linkedin.com/in/jason-v-52a595237?trk=people-guest_people_search-card'>
             <i className="fab fa-linkedin-in"></i>
           </a>
           </span>

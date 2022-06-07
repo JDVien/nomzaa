@@ -11,8 +11,6 @@ import "./index.css";
 
 const Main = ({ user, loaded }) => {
   const dispatch = useDispatch();
-  // const products = useSelector((state) => Object.values(state.products));
-  // const getRandomInt = (max) => {return Math.floor(Math.random() * max);};
   useEffect(() => {
     if (user) {
       dispatch(get_all_products());
@@ -22,9 +20,6 @@ const Main = ({ user, loaded }) => {
 
   const saved_items = useSelector((state) => Object.values(state.saved));
   console.log(saved_items, "saved_items categories")
-  // const saved_products = saved_items.filter((item) => item?.product_id === product?.id)
-
-
 
   return (
     <>
