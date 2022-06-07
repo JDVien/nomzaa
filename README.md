@@ -2,7 +2,7 @@
 
 ![nomzaahome](https://user-images.githubusercontent.com/93230276/172439003-cbd0c2f0-b668-4f30-acbf-163fe3d5cb50.jpg)
 
-<h5 align="center">  By:  <a href="https://github.com/JDVien">Jason Vien</a> - <i><a href="https://nomzaa.herokuapp.com/">Live site</a></i></h5>
+<h5 align="center">  By:  <a href="https://jdvien.github.io/">Jason Vien</a> - <i><a href="https://nomzaa.herokuapp.com/">Live site</a></i></h5>
 
 ### Table of Contents
 - [Main](#main)
