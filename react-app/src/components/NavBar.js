@@ -14,7 +14,7 @@ const NavBar = ({user}) => {
   const history = useHistory()
   const [showCart, setShowCart] = useState(false);
   const products = useSelector(state => state.products)
-  const productlist = Object.values(products).map(product => [product.title, product])
+  const productlist = Object.values(products).map(product => [product.title, product, product.id])
 
   const [filteredList, setFilteredList] = useState([])
   const [searchWord, setSearchWord] = useState("")
@@ -29,9 +29,13 @@ const NavBar = ({user}) => {
   function handleSubmit(e) {
       e.preventDefault();
       if (filteredList.length > 0) {
-          history.push(`/products/${filteredList[0][2]}`)
+          setSearchWord("")
+          history.push({
+            pathname:`/products/${filteredList[0][1]?.category}/${filteredList[0][1]?.id}`,
+            state: { fromFiltered: filteredList[0][1]}
+          })
+          document.activeElement.blur()
       }
-      setSearchWord("")
   }
 
   const handleShowVertiCart = () => {
@@ -43,6 +47,17 @@ const NavBar = ({user}) => {
         </div>
       </>
     )
+  }
+
+  const isActive = (e) => {
+    const searchinput = document.getElementsByClassName("search-input-bar")
+    if (searchinput === document.activeElement) {
+      console.log("in the if block")
+    }
+    setTimeout(() => {
+      setSearchWord("")
+      return false
+    }, 100);
   }
 
   return (
@@ -80,11 +95,12 @@ const NavBar = ({user}) => {
                 onChange={e => setSearchWord(e.target.value)}
                 className='nav_input'
                 placeholder='Search for products'
+                onBlur={(e) => isActive(e)}
             />
-            {searchWord !== '' && filteredList.length > 0 && (
+            {isActive && searchWord && filteredList.length > 0 && (
                 <div className='search_result_body'>
                     <ul className='search_result_list'>
-                        {filteredList.map((product) => (
+                        {filteredList?.slice(0, 10).map((product) => (
                             <li className='search_result_li'
                                 key={product.id}
                                 value={product.long_name}
@@ -102,12 +118,6 @@ const NavBar = ({user}) => {
                     </ul>
                 </div>
             )}
-              {/* <input
-                className='nav_input'
-                type='text'
-                defaultValue=""
-                placeholder=""
-              /> */}
             </div>
               <button className="search_bttn">
                 <i className='fas fa-search'></i>

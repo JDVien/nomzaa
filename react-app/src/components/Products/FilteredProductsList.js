@@ -25,6 +25,7 @@ const FilteredProducts = () => {
   const { fromMainHousehold } = location?.state;
   const { fromMainToys } = location?.state;
   const { fromMainImprovement } = location?.state;
+  const { fromSearch } = location?.state
   const getRandomInt = (min, max) => {
     return Math.random() * (max - min) + min;
   };
@@ -77,14 +78,7 @@ const FilteredProducts = () => {
     filter = home_improvement;
     nom_type = "hi";
   }
-  let priceSetFifty;
 
-  // const priceFilter = () => {
-  //   priceSetFifty = filter?.filter((product) => product?.price < 50)
-
-  //   setIsFilterd(true)
-  //   return priceSetFifty;
-  // }
 
   useEffect(() => {
     dispatch(get_all_products());

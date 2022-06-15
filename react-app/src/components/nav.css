@@ -81,10 +81,11 @@
   justify-content: center;
   width: 100%;
   min-width: 387px;
-  display: flex;
   flex-wrap: nowrap;
   height: 40px;
-  margin: 0 10px;
+  /* margin: 0 10px; */
+  /* max-width: 970px; */
+
 }
 
 #nav_search_filter_drop_select {
