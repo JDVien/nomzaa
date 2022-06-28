@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { get_all_products } from "../../store/product";
 import VertiCart from "../Cart/VertiCart";
-// import FiltersColumn from './FiltersColumn';
 import ProductBanner from "./ProductBanner";
 import ReactStars from "react-stars";
 import "./index.css";
@@ -12,8 +11,6 @@ import "./filter.css";
 const FilteredProducts = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  // const [filter, setFilter] = useState("")
-  // const [IsFiltered, setIsFilterd] = useState(false)
 
   let filter;
   let nom_type;
@@ -25,7 +22,7 @@ const FilteredProducts = () => {
   const { fromMainHousehold } = location?.state;
   const { fromMainToys } = location?.state;
   const { fromMainImprovement } = location?.state;
-  const { fromSearch } = location?.state
+  const { fromSearch } = location?.state;
   const getRandomInt = (min, max) => {
     return Math.random() * (max - min) + min;
   };
@@ -52,7 +49,6 @@ const FilteredProducts = () => {
   const home_improvement = products?.filter(
     (product) => product?.category === "home-improvement"
   );
-  // (location.state === fromMainGroceries) ? setFilter(groceries) : setFilter(electonics)
   if (Object.values(location?.state)[0] === fromMainGroceries) {
     filter = groceries;
     nom_type = "fresh";
@@ -79,7 +75,6 @@ const FilteredProducts = () => {
     nom_type = "hi";
   }
 
-
   useEffect(() => {
     dispatch(get_all_products());
   }, [dispatch]);
@@ -87,26 +82,11 @@ const FilteredProducts = () => {
   return (
     <>
       <>
-        <div className="fpd_column_container">
-          {/* <div className='user_filter_options'>
-          <input type="checkbox" className='brand_filter_checkbox' onClick={() => priceFilter()}/>
-        </div> */}
-        </div>
+        <div className="fpd_column_container"></div>
       </>
       <VertiCart />
       <ProductBanner type={nom_type} />
       <div className="filter_list_container">
-        {/* <div className='price_filter'>
-          {IsFiltered && (
-            <div id='price_filtered_list'>
-              {priceSetFifty?.map((item) => (
-                <div className="filtered_item">
-                  <h2 id="fpl_prod_title">{item?.title}</h2>
-                </div>
-              ))}
-            </div>
-          )}
-        </div> */}
         {filter?.map((product) => (
           <div className="list_item_box_fpd" key={product?.id}>
             <div className="product_item_row_container">
@@ -120,7 +100,6 @@ const FilteredProducts = () => {
                 ></img>
               </div>
               <div className="product_item_detail_row_sub_container">
-                {/* <Link to={{ pathname:`/products/'${filter}'/${product?.id}`, state: { fromFiltered: product }}}> */}
                 <Link
                   className="fpl_link"
                   to={{
@@ -145,7 +124,6 @@ const FilteredProducts = () => {
                       size={32}
                       color2={"#ffa41c"}
                       half={true}
-                      // onChange={updateRating}
                       edit={false}
                     />
                   </div>
@@ -162,9 +140,6 @@ const FilteredProducts = () => {
                   </span>
                   <br />
                 </div>
-                {/* <span className="fpl_stock">
-                  Only {product?.stock} left in stock - order soon.
-                </span> */}
                 <span className="fpl_item_age_limit">
                   Ages: 15 years and up
                 </span>

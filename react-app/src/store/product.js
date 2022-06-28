@@ -1,7 +1,7 @@
 const LOAD_ALL_PRODUCTS = "products/GET";
 const LOAD_ONE_PRODUCT = "products/GET_ONE";
-// const CREATE_PRODUCT = 'products/CREATE'
 const UPDATE_PRODUCT = "products/UPDATE";
+// const CREATE_PRODUCT = 'products/CREATE'
 // const DELETE_PRODUCT = 'products/DELETE'
 
 const all_products = (products) => ({

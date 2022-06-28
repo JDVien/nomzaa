@@ -13,7 +13,6 @@ def get_products():
 @product_routes.route('/<int:id>')
 def get_specific_product(id):
     product = Product.query.get(id)
-    # print('================', product.to_dict())
     return {'product': product.to_dict()}
 
 @product_routes.route('/', methods=['PUT'])
@@ -29,5 +28,3 @@ def update_product():
 
   db.session.commit()
   return {'products': products_list}
-
-

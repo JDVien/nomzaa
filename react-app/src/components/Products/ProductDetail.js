@@ -1,11 +1,10 @@
 import { get_one_product } from "../../store/product";
-// import { get_all_reviews} from "../../store/reviews";
+import { create_cart, get_all_carts } from "../../store/cart";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import ReactImageZoom from "react-image-zoom";
 import Reviews from "../Reviews/ReviewsList";
 import { useHistory, Link, useLocation } from "react-router-dom";
-import { create_cart, get_all_carts } from "../../store/cart";
 import ReactStars from "react-stars";
 import AddToCart from "../Cart/AddToCart";
 import VertiCart from "../Cart/VertiCart";
@@ -18,10 +17,8 @@ const ProductDetails = ({ loaded, user }) => {
   const history = useHistory();
   const location = useLocation();
   const { fromFiltered } = location?.state;
-  // const sessionUser = useSelector((state) => state.session.user);
   const productId = fromFiltered?.id;
   const product = useSelector((state) => state.products[productId]);
-
   const reviews = useSelector((state) => Object.values(state.reviews));
   const [user_quantity, setUser_Quantity] = useState(1);
   const [orderid, setOrderid] = useState(0);
@@ -34,7 +31,6 @@ const ProductDetails = ({ loaded, user }) => {
   });
 
   useEffect(() => {
-    // dispatch(get_all_reviews());
     dispatch(get_all_carts());
     dispatch(get_one_product(fromFiltered?.id));
   }, [dispatch]);
@@ -101,11 +97,6 @@ const ProductDetails = ({ loaded, user }) => {
           <div id="ppd_left_box">
             <div className="s_product_img_container">
               <div className="img-zoom-container">
-                {/* <img id='myimage'
-                className="main_detail_img"
-                src={product?.img}
-                alt=""
-              ></img> */}
                 <div id="myresult" className="img-zoom-result">
                   <ReactImageZoom {...props} />
                   {document.querySelector(".image")}
@@ -126,7 +117,6 @@ const ProductDetails = ({ loaded, user }) => {
                   size={24}
                   color2={"#ffa41c"}
                   half={true}
-                  // onChange={updateRating}
                   edit={false}
                 />
                 <span className="ppd_num_ratings">
@@ -292,7 +282,6 @@ const ProductDetails = ({ loaded, user }) => {
                   size={32}
                   color2={"#ffa41c"}
                   half={true}
-                  // onChange={updateRating}
                   edit={false}
                 />
                 <span>{avgRating} out of 5</span>
@@ -305,11 +294,9 @@ const ProductDetails = ({ loaded, user }) => {
             <span>Share your thoughts with other customers</span>
             <div id="create_review_bttn_div">
               {user && user?.id === userReview[0]?.user_id ? (
-                (
-                  <div>
-                    <span>You've reviewed this product. Thank you!</span>
-                  </div>
-                )
+                <div>
+                  <span>You've reviewed this product. Thank you!</span>
+                </div>
               ) : (
                 <Link
                   className="review-link-bttn"
@@ -325,19 +312,13 @@ const ProductDetails = ({ loaded, user }) => {
           </div>
 
           <div id="ppd_reviews_box">
-            {/* {filteredReviews.length ? (
-              <> */}
-                <div className="reviews_container">
-                  <Reviews
-                    user={user}
-                    filteredReviews={filteredReviews}
-                    avgRating={avgRating}
-                  />
-                </div>
-              {/* </>
-            ) : (
-              <></>
-            )} */}
+            <div className="reviews_container">
+              <Reviews
+                user={user}
+                filteredReviews={filteredReviews}
+                avgRating={avgRating}
+              />
+            </div>
           </div>
         </div>
       </div>

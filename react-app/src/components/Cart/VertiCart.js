@@ -1,8 +1,4 @@
-import {
-  delete_cart,
-  update_cart,
-  create_cart,
-} from "../../store/cart";
+import { delete_cart, update_cart, create_cart } from "../../store/cart";
 import {
   get_all_saved,
   delete_saved,
@@ -26,12 +22,15 @@ const VertiCart = () => {
   const saved_items = useSelector((state) => Object.values(state.saved));
   const cart_items = useSelector((state) => Object.values(state.carts));
   const user_cart = cart_items.filter(
-    (item) => item.user_id === sessionUser.id && !item.purchased);
+    (item) => item.user_id === sessionUser.id && !item.purchased
+  );
   const user_saved = saved_items.filter(
-    (item) => item.user_id === sessionUser.id);
+    (item) => item.user_id === sessionUser.id
+  );
   let cart_subtotal = 0.0;
   user_cart.forEach(
-    (item) => (cart_subtotal += item?.product?.price * item?.quantity));
+    (item) => (cart_subtotal += item?.product?.price * item?.quantity)
+  );
   const [quantity, setQuantity] = useState(user_cart?.item?.quantity);
   const [isSaved, setIsSaved] = useState(false);
   const [yourItems, setYourItems] = useState([]);
@@ -40,7 +39,7 @@ const VertiCart = () => {
 
   useEffect(() => {
     dispatch(get_all_products());
-    dispatch(get_all_saved())
+    dispatch(get_all_saved());
   }, [dispatch]);
 
   const removeCartItem = (item) => {
@@ -49,11 +48,6 @@ const VertiCart = () => {
   };
 
   const removeSavedItem = (item) => {
-    // const newItem = yourItems?.findIndex((i) => i.id === item?.id);
-    // setIsDeleted(true);
-    // const temp = [...yourItems];
-    // temp.splice(newItem, 1);
-    // setYourItems(temp);
     setIsSaved(false);
     dispatch(delete_saved(item?.id));
   };
@@ -68,7 +62,7 @@ const VertiCart = () => {
       quantity: e.target.value,
     };
     if (data) {
-      dispatch(delete_cart(item?.id))
+      dispatch(delete_cart(item?.id));
       await dispatch(create_cart(data));
     }
   };
@@ -83,13 +77,12 @@ const VertiCart = () => {
       order_id: item?.order_id,
       quantity: item?.quantity,
     };
-    // history.push('/cart')
     const temp = [...yourItems];
     temp.splice(newItem, 1);
     setYourItems(temp);
     await dispatch(create_cart(data));
     setIsSaved(false);
-    removeSavedItem(item)
+    removeSavedItem(item);
   };
 
   const handleSave = async (item) => {
@@ -103,7 +96,7 @@ const VertiCart = () => {
       cartitem_id: item?.id,
       saved: true,
       order_id: item?.order_id,
-      quantity: item?.quantity
+      quantity: item?.quantity,
     };
     if (sList.length) {
       await dispatch(create_saved(data));
@@ -116,64 +109,69 @@ const VertiCart = () => {
     total.push(cart_subtotal);
     if (user_cart.length) {
       setHasCheckedOut(true);
-      setIsSaved(false)
+      setIsSaved(false);
       dispatch(update_cart(user_cart));
     }
   };
 
-
   return (
     <>
-    {user_cart.length > 0 && (
+      {user_cart.length > 0 && (
+        <div className="vcart_page_container">
+          <div className="v_page_body">
+            <div id="v_cart_col_container" className="vcart_container">
+              <div id="shopping_vcart_container">
+                <div id="shopping_vcart_text_div">
+                  <h2>- Shopping Cart -</h2>
 
-
-      <div className="vcart_page_container">
-        <div className="v_page_body">
-          <div id="v_cart_col_container" className="vcart_container">
-            <div id="shopping_vcart_container">
-              <div id="shopping_vcart_text_div">
-                <h2>-   Shopping Cart   -</h2>
-
-                <div id="vcheckout_box">
-              <div className="vsubtotal_row">
-                <span id="vsubtotal_text_quantity">
-                  Subtotal ({cart_total_quantity}):{" "}
-                </span>
-                <span id="vsubtotal_price">$ {cart_subtotal.toFixed(2)}</span>
-                <br />
-              </div>
-                <button
-                  id="checkout_proceed_bttn" className='v_checkout_bttn'
-                  onClick={() => history.push('/cart')}
-                >
-                  Proceed to checkout
-                </button>
-            </div>
-              </div>
-              <div id="active_shopping_vcart_body">
-                {hasCheckedOut && (
-                  <>
+                  <div id="vcheckout_box">
+                    <div className="vsubtotal_row">
+                      <span id="vsubtotal_text_quantity">
+                        Subtotal ({cart_total_quantity}):{" "}
+                      </span>
+                      <span id="vsubtotal_price">
+                        $ {cart_subtotal.toFixed(2)}
+                      </span>
+                      <br />
+                    </div>
+                    <button
+                      id="checkout_proceed_bttn"
+                      className="v_checkout_bttn"
+                      onClick={() => history.push("/cart")}
+                    >
+                      Proceed to checkout
+                    </button>
+                  </div>
+                </div>
+                <div id="active_shopping_vcart_body">
+                  {hasCheckedOut && (
+                    <>
+                      <div id="removed-cart-item">
+                        Order Confirmed! Thank you for your purchase!
+                      </div>
+                      <div id="order_to_link">
+                        <a id="order_link_a" href="/orders">
+                          <span id="view_order_link">View your order here</span>
+                        </a>
+                      </div>
+                    </>
+                  )}
+                  {isDeleted && (
                     <div id="removed-cart-item">
-                      Order Confirmed! Thank you for your purchase!
+                      <h3>Your item has been removed!</h3>
                     </div>
-                    <div id="order_to_link">
-                      <a id="order_link_a" href="/orders">
-                        <span id="view_order_link">View your order here</span>
-                      </a>
+                  )}
+                  {isSaved && (
+                    <div id="removed-cart-item">
+                      <h3>Your item was saved for later! </h3>
                     </div>
-                  </>
-                )}
-                {isDeleted && (
-                  <div id="removed-cart-item"><h3>Your item has been removed!</h3></div>
-                )}
-                {isSaved && (
-                  <div id="removed-cart-item"><h3>Your item was saved for later! </h3></div>
-                )}
-                {user_cart?.map((item) => (
+                  )}
+                  {user_cart?.map((item) => (
                     <div className="vcart_item_container" key={item?.id}>
                       <div className="vcart_item_image">
                         <a href={`/products/${item?.product_id}`}>
-                          <img id='v_img'
+                          <img
+                            id="v_img"
                             alt="product"
                             src={item?.product?.img}
                             width="50"
@@ -194,28 +192,36 @@ const VertiCart = () => {
                               {item.product.title}
                             </Link>
                           </span>
-                          <div id="cart_item_price" className='vcart_price'>
-                             ${item.product.price}
-                            <img id='v_prime_sm' src='/static/images/prime_sm_fpl.png' alt='prime'/>
+                          <div id="cart_item_price" className="vcart_price">
+                            ${item.product.price}
+                            <img
+                              id="v_prime_sm"
+                              src="/static/images/prime_sm_fpl.png"
+                              alt="prime"
+                            />
                           </div>
-                          <div id="cart_item_stock" className='vcart_stock'>
-                            {/* <span>
-                              Only {item?.product?.stock} left - order soon.
-                            </span> */}
-                          </div>
+                          <div
+                            id="cart_item_stock"
+                            className="vcart_stock"
+                          ></div>
                           <br />
-                          <div id="cart_item_user_options" className="v_cart_options">
-
-                             <form className='v_add_quantity'>
-                                <label htmlFor='quantity'>Qty:
+                          <div
+                            id="cart_item_user_options"
+                            className="v_cart_options"
+                          >
+                            <form className="v_add_quantity">
+                              <label htmlFor="quantity">
+                                Qty:
                                 <select
                                   key={item?.quantity}
-                                  className='v_quantity_select'
+                                  className="v_quantity_select"
                                   name="quantity"
                                   value={quantity}
                                   onChange={(e) => handleUpdateCart(e, item)}
                                 >
-                                  <option defaultValue="">{item?.quantity}</option>
+                                  <option defaultValue="">
+                                    {item?.quantity}
+                                  </option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -227,8 +233,8 @@ const VertiCart = () => {
                                   <option value="9">9</option>
                                   <option value="10">10</option>
                                 </select>
-                                </label>
-                              </form>
+                              </label>
+                            </form>
                             <span className="cart_options_separator">|</span>
                             <span
                               id="cart_item_delete_bttn"
@@ -248,13 +254,13 @@ const VertiCart = () => {
                         </div>
                       </div>
                     </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-     )}
+      )}
     </>
   );
 };

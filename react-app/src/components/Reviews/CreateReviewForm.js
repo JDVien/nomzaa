@@ -14,7 +14,6 @@ const CreateReview = () => {
   const location = useLocation();
   const { fromProductDetails } = location.state;
   const productId = fromProductDetails?.id;
-  console.log(fromProductDetails?.id, "fromProductDetails===============");
   const sessionUser = useSelector((state) => state.session.user);
   const product = useSelector((state) => state.products[productId]);
   const [review_title, setReview_Title] = useState("");
@@ -33,8 +32,14 @@ const CreateReview = () => {
     e.preventDefault();
     setHasSubmitted(true);
     let formErrors = [];
-    if (review_title.length > 100) formErrors.push("Your review headline cannot exceed 100 characters in length.")
-    if (content.length > 2500) formErrors.push("Your review content cannot exceed 2500 characters in length.")
+    if (review_title.length > 100)
+      formErrors.push(
+        "Your review headline cannot exceed 100 characters in length."
+      );
+    if (content.length > 2500)
+      formErrors.push(
+        "Your review content cannot exceed 2500 characters in length."
+      );
     if (!review_title) formErrors.push("Please provide a title for you review");
     if (!content) formErrors.push("Please provide details");
     if (rating === null) formErrors.push("Please provide a rating");
@@ -53,14 +58,7 @@ const CreateReview = () => {
     await dispatch(create_review(review));
     if (review.length > 0) return setErrors(review);
     else {
-       history.push(`/reviews/confirm`);
-    //   <Link
-    //   className="review_confirm_link"
-    //   to={{
-    //     pathname: `/reviews/confirm`,
-    //     state: { fromReviewCreate: review },
-    //   }}
-    // />
+      history.push(`/reviews/confirm`);
     }
     setReview_Title("");
     setContent("");
@@ -81,7 +79,10 @@ const CreateReview = () => {
             </div>
           </div>
           <div className="review-form-container">
-            <form onSubmit={(e) => handleSubmit(e)} className="review-content-container">
+            <form
+              onSubmit={(e) => handleSubmit(e)}
+              className="review-content-container"
+            >
               <div className="rating-div">
                 <h2>Overall rating</h2>
               </div>
@@ -110,12 +111,6 @@ const CreateReview = () => {
                 />
                 <div>{errors.length > 0 && errors[0]}</div>
               </div>
-              {/* <div className="review_controls_body">
-          <div className="review_controls_container">
-            <h2>Add a photo</h2>
-            <span>Shoppers find images more helpful than text alone</span>
-          </div>
-          </div> */}
               <div className="content_div">
                 <label htmlFor="content">
                   <h2>Add a written review</h2>

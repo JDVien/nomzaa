@@ -4,13 +4,10 @@ import { useHistory, Link } from 'react-router-dom'
 
 const SearchBar = () => {
     const history = useHistory()
-
     const products = useSelector(state => state.products)
     const productlist = Object.values(products).map(product => [product?.title, product?.id, product?.category, product])
-
     const [filteredList, setFilteredList] = useState([])
     const [searchWord, setSearchWord] = useState("")
-
 
 
     useEffect(() => {
@@ -20,7 +17,6 @@ const SearchBar = () => {
     function handleSubmit(e) {
         e.preventDefault();
         if (filteredList.length > 0) {
-            // history.push(`/products/${filteredList[0][1]?.category}/${filteredList[0][1]}`)
             (
                 <Link to={{ pathname:`/products/${filteredList[0][2]}/${filteredList[0][1]}`, state: {fromSearch: filteredList[0][3] }}}/>
             )
