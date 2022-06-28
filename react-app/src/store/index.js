@@ -16,7 +16,6 @@ const rootReducer = combineReducers({
   saved: saved_reducer
 });
 
-
 let enhancer;
 
 if (process.env.NODE_ENV === 'production') {

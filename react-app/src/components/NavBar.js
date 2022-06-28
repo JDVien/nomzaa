@@ -146,7 +146,6 @@ const NavBar = ({user}) => {
             <NavLink className='navlink_nav_item ' to="/cart">
             <i className='fas fa-shopping-cart'></i>
                 {(user_cart.length ? `  ( ${user_cart.length} )` : " Cart")}
-                {/* <span id='cart_text'>Cart</span> */}
               </NavLink>
             </div>
           </div>

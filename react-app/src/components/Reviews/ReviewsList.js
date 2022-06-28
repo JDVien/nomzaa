@@ -8,8 +8,7 @@ import "./reviewindex.css";
 
 const Reviews = ({ user, filteredReviews, avgRating }) => {
   const dispatch = useDispatch();
-  // const reviews = useSelector((state) => Object.values(state.reviews));
-  const DATE_OPTIONS = { year: 'numeric', month: 'short', day: 'numeric' };
+  const DATE_OPTIONS = { year: "numeric", month: "short", day: "numeric" };
 
   useEffect(() => {
     dispatch(get_all_reviews());
@@ -18,7 +17,7 @@ const Reviews = ({ user, filteredReviews, avgRating }) => {
   return (
     <>
       <div className="reviews-list-container">
-        <h2 id='top_reviews_h'>Top reviews from the United States </h2>
+        <h2 id="top_reviews_h">Top reviews from the United States </h2>
         {filteredReviews?.map((review) => (
           <div className="review-box" key={review.id}>
             <div className="user_box">
@@ -30,9 +29,7 @@ const Reviews = ({ user, filteredReviews, avgRating }) => {
                     alt=""
                   ></img>
                 </p>
-                {/* <p id="profile_name_link" href={`/users/${user.id}`}> */}
                 <div id="profile_name_div">{review?.users.fullname}</div>
-                {/* </p> */}
               </div>
             </div>
             <div className="review_content_box">
@@ -47,18 +44,21 @@ const Reviews = ({ user, filteredReviews, avgRating }) => {
                         size={24}
                         color2={"#ffa41c"}
                         half={true}
-                        // onChange={updateRating}
                         edit={false}
                       />
-                  <div className="review_title">
-                    <span id="review_title">{review?.review_title} </span>
-                  </div>
+                      <div className="review_title">
+                        <span id="review_title">{review?.review_title} </span>
+                      </div>
                     </div>
-                  <span id='review_location_date'>
-                    Reviewed in {review?.users.city} on {new Date(review?.created_at).toLocaleDateString('en-US', DATE_OPTIONS)}
-                  </span>
+                    <span id="review_location_date">
+                      Reviewed in {review?.users.city} on{" "}
+                      {new Date(review?.created_at).toLocaleDateString(
+                        "en-US",
+                        DATE_OPTIONS
+                      )}
+                    </span>
                   </div>
-                        <span id='verified'>Verified Purchase</span>
+                  <span id="verified">Verified Purchase</span>
                 </div>
               </div>
               <div id="review_content">{review.content}</div>

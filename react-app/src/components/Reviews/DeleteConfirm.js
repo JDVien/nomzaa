@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+
 import '../Orders/orders.css';
 
 const DeleteConfirmation = () => {
