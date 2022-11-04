@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../store/session";
 import { NavLink } from "react-router-dom";
-
 import "./nav.css";
 
 const ProfileMenu = ({ user }) => {

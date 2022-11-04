@@ -1,4 +1,3 @@
-
 import '../Orders/orders.css';
 
 const DeleteConfirmation = () => {

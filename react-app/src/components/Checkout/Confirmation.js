@@ -18,9 +18,6 @@ const Confirmation = () => {
             <NavLink className='navlink_nav_item ' to="/orders">
               <span className="c_option">View Your Order</span>
             </NavLink>
-            {/* <a href="/orders">
-              <span className="c_option">View Your Order</span>
-            </a> */}
             <br />
           </div>
           <img

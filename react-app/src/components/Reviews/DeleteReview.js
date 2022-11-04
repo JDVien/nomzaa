@@ -11,7 +11,6 @@ const DeleteReview = () => {
   const reviewId = fromReviews;
   const review = useSelector((state) => state.reviews[reviewId]);
   const productId = review?.product_id;
-
   const handleDelete = () => {
     dispatch(delete_review(reviewId));
     history.push(`/reviews/delete`);

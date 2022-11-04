@@ -5,7 +5,6 @@ import { create_review } from "../../store/reviews";
 import { get_one_product } from "../../store/product";
 import ReactStars from "react-stars";
 import ReviewBanner from "./ReviewBanner";
-
 import "./reviewform.css";
 
 const CreateReview = () => {

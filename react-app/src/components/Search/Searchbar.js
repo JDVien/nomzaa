@@ -9,7 +9,6 @@ const SearchBar = () => {
     const [filteredList, setFilteredList] = useState([])
     const [searchWord, setSearchWord] = useState("")
 
-
     useEffect(() => {
         setFilteredList(productlist.filter(product => product[0].toLowerCase().includes(searchWord.toLowerCase())))
     }, [searchWord])

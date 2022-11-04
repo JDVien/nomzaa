@@ -11,7 +11,6 @@ import "./filter.css";
 const FilteredProducts = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-
   let filter;
   let nom_type;
   const { fromMainGroceries } = location?.state;
