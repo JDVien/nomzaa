@@ -52,7 +52,6 @@ const NavBar = ({user}) => {
   const isActive = (e) => {
     const searchinput = document.getElementsByClassName("search-input-bar")
     if (searchinput === document.activeElement) {
-      console.log("in the if block")
     }
     setTimeout(() => {
       setSearchWord("")
