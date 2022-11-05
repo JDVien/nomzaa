@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Products from "../Products/ProductsList";
 import "../Orders/orders.css";
 
@@ -14,9 +15,9 @@ const Confirmation = () => {
             <a href="/">
               <span className="c_option">Continue Shopping</span>
             </a>
-            <a href="/orders">
+            <NavLink className='navlink_nav_item ' to="/orders">
               <span className="c_option">View Your Order</span>
-            </a>
+            </NavLink>
             <br />
           </div>
           <img
