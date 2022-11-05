@@ -22,8 +22,10 @@ const EditReview = () => {
   const [rating, setRating] = useState(review?.rating);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
+
   // Catch Rating value
   const updateRating = (val) => setRating(val);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHasSubmitted(true);

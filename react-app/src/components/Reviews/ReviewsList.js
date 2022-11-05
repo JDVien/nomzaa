@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
+
 import "./reviewindex.css";
 
 const Reviews = ({ user, filteredReviews, avgRating }) => {

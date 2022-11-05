@@ -10,10 +10,12 @@ const CancelOrder = ({ user }) => {
   const [reason, setReason] = useState("");
   const { fromOrders } = location.state;
   const orderId = fromOrders;
+
   const cart_items = useSelector((state) => Object.values(state.carts));
   const user_products = cart_items.filter(
     (item) => item.purchased && item?.order_id === orderId
   );
+
 
   const handleOrderCancel = () => {
     user_products.forEach((product) => dispatch(delete_cart(product?.id)));

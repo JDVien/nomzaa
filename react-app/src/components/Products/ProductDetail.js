@@ -23,6 +23,7 @@ const ProductDetails = ({ loaded, user }) => {
   const [user_quantity, setUser_Quantity] = useState(1);
   const [orderid, setOrderid] = useState(0);
   const [thisImg, setThisImg] = useState(product?.img);
+
   const [props, setProps] = useState({
     width: 300,
     zoomWidth: 700,

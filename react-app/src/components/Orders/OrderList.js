@@ -7,12 +7,16 @@ import "./orders.css";
 
 const OrderList = ({ user }) => {
   const dispatch = useDispatch();
+
   const [user_quantity, setUser_Quantity] = useState(1);
   const [orderid, setOrderid] = useState(0);
+
   const cart_items = useSelector((state) => Object.values(state.carts));
   // all items that have been purchsed and are in the users order history
   const user_products = cart_items.filter(
-    (item) => item.user_id === user.id && item.purchased);
+    (item) => item.user_id === user.id && item.purchased
+  );
+
   const DATE_OPTIONS = { year: "numeric", month: "short", day: "numeric" };
   const DAY_OPTIONS = { weekday: "long", month: "short", day: "numeric" };
 
