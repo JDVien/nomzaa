@@ -1,6 +1,8 @@
 <h1 align="center"> Nomzaa </h1>
 
-<h5 align="center">  By:  <a href="https://github.com/JDVien">Jason Vien</a> - <i><a href="https://nomzaa.herokuapp.com/">Live site</a></i></h5>
+<h5 align="center">  By:  <a href="https://github.com/JDVien">Jason Vien</a> 
+- <i><a href="https://nomzaa.onrender.com/">Live site - Render</a></i></h5>
+- <i><a href="https://nomzaa.herokuapp.com/">Live site - Heroku</a></i></h5>
 
 ### Table of Contents
 - [Main](#main)
